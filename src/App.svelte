@@ -9,7 +9,6 @@
     <Nav />
   </div>
 
-  <h1>Vite + Svelte</h1>
   <div>
     <Search />
   </div>
