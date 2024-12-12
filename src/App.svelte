@@ -9,11 +9,9 @@
     <Nav />
   </div>
 
-  <div>
-    <Search />
-  </div>
-
-  <div class="card">
-    <Counter />
+  <div class="page-body">
+    <div class="card">
+      <Search />
+    </div>
   </div>
 </main>

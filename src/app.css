@@ -2,6 +2,10 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+.page-body {
+  text-align: center;
+}
+
 .nav {
   background-color: white;
   color: #006747;
