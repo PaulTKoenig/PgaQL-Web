@@ -2,10 +2,10 @@
 	let input = $state('');
 	let submittedInput = $state('');
     const clearInput = () => {
-        input = ''
+        input = '';
     }
     const submit = () => {
-        submittedInput = input
+        submittedInput = input;
     }
 </script>
 

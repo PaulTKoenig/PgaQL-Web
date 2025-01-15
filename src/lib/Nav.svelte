@@ -1,7 +1,15 @@
+<script>
+    export let page;
+    const changePage = (e) => {
+        page = e.target.value;
+    }
+</script>
+
 <div class="row">
-    <div class="navigate">
-        Navigate
-    </div>
+    <select name="navigate" id="navigate-select" onchange={changePage}>
+      <option value="Resume">Resume</option>
+      <option value="Project 1">Project 1</option>
+    </select>
 
     <div class="title">
         PgaQL

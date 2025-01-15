@@ -1,13 +1,16 @@
 <script lang="ts">
-  import Counter from './lib/Counter.svelte'
   import Nav from './lib/Nav.svelte'
   import Search from './lib/Search.svelte'
+
+  let page = $state("Resume");
 </script>
+
 
 <main>
   <div class="nav">
-    <Nav />
+    <Nav bind:page />
   </div>
+  {page}
 
   <div class="page-body">
     <div class="card">
