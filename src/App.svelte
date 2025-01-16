@@ -10,11 +10,14 @@
   <div class="nav">
     <Nav bind:page />
   </div>
-  {page}
 
   <div class="page-body">
     <div class="card">
-      <Search />
+      {#if page === 'Resume'}
+        <div>Hello</div>
+      {:else if page === 'PgaQL'}
+        <Search />
+      {/if}
     </div>
   </div>
 </main>

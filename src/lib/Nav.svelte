@@ -8,11 +8,11 @@
 <div class="row">
     <select name="navigate" id="navigate-select" onchange={changePage}>
       <option value="Resume">Resume</option>
-      <option value="Project 1">Project 1</option>
+      <option value="PgaQL">PgaQL</option>
     </select>
 
     <div class="title">
-        PgaQL
+        Paul Koenig
     </div>
 </div>
 
