@@ -1,4 +1,4 @@
-FROM python:3.11-alpine
+FROM python:3.11-slim
 
 # Create and set the working directory
 WORKDIR /app
@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose the port your application will run on
-EXPOSE 8080
+EXPOSE 5000
 
 # Specify the command to run on container start
 CMD ["python", "src/app.py"]
