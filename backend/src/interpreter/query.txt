@@ -1,0 +1,58 @@
+// Entry point
+query         : action entity conditions?;
+
+// Actions
+action        : 'FIND' | 'ANALYZE' | 'CALCULATE' | 'PLOT';
+
+// Entities
+entity        : 'golfers' | 'holes' | 'tournaments' | 'scores' | 'stats';
+
+// Conditions (optional filtering)
+conditions    : 'WHERE' condition ('AND' condition)*;
+
+// Individual condition
+condition     : field comparator value
+              | field 'IN' '(' value (',' value)* ')';
+
+// Field definitions
+field         : 'score' 
+              | 'strokes_gained'
+              | 'driving_distance'
+              | 'fairway_hit_percentage'
+              | 'greens_in_regulation'
+              | 'hole'
+              | 'par'
+              | 'round'
+              | 'tournament'
+              | 'course'
+              | 'year';
+
+// Comparators
+comparator    : '=' | '<' | '>' | '<=' | '>=';
+
+// Values (strings, numbers, or lists)
+value         : STRING | NUMBER;
+
+// Commands for visualization or ranking
+command       : 'ORDER BY' field ('ASC' | 'DESC')?
+              | 'GROUP BY' field
+              | 'LIMIT' NUMBER;
+
+// Entire query with commands
+query_with_command
+              : query (command)*;
+
+// Tokens
+STRING        : '"' .*? '"' | '\'' .*? '\'';
+NUMBER        : [0-9]+ ('.' [0-9]+)?;
+WHITESPACE    : [ \t\r\n]+ -> skip;
+
+
+
+
+
+FIND golfers WHERE score < 0 AND round = 1 AND tournament = "PGA Championship"
+
+CHART golfers IN scatter_plot FOR driving_distance VS score WHERE tournament = "US Open"
+
+CHART golfers IN box_plot FOR driving_distance_per_par_5 VS score WHERE tournament = "US Open" and driving_distance_per_par_5 defined as (FIND driving_distance_average WHERE par = 5 AND tournament = "US Open")

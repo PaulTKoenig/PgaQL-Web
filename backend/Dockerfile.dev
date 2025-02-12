@@ -1,21 +1,28 @@
 FROM python:3.11-slim
 
-# Create and set the working directory
+RUN apt-get update && apt-get install -y build-essential make gcc
+
+WORKDIR /app
+COPY . .
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+RUN ls -l
+WORKDIR /app/src/interpreter
+
+RUN gcc -o main main.c lexer.c parser.c interpreter.c -I.
+
+# Check if 'main' was created
+RUN ls -l /app/src/interpreter/main
+
+# Make 'main' executable
+RUN chmod +x ./main
+
 WORKDIR /app
 
-# Copy only the requirements file first to leverage Docker caching
-COPY requirements.txt .
-
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the entire application code
-COPY . .
-
-# Expose the port your application will run on
-ENV FLASK_APP=app.py
+ENV FLASK_APP=src/app.py
 ENV FLASK_ENV=development
+ENV FLASK_DEBUG=1
 EXPOSE 5000
 
-# Specify the command to run on container start
-CMD ["python", "src/app.py"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]

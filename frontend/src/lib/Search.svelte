@@ -23,7 +23,7 @@
   error = null;    // Clear any previous errors
 
   try {
-    const response = await fetch('/api');
+    const response = await fetch('/api/hello');
     
     if (!response.ok) {
       throw new Error('Network response was not ok');
