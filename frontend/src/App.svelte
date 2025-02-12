@@ -14,7 +14,7 @@
   <div class="page-body">
     <div class="card">
       {#if page === 'Resume'}
-        <div>Hello</div>
+        <div>Hellos</div>
       {:else if page === 'PgaQL'}
         <Search />
       {/if}
