@@ -14,7 +14,9 @@
   <div class="page-body">
     <div class="card">
       {#if page === 'Resume'}
-        <div>Hellos</div>
+        <h1 class="text-3xl font-bold underline">
+          Hellos world!
+        </h1>
       {:else if page === 'PgaQL'}
         <Search />
       {/if}

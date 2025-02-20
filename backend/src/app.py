@@ -1,47 +1,59 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, abort, request
 import subprocess
 import sqlite3
+import json
+import re
 
 app = Flask(__name__)
 
-@app.route('/api/hello')
+@app.route('/api/hello', methods=['GET'])
 def home():
     return jsonify([{"message": "Hello from Flasks!"}])
 
-@app.route('/api/interpret-query')
+@app.route('/api/interpret-query', methods=['GET'])
 def interpret_query():
 
-    message = 'CHART box_score IN scatter_plot FOR mins VS fgm WHERE game_id = "0022300061"'
+    # message = "CHART box_score IN scatter_plot FOR blk VS fgm WHERE game_id = '0022300061'"
 
-    process = subprocess.Popen(
-        ['./src/interpreter/main'],
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True
-    )
+    query_string = request.args.get('query')  # Get the query parameter from the URL
 
-    response, errors = process.communicate(input=message)
+    if query_string:
 
-    try:
-        result = json.loads(response)
-        if result["status"] == "success":
-            print("The process was successful:", result["message"])
+        process = subprocess.Popen(
+            ['./src/interpreter/main'],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
 
-            connection = sqlite3.connect('./src/db/box_score.db')
-            cursor = connection.cursor()
+        response, errors = process.communicate(input=query_string)
+        
+        try:
+            result = json.loads(response)
 
-            cursor.execute(result["message"])
+            if result["status"] == "success":
+                print("The process was successful:", result["message"])
+
+                connection = sqlite3.connect('./src/db/box_score.db')
+                cursor = connection.cursor()
+
+                cursor.execute(result["message"])
 
 
-            results = cursor.fetchall()
+                results = cursor.fetchall()
 
-            cursor.close()
-            connection.close()
+                cursor.close()
+                connection.close()
 
-            return jsonify(results)
-        else:
-            print("The process failed with error code", result["error_code"], ":", result["message"])
-            return result["error_code"]
-    except json.JSONDecodeError:
-        print("Failed to decode JSON response")
+                return jsonify(results), 200
+            else:
+                print("The process failed with error code", result["error_code"], ":", result["message"])
+                return result["message"], 400
+                # abort(400)
+        except json.JSONDecodeError:
+            print("Failed to decode JSON response")
+            abort(500)
+
+    else:
+        return "No query provided", 400

@@ -1,59 +1,74 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import Chart from './Chart.svelte';
 
-	let input = $state('');
-	let submittedInput = $state('');
+	let input = $state("");
+	let submittedInput = $state("");
 
-
-  const clearInput = () => {
-      input = '';
-  }
   const submit = () => {
       submittedInput = input;
       fetchData()
   }
 
-  let data = $state(null);
+  let data = $state([]);
   let error = $state(null);
   let loading = $state(false);
 
-  // Function to fetch data on button click
   async function fetchData() {
-  loading = true;  // Set loading to true when the fetch starts
-  error = null;    // Clear any previous errors
+  loading = true;
+  error = null;
 
   try {
-    const response = await fetch('/api/hello');
+    const encodedQuery = encodeURIComponent(input);
+    const response = await fetch(`/api/interpret-query?query=${encodedQuery}`);
     
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      if (response.status === 400) {
+        throw new Error('Invalid grammar');
+      } else {
+        throw new Error('Sorry something went wrong. Please try again');
+      }
     }
 
-    data = await response.json();  // Store the fetched data
-    console.log(data);
+    data = await response.json()
   } catch (err) {
-    error = err.message;  // Capture any errors
+    error = err.message;
   } finally {
-    loading = false;  // Set loading to false when done
+    loading = false;
   }
 }
 </script>
 
-<input bind:value={input} placeholder="Enter your query" />
-<button onclick={clearInput}>Clear</button>
-<button onclick={submit}>Submit</button>
-<p>Submitted Query: {submittedInput || 'rawr'}</p>
-{#if loading}
-  <p>Loading...</p>
-{:else if error}
-  <p>Error: {error}</p>
-{:else if data}
-  <ul>
-    {#each data as item}
-      <li>{item.message}</li>
-    {/each}
-  </ul>
-{/if}
+<div class="flex w-1/2 mx-auto gap-10">
+  <div 
+    class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
+  >Open Query</div>
+  <div 
+    class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
+  >Query Builder</div>
+  <div 
+    class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
+  >Natural Language Query</div>
+</div>
+
+<div class="p-5">
+  <input bind:value={input} placeholder="Enter your query" />
+  <button onclick={submit} disabled={input.trim() === ""}>Search</button>
+  <p class="p-5">
+    <b>Example:</b> CHART box_score IN scatter_plot FOR fga VS fgm WHERE team_abbr = 'CLE'
+  </p>
+</div>
+<div class="w-1/2 mx-auto">
+  {#if loading}
+    <p>Loading...</p>
+  {:else if error}
+    <p><b>Error:</b> {error}</p>
+  {:else if data.length > 0}
+  <div class="pt-5">
+    <Chart {data} />
+  </div>
+  {/if}
+</div>
 
 <style>
     input {

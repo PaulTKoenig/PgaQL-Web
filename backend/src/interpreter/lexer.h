@@ -3,7 +3,7 @@
 
 
 typedef enum {
-    WHERE_FIELD,
+    SEARCHABLE_FIELD,
     EQUALS,
     WHERE_VALUE,
     CHART,
@@ -11,7 +11,6 @@ typedef enum {
     IN,
     CHART_TYPE,
     FOR,
-    AXIS_TOKEN_TYPE,
     VS,
     FIND,
     SEARCH_LIMIT_TOKEN,

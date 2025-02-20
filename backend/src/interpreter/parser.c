@@ -11,7 +11,7 @@ void lexer_next_token(TOKEN_NODE **token_node, TOKEN **token) {
 
 bool expected_token_type(TOKEN_TYPE actualType, TOKEN_TYPE expectedType) {
     if (actualType != expectedType) {
-        printf("Error: Expected %d, got %d\n", expectedType, actualType);
+        // printf(stderr, "Error: Expected %d, got %d\n", expectedType, actualType);
         return false;
     }
     return true;
@@ -68,7 +68,7 @@ AST* parse(TOKEN_NODE *token_node) {
     }
 
     lexer_next_token(&token_node, &token);
-    if (!expected_token_type(token->type, AXIS_TOKEN_TYPE)) {
+    if (!expected_token_type(token->type, SEARCHABLE_FIELD)) {
         return NULL;
     }
     chart_identifier_node.x_axis_token = token;
@@ -79,7 +79,7 @@ AST* parse(TOKEN_NODE *token_node) {
     }
 
     lexer_next_token(&token_node, &token);
-    if (!expected_token_type(token->type, AXIS_TOKEN_TYPE)) {
+    if (!expected_token_type(token->type, SEARCHABLE_FIELD)) {
         return NULL;
     }
     chart_identifier_node.y_axis_token = token;
@@ -94,7 +94,7 @@ AST* parse(TOKEN_NODE *token_node) {
     }
 
     lexer_next_token(&token_node, &token);
-    if (!expected_token_type(token->type, WHERE_FIELD)) {
+    if (!expected_token_type(token->type, SEARCHABLE_FIELD)) {
         return NULL;
     }
     where_identifier.where_field_token = token;

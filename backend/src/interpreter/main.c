@@ -55,7 +55,7 @@ int main(void) {
 
     char *query_string = interpret(ast);
 
-    printf("%s\n", query_string);
+    // printf("%s\n", query_string);
     printf("{\"status\": \"success\", \"error_code\": %d, \"message\": \"%s\"}\n", 200, query_string);
 
     // CLEAN UP MEMORY

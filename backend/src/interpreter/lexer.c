@@ -43,8 +43,8 @@ void print_token(TOKEN token) {
         case CHART:
             printf("Token Type: CHART, Content: %c, Length: %d\n", *(token.content), token.token_length);
             break;
-        case WHERE_FIELD:
-            printf("Token Type: WHERE_FIELD, Content: %c, Length: %d\n", *(token.content), token.token_length);
+        case SEARCHABLE_FIELD:
+            printf("Token Type: SEARCHABLE_FIELD, Content: %c, Length: %d\n", *(token.content), token.token_length);
             break;
         case EQUALS:
             printf("Token Type: EQUALS, Content: %c, Length: %d\n", *(token.content), token.token_length);
@@ -63,9 +63,6 @@ void print_token(TOKEN token) {
             break;
         case FOR:
             printf("Token Type: FOR, Content: %c, Length: %d\n", *(token.content), token.token_length);
-            break;
-        case AXIS_TOKEN_TYPE:
-            printf("Token Type: AXIS_TOKEN_TYPE, Content: %c, Length: %d\n", *(token.content), token.token_length);
             break;
         case VS:
             printf("Token Type: VS, Content: %c, Length: %d\n", *(token.content), token.token_length);
@@ -122,8 +119,6 @@ int set_token_type(TOKEN **token, char *input) {
 
     if (compare_strings("FIND", input, tokenLength)) {
         token_ptr->type = FIND;
-    } else if (compare_strings("game_id", input, tokenLength)) {
-        token_ptr->type = WHERE_FIELD;
     } else if (compare_strings("=", input, tokenLength)) {
         token_ptr->type = EQUALS;
     } else if (compare_strings("CHART", input, tokenLength)) {
@@ -133,7 +128,7 @@ int set_token_type(TOKEN **token, char *input) {
     } else if (compare_strings("FOR", input, tokenLength)) {
         token_ptr->type = FOR;
     } else if (exists_in_set(SEARCHABLE_FIELDS, SEARCHABLE_FIELDS_SIZE, input, tokenLength)) {
-        token_ptr->type = AXIS_TOKEN_TYPE;
+        token_ptr->type = SEARCHABLE_FIELD;
     } else if (compare_strings("VS", input, tokenLength)) {
         token_ptr->type = VS;
     } else if (compare_strings("box_score", input, tokenLength)) {
@@ -178,7 +173,6 @@ TOKEN_NODE* lex(char *input) {
 
 char* type_to_string(TOKEN_TYPE t) {
     switch(t) {
-        case WHERE_FIELD: return "WHERE_FIELD";
         case EQUALS: return "EQUALS";
         case WHERE_VALUE: return "WHERE_VALUE";
         case CHART: return "CHART";
@@ -186,7 +180,7 @@ char* type_to_string(TOKEN_TYPE t) {
         case IN: return "IN";
         case CHART_TYPE: return "CHART_TYPE";
         case FOR: return "FOR";
-        case AXIS_TOKEN_TYPE: return "AXIS_TOKEN_TYPE";
+        case SEARCHABLE_FIELD: return "SEARCHABLE_FIELD";
         case VS: return "VS";
         case FIND: return "FIND";
         case SEARCH_LIMIT_TOKEN: return "SEARCH_LIMIT_TOKEN";
