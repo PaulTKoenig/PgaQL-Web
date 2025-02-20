@@ -39,35 +39,37 @@
 }
 </script>
 
-<div class="flex w-1/2 mx-auto gap-10">
-  <div 
-    class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
-  >Open Query</div>
-  <div 
-    class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
-  >Query Builder</div>
-  <div 
-    class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
-  >Natural Language Query</div>
-</div>
-
-<div class="p-5">
-  <input bind:value={input} placeholder="Enter your query" />
-  <button onclick={submit} disabled={input.trim() === ""}>Search</button>
-  <p class="p-5">
-    <b>Example:</b> CHART box_score IN scatter_plot FOR fga VS fgm WHERE team_abbr = 'CLE'
-  </p>
-</div>
-<div class="w-1/2 mx-auto">
-  {#if loading}
-    <p>Loading...</p>
-  {:else if error}
-    <p><b>Error:</b> {error}</p>
-  {:else if data.length > 0}
-  <div class="pt-5">
-    <Chart {data} />
+<div class="lg:w-3/4 md:w-4/5 sm:5/6 mx-auto">
+  <div class="flex gap-10">
+    <div 
+      class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
+    >Query Notebook</div>
+    <div 
+      class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
+    >Query Builder</div>
+    <div 
+      class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
+    >NL Search</div>
   </div>
-  {/if}
+
+  <div class="p-5">
+    <input bind:value={input} placeholder="Enter your query" />
+    <button onclick={submit} disabled={input.trim() === ""}>Search</button>
+    <p class="p-5">
+      <b>Example:</b> CHART box_score IN scatter_plot FOR fga VS fgm WHERE team_abbr = 'CLE'
+    </p>
+  </div>
+  <div class="mx-auto">
+    {#if loading}
+      <p>Loading...</p>
+    {:else if error}
+      <p><b>Error:</b> {error}</p>
+    {:else if data.length > 0}
+    <div class="pt-5">
+      <Chart {data} />
+    </div>
+    {/if}
+  </div>
 </div>
 
 <style>

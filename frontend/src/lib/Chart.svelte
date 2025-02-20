@@ -10,11 +10,21 @@
   let chartInstance;
 
   function updateChartData() {
+    console.log("1")
     if (chartInstance) {
+      console.log("2")
       chartInstance.data.datasets[0].data = data.map(item => ({ x: item[0], y: item[1] }));
       chartInstance.update();
     }
   }
+
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      chartInstance.resize();
+    }, 100);
+  });
 
   onMount(() => {
 
@@ -68,7 +78,7 @@
 <style>
   canvas {
     width: 100%;
-    height: 400px;
+    height: 100%;
   }
 </style>
 
