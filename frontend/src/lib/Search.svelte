@@ -39,17 +39,17 @@
 }
 </script>
 
-<div class="lg:w-3/4 md:w-4/5 sm:5/6 mx-auto">
+<div class="xl:w-1/2 lg:w-3/5 md:w-3/4 sm:w-5/6 mx-auto">
   <div class="flex gap-10">
     <div 
-      class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
+      class="w-1/2 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
     >Query Notebook</div>
     <div 
-      class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
+      class="w-1/2 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
     >Query Builder</div>
-    <div 
+    <!-- <div 
       class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
-    >NL Search</div>
+    >NL Search</div> -->
   </div>
 
   <div class="p-5">
