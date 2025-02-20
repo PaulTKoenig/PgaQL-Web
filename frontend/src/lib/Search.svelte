@@ -43,10 +43,10 @@
   <div class="flex gap-10">
     <div 
       class="w-1/2 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
-    >Query Notebook</div>
+    >Query Builder</div>
     <div 
       class="w-1/2 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
-    >Query Builder</div>
+    >Query Notebook</div>
     <!-- <div 
       class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
     >NL Search</div> -->
