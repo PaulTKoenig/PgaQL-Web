@@ -1,25 +1,26 @@
 <script lang="ts">
   import Nav from './lib/Nav.svelte'
+  import Home from './lib/Home.svelte'
   import Search from './lib/Search.svelte'
+  import Projects from './lib/Projects.svelte'
+  import Notes from './lib/Notes.svelte'
 
-  let page = $state("Resume");
+  let page = $state("Home");
 </script>
 
 
 <main>
-  <div class="nav">
-    <Nav bind:page />
-  </div>
+  <Nav bind:page />
 
-  <div class="page-body">
-    <div class="card">
-      {#if page === 'Resume'}
-        <h1 class="text-3xl font-bold underline">
-          Hellos world!
-        </h1>
-      {:else if page === 'PgaQL'}
-        <Search />
-      {/if}
-    </div>
+  <div class="z-0">
+    {#if page === 'Home'}
+      <Home bind:page />
+    {:else if page === 'PgaQL'}
+      <Search />
+    {:else if page === 'Projects'}
+      <Projects />
+    {:else if page === 'Notes'}
+      <Notes />
+    {/if}
   </div>
 </main>
