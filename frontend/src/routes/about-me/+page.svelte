@@ -1,27 +1,10 @@
 <script>
-    const projects = [
-        {
-            name: "paul.com"
-        },
-        {
-            name: "pgaql interpreter"
-        },
-        {
-            name: "ncaab predict"
-        },
-        {
-            name: "hackohio"
-        },
-        {
-            name: "so-vits-svc automation"
-        }
-    ]
 
 </script>
 
 <div class="px-10vh pt-nav">
     <div class="text-5xl font-bold">
-        Projects
+        About Me
     </div>
     <div class="text-2xl font-bold py-5">
         I pledge Allegiance to the flag
@@ -29,11 +12,6 @@
         and to the Republic for which it stands,
         one nation under God, indivisible,
         with Liberty and Justice for all.
-    </div>
-    <div class="projects-container">
-        {#each projects as project}
-            <div class="project-container">{project.name}</div>
-        {/each}
     </div>
 </div>
 

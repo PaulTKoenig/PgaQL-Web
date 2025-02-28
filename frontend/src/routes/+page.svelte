@@ -1,12 +1,7 @@
 <script>
-    import ProjectCard from './ProjectCard.svelte'
-    import emblaCarouselSvelte from 'embla-carousel-svelte'
-    import Carousel from './Carousel.svelte'
-
-    export let page;
-    const changePage = (value) => {
-        page = value;
-    }
+    import { ProjectCard } from '$lib';
+    import emblaCarouselSvelte from 'embla-carousel-svelte';
+    import { Carousel } from '$lib';
 
     const whatImDoingNowList = [
         {
@@ -68,14 +63,12 @@
         <div class="text-3xl font-bold">
             Personal Projects
         </div>
-        <button class="more-projects-btn ml-auto" onclick={() => changePage("Projects")}>
-            <div class="text-xl font-bold">
-                All Projects
-            </div>
-        </button>
+        <a class="more-projects-btn ml-auto text-xl font-bold" href="/projects">
+            All Projects
+        </a>
     </div>
 
-    <Carousel bind:page />
+    <Carousel />
 
     <div class="section-header text-3xl font-bold">
         What I'm Doing Now<span class="text-base">&nbsp;&nbsp;(outside of work)</span>
@@ -113,6 +106,10 @@
 <style type="text/css">
     .more-projects-btn {
         border: 1px solid lightgrey;
+		border-radius: 8px;
+		padding: 0.6em 1.2em;
+		cursor: pointer;
+		transition: border-color 0.25s;
     }
 
     .more-projects-btn:hover {

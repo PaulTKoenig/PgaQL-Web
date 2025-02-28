@@ -1,27 +1,27 @@
 <script>
     const projects = [
         {
-            name: "this"
+            name: "paul.com"
         },
         {
-            name: "is"
+            name: "pgaql interpreter"
         },
         {
-            name: "very"
+            name: "ncaab predict"
         },
         {
-            name: "unhelpful"
+            name: "hackohio"
         },
         {
-            name: "thoughts"
+            name: "so-vits-svc automation"
         }
-    ]
+    ];
 
 </script>
 
 <div class="px-10vh pt-nav">
     <div class="text-5xl font-bold">
-        Notes
+        Projects
     </div>
     <div class="text-2xl font-bold py-5">
         I pledge Allegiance to the flag

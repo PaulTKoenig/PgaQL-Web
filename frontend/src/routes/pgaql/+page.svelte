@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import Chart from './Chart.svelte';
+  import { Chart } from '$lib';
 	let input = $state("");
 	let submittedInput = $state("");
   let queryTab = $state(0);

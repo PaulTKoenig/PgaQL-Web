@@ -1,12 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import EmblaCarousel from 'embla-carousel';
-  import pgaqlSnapshot from '../assets/pgaql.png';
-
-  export let page;
-  const changePage = (value) => {
-        page = value;
-    }
+  let pgaqlSnapshot = '/pgaql.png';
 
   let embla;
   let prevButton;
@@ -43,8 +38,11 @@
     	      <p class="text-xl">
               PgaQL
             </p>
-            <p class="text-lg pt-3">
+            <p class="text-lg pt-3 hidden md:block">
               Interpreter for the developed language 'PgaQL' that allows users to easily find trends in their favorite athletes and teams
+            </p>
+            <p class="text-lg pt-3 block md:hidden">
+              Interpreter for the developed language 'PgaQL'
             </p>
             <div class="project-tags-container">
               <div class="project-tag bg-purple-700">C</div>
@@ -54,10 +52,10 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <div class="carousel-action-btn" on:click={() => changePage("PgaQL")}>Demo</div>
+            <a class="carousel-action-btn" href="/pgaql">Demo</a>
           </div>
         </div>
-        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl" />
+        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl hidden xl:block" />
 	    </div>
 	  </div>
     <div class="embla__slide">
@@ -67,8 +65,11 @@
             <p class="text-xl">
               basket hoopz
             </p>
-            <p class="text-lg pt-3">
+            <p class="text-lg pt-3 hidden md:block">
               Predictive model for future NCAA basketball matchups with a 73% accuracy rate, based on analysis of 2,129 games during the 2022-23 season
+            </p>
+            <p class="text-lg pt-3 block md:hidden">
+              Predictive model for future basketball matchups with a 73% accuracy
             </p>
             <div class="project-tags-container">
               <div class="project-tag bg-green-600">Python</div>
@@ -77,13 +78,13 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <div class="carousel-action-btn">Read More Here</div>
-            <div class="carousel-action-btn coming-soon-btn">
+            <a class="carousel-action-btn">Read More Here</a>
+            <a class="carousel-action-btn coming-soon-btn">
               <div>Demo Coming Soon</div>
-            </div>
+            </a>
           </div>
         </div>
-        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl" />
+        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl hidden xl:block" />
       </div>
     </div>
     <div class="embla__slide">
@@ -93,8 +94,11 @@
             <p class="text-xl">
               no code coding
             </p>
-            <p class="text-lg pt-3">
+            <p class="text-lg pt-3 hidden md:block">
               Exploratory data analysis, preprocessing, and testing machine learning models without having to write a line of code
+            </p>
+            <p class="text-lg pt-3 block md:hidden">
+              No code solution to machine learning model development
             </p>
             <div class="project-tags-container">
               <div class="project-tag bg-blue-400">React</div>
@@ -103,13 +107,13 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <div class="carousel-action-btn">Read More Here</div>
-            <div class="carousel-action-btn coming-soon-btn">
+            <a class="carousel-action-btn">Read More Here</a>
+            <a class="carousel-action-btn coming-soon-btn">
               <div>Demo Coming Soon</div>
-            </div>
+            </a>
           </div>
         </div>
-        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl" />
+        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl hidden xl:block" />
       </div>
     </div>
 	  <div class="embla__slide">
@@ -128,11 +132,11 @@
               <div class="project-tag bg-blue-700">Backend</div>
             </div>
           </div>
-          <div class="carousel-action-btns-container">
+          <a class="carousel-action-btns-container">
             <div class="carousel-action-btn">Demo</div>
-          </div>
+          </a>
         </div>
-        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl" />
+        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl hidden xl:block" />
       </div>
 	  </div>
 	</div>
@@ -172,17 +176,6 @@
     justify-content: center;
     align-items: center;
     color: #121212;
-  }
-
-  .carousel-item-2 {
-    width: 80%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    text-align: left;
-    border-radius: 10px;
-    border: 5px solid #03DAC6;
-    background-color: lightgrey;
   }
 
   .carousel-item {
