@@ -10,9 +10,7 @@
   let chartInstance;
 
   function updateChartData() {
-    console.log("1")
     if (chartInstance) {
-      console.log("2")
       chartInstance.data.datasets[0].data = data.map(item => ({ x: item[0], y: item[1] }));
       chartInstance.update();
     }

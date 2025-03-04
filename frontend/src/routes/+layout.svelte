@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Nav } from '$lib';
+  import { Nav } from '$lib';
   import '../app.css';
   let { children } = $props();
 </script>

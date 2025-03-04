@@ -2,60 +2,40 @@
     import { ProjectCard } from '$lib';
     import emblaCarouselSvelte from 'embla-carousel-svelte';
     import { Carousel } from '$lib';
+    import { articles } from '../lib/articles.ts';
 
     const whatImDoingNowList = [
         {
-            title: "building this piece of shit"
+            title: "Finishing beta version of PgaQL"
         },
         {
-            title: "building the piece of shit interpreter above"
+            title: "Finally getting around to documenting all of my personal projects"
         },
         {
-            title: "winter bulk"
+            title: "Winter bulk"
         },
         {
             title: "going insane"
-        }
-    ]
-
-    const notesList = [
-        {
-            title: "you",
-            date: "Jan 2024"
-        },
-        {
-            title: "will",
-            date: "Feb 2024"
-        },
-        {
-            title: "regret",
-            date: "Mar 2024"
-        },
-        {
-            title: "reading",
-            date: "Apr 2024"
-        },
-        {
-            title: "this",
-            date: "May 2024"
         }
     ]
 </script>
 
 <div class="px-20vh">
     <div class="pt-nav">
-        <div class="text-5xl font-bold pb-5">
+        <div class="text-4xl font-bold pb-4">
             Hi, I'm Paul
         </div>
-        <div class="text-5xl font-bold pb-12">
+        <div class="text-4xl font-bold pb-8">
             Software Engineer
         </div>
-        <div class="text-2xl font-bold">
-            I pledge Allegiance to the flag
-            of the United States of America
-            and to the Republic for which it stands,
-            one nation under God, indivisible,
-            with Liberty and Justice for all.
+        <div class="flex flex-col gap-6 dark-text">
+            <div class="text-xl font-bold">
+                I'm a shitty developer with range of experience in web development, systems engineering, and data science. I got into coding in 2019 from the need to take an extra elective in course schedule and a curiosity for the internet, which eventually led me to major in Computer Science at The Ohio State University.
+            </div>
+
+            <div class="text-xl font-bold">
+                I love music and spending time outdoors, enjoying activities like golf, snowboarding, and fishing in my free time. I created this page to share more about my development journey and life experiences.
+            </div>
         </div>
     </div>
 
@@ -63,7 +43,7 @@
         <div class="text-3xl font-bold">
             Personal Projects
         </div>
-        <a class="more-projects-btn ml-auto text-xl font-bold" href="/projects">
+        <a class="more-projects-btn ml-auto text-lg font-bold" href="/projects">
             All Projects
         </a>
     </div>
@@ -73,33 +53,46 @@
     <div class="section-header text-3xl font-bold">
         What I'm Doing Now<span class="text-base">&nbsp;&nbsp;(outside of work)</span>
     </div>
+    <div class="section-description">
+        <div class="text-lg dark-text">
+            Last updated 3/3/2025
+        </div>
+    </div>
 
     <div class="section-container text-xl dark-text">
         <ul>
             {#each whatImDoingNowList as item}
-                <li>{item.title}</li>
+                <li class="py-1">{item.title}</li>
             {/each}
         </ul>
     </div>
 
     <div class="section-header">
         <div class="text-3xl font-bold">
-            Notes
+            Articles
+        </div>
+        <a class="more-articles-btn ml-auto text-lg font-bold" href="/articles">
+            All Articles
+        </a>
+    </div>
+    <div class="section-description">
+        <div class="text-lg dark-text">
+            Personal notes about development, projects, and anything else
         </div>
     </div>
 
-    <div class="notes-section-container text-xl dark-text">
+    <div class="articles-section-container text-xl dark-text">
         <ul>
-            {#each notesList as note}
-                <li class="flex">
-                    <div>{note.title}</div>
-                    <div class="ml-auto">{note.date}</div>
+            {#each articles as article}
+                <li class="flex py-1">
+                    <a href={"articles/"+article.id}>{article.title}</a>
+                    <div class="ml-auto hidden lg:block">{article.date}</div>
                 </li>
             {/each}
         </ul>
     </div>
 
-    <div class="p-15"/>
+    <div class="p-12"/>
 
 </div>
 
@@ -107,9 +100,15 @@
     .more-projects-btn {
         border: 1px solid lightgrey;
 		border-radius: 8px;
-		padding: 0.6em 1.2em;
+        padding: .3em .6em;
 		cursor: pointer;
-		transition: border-color 0.25s;
+    }
+
+    .more-articles-btn {
+        border: 1px solid lightgrey;
+        border-radius: 8px;
+        padding: .3em .6em;
+        cursor: pointer;
     }
 
     .more-projects-btn:hover {
@@ -117,7 +116,7 @@
     }
 
     .pt-nav {
-        padding-top: max(3.5rem, 15vh);
+        padding-top: max(3.5rem, 12vh);
     }
 
     .min-h-40vh {
@@ -134,15 +133,19 @@
     }
 
     .section-header {
-        padding: 6rem 10% 1rem;
+        padding: 6rem 10% .5rem;
+    }
+
+    .section-description {
+        padding: 0 10%;
     }
 
     .projects-section-header {
-        padding: 6rem 10% 3rem;
+        padding: 6rem 10% 2rem;
     }
 
-    .section-container, .notes-section-container {
-        padding: 0 10% 0;
+    .section-container, .articles-section-container {
+        padding: 1rem 12% 0;
     }
 
     .section-container ul {
@@ -150,7 +153,7 @@
         padding: 0 50px;
     }
 
-    .notes-section-container ul {
+    .articles-section-container ul {
         padding: 0 30px;
     }
 
@@ -168,9 +171,5 @@
     .px-20vh {
         padding-left: 15%;
         padding-right: 15%;
-    }
-
-    .dark-text {
-        color: #888888;
     }
 </style>
