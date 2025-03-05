@@ -17,6 +17,7 @@
         {
             name: "no code",
             description: "Web application enabling users to interact with datasets and experiment building and fine-tuning ML models without coding; Includes data exploration, cleaning, transformation, visualization, and model development",
+            repo_link: "https://github.com/PaulTKoenig/MLExpress",
             year: "2024",
             favorite: true
         },

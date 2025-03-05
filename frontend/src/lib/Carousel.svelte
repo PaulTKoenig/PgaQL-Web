@@ -4,6 +4,7 @@
   let pgaqlSnapshot = '/pgaql.png';
   let bball_r_us = '/bball-r-us.png';
   let bball_chart = '/bball-chart.webp';
+  let mlexpress = '/mlexpress.png';
 
   let embla;
   let prevButton;
@@ -57,7 +58,7 @@
             <a class="carousel-action-btn" href="/pgaql">Demo</a>
           </div>
         </div>
-        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl hidden xl:block" />
+        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl ml-auto hidden xl:block" />
 	    </div>
 	  </div>
     <div class="embla__slide">
@@ -84,7 +85,7 @@
             </a>
           </div>
         </div>
-        <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl hidden xl:block" />
+        <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl ml-auto hidden xl:block" />
       </div>
     </div>
     <div class="embla__slide">
@@ -92,7 +93,7 @@
         <div class="p-10 flex flex-col">
           <div>
             <p class="text-xl font-bold">
-              no code coding
+              MLExpress
             </p>
             <p class="text-lg pt-3 hidden lg:block">
               Web application enabling users to interact with datasets and experiment building and fine-tuning ML models without coding
@@ -111,6 +112,7 @@
             </a>
           </div>
         </div>
+        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden xl:block" />
       </div>
     </div>
     <div class="embla__slide">
@@ -141,7 +143,7 @@
             </a>
           </div>
         </div>
-        <img src={bball_r_us} alt='Basketballs "R" Us' class="p-3 rounded-2xl hidden xl:block" />
+        <img src={bball_r_us} alt='Basketballs "R" Us' class="p-3 rounded-2xl ml-auto hidden xl:block" />
       </div>
     </div>
 	  <!-- <div class="embla__slide">
