@@ -2,13 +2,15 @@
   import { onMount } from 'svelte';
   import EmblaCarousel from 'embla-carousel';
   let pgaqlSnapshot = '/pgaql.png';
+  let bball_r_us = '/bball-r-us.png';
+  let bball_chart = '/bball-chart.webp';
 
   let embla;
   let prevButton;
   let nextButton;
   let selectedIndex = 0;
   
-  const slides = [1, 2, 3, 4, 5];
+  const slides = [1, 2, 3, 4];
 
   onMount(() => {
     const emblaNode = document.querySelector('.embla');
@@ -36,7 +38,7 @@
         <div class="p-10 flex flex-col">
           <div>
     	      <p class="text-xl font-bold">
-              PgaQL
+              PgaQL Interpreter
             </p>
             <p class="text-lg pt-3 hidden lg:block">
               Interpreter for the developed language 'PgaQL' that allows users to easily find trends in their favorite athletes and teams
@@ -47,6 +49,7 @@
             <div class="project-tags-container">
               <div class="project-tag bg-teal">C</div>
               <div class="project-tag bg-teal">Svelte</div>
+              <div class="project-tag bg-teal">Docker</div>
               <div class="project-tag bg-copper dark-text">Full Stack</div>
             </div>
           </div>
@@ -62,10 +65,10 @@
         <div class="p-10 flex flex-col">
           <div>
             <p class="text-xl font-bold">
-              basket hoopz
+              Statistical Approach to Predicting NCAAB Outcomes
             </p>
             <p class="text-lg pt-3 hidden lg:block">
-              Predictive model for future NCAA basketball matchups with a 73% accuracy rate, based on analysis of 2,129 games during the 2022-23 season
+              Predictive model for future NCAA basketball matchups with a 73% accuracy rate, based on analysis of 2,129 games during the 2022-23 season. Outperformed when compared to similar models across the same game range (such as TeamRanking.com - 71.2%)
             </p>
             <p class="text-lg pt-3 block lg:hidden">
               Predictive model for future basketball matchups with a 73% accuracy
@@ -81,34 +84,7 @@
             </a>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="embla__slide">
-      <div class="carousel-item">
-        <div class="p-10 flex flex-col">
-          <div>
-            <p class="text-xl font-bold">
-              baketballs r us
-            </p>
-            <p class="text-lg pt-3 hidden lg:block">
-              worse version of toys r us
-            </p>
-            <p class="text-lg pt-3 block lg:hidden">
-              worse version of toys r us
-            </p>
-            <div class="project-tags-container">
-              <div class="project-tag bg-teal">React</div>
-              <div class="project-tag bg-teal">Express.js</div>
-              <div class="project-tag bg-teal">MongoDB</div>
-              <div class="project-tag bg-copper">Full Stack</div>
-            </div>
-          </div>
-          <div class="carousel-action-btns-container">
-            <a class="carousel-action-btn coming-soon-btn">
-              <div>Article Coming Soon</div>
-            </a>
-          </div>
-        </div>
+        <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl hidden xl:block" />
       </div>
     </div>
     <div class="embla__slide">
@@ -137,7 +113,38 @@
         </div>
       </div>
     </div>
-	  <div class="embla__slide">
+    <div class="embla__slide">
+      <div class="carousel-item">
+        <div class="p-10 flex flex-col">
+          <div>
+            <p class="text-xl font-bold">
+              Basketballs "R" Us
+            </p>
+            <p class="text-lg pt-3 hidden lg:block">
+              One stop shot for all things basketball. Built with fully functional backend for inventory management and order processing. 
+            </p>
+            <p class="text-lg pt-3 block lg:hidden">
+              One stop shot for all things basketball.
+            </p>
+            <div class="project-tags-container">
+              <div class="project-tag bg-teal">React</div>
+              <div class="project-tag bg-teal">Node.JS</div>
+              <div class="project-tag bg-teal">Express.JS</div>
+              <div class="project-tag bg-teal">MongoDB</div>
+              <div class="project-tag bg-teal">Kafka</div>
+              <div class="project-tag bg-copper">Full Stack</div>
+            </div>
+          </div>
+          <div class="carousel-action-btns-container">
+            <a class="carousel-action-btn coming-soon-btn">
+              <div>Article Coming Soon</div>
+            </a>
+          </div>
+        </div>
+        <img src={bball_r_us} alt='Basketballs "R" Us' class="p-3 rounded-2xl hidden xl:block" />
+      </div>
+    </div>
+	  <!-- <div class="embla__slide">
 	    <div class="carousel-item">
         <div class="p-10 flex flex-col">
           <div>
@@ -159,7 +166,7 @@
           </div>
         </div>
       </div>
-	  </div>
+	  </div> -->
 	</div>
 	</div>
 

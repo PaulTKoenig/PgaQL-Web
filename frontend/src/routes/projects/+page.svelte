@@ -5,7 +5,8 @@
             description: "Interpreter for the developed language 'PgaQL' that allows users to easily find trends in their favorite athletes and teams",
             demo_link: "/pgaql",
             repo_link: "https://github.com/PaulTKoenig/PgaQL-Interpreter",
-            year: "2024"
+            year: "2024",
+            favorite: true
         },
         {
             name: "paul.com",
@@ -16,11 +17,13 @@
         {
             name: "no code",
             description: "Web application enabling users to interact with datasets and experiment building and fine-tuning ML models without coding; Includes data exploration, cleaning, transformation, visualization, and model development",
-            year: "2024"
+            year: "2024",
+            favorite: true
         },
         {
             name: "bball r us",
-            year: "2023"
+            year: "2023",
+            favorite: true
         },
         {
             name: "hotel scraper",
@@ -40,7 +43,8 @@
             name: "ncaab predict",
             description: "Predictive model for future NCAA basketball matchups with a 73% accuracy rate, based on analysis of 2,129 games during the 2022-23 season",
             article_link: "/articles/001",
-            year: "2022"
+            year: "2022",
+            favorite: true
         },
         {
             name: "walk step run - hackohio 2",
@@ -69,8 +73,13 @@
         {#each projects as project}
             <div class="project-container">
                 <div class="flex flex-col h-full">
-                    <div class="flex flex-col">
-                        <div class="text-xl font-bold">{project.name}</div>
+                    <div class="flex">
+                        <div class="flex text-xl font-bold">
+                            {project.name}
+                            {#if project.favorite}
+                                <span class="teal-star">&nbsp;*</span>
+                            {/if}
+                        </div>
                         <div class="ml-auto dark-text">{project.year}</div>
                     </div>
                     <div class="p-3 dark-text">{project.description}</div>
@@ -148,5 +157,10 @@
         cursor: pointer;
         display: flex;
         align-items: center;
+    }
+
+    .teal-star {
+        color: #03DAC6;
+        font-size: larger;
     }
 </style>
