@@ -1,17 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { Chart } from '$lib';
+  import { QueryBuilder, QueryNotebook } from '$lib';
 	let input = $state("");
-	let submittedInput = $state("");
   let queryTab = $state(0);
 
   const updateQueryTab = (updatedTab) => {
       queryTab=updatedTab;
-  }
-
-  const submit = () => {
-      submittedInput = input;
-      fetchData()
   }
 
   let data = $state([]);
@@ -58,13 +53,13 @@
     </div>
 
     <div class="p-5">
-      <div class="flex flex-col text-center items-center justify-center">
-        <textarea bind:value={input} placeholder="Enter your query"></textarea>
-        <button class="query-submit-btn" onclick={submit} disabled={input.trim() === ""}>Search</button> 
-        <p class="pt-5 px-5">
-          <b>Example:</b> CHART box_score IN scatter_plot FOR fga VS fgm WHERE team_abbr = 'CLE'
-        </p>
-      </div>
+      {#if queryTab === 0}
+        <QueryBuilder bind:input on:submit={fetchData} />
+      {:else if queryTab === 1}
+        <QueryNotebook bind:input on:submit={fetchData} />
+      {:else}
+        ah shit
+      {/if}
       
     </div>
     <div class="pgaql-chart-container mx-auto">
@@ -83,32 +78,15 @@
 
 <style>
 
-  .pgaql-container {
-    padding: 3rem;
-    margin: 0 1rem;
-    border-radius: 16px;
-    background-color: #333333;
-
-    textarea {
-        border-radius: 8px;
-        border: 1px solid #F0F0F0;
-        padding: 0.6em 1.2em;
-        font-size: 1em;
-        font-weight: 500;
-        font-family: inherit;
-        transition: border-color 0.25s;
-        width: 100%;
-      }
+    .pgaql-container {
+      padding: 3rem;
+      margin: 0 1rem;
+      border-radius: 16px;
+      background-color: #333333;
     }
 
     .pt-nav {
         padding-top: max(3.5rem, 10vh);
-    }
-
-    .query-submit-btn {
-      width: 25%;
-      margin-top: 1rem;
-      border: 1px solid #F0F0F0;
     }
 
     .pgaql-tabs {

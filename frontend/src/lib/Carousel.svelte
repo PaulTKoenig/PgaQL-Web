@@ -153,10 +153,10 @@
               Basketballs "R" Us
             </p>
             <p class="text-lg pt-3 hidden lg:block">
-              One stop shot for all things basketball. Built with fully functional backend for inventory management and order processing. 
+              One stop ecommerce shop for all things basketball. Built with fully functional backend for inventory management and order processing. 
             </p>
             <p class="text-lg pt-3 block lg:hidden">
-              One stop shot for all things basketball.
+              One stop ecommerce shop for all things basketball.
             </p>
             <div class="project-tags-container">
               <div class="project-tag bg-teal">React</div>

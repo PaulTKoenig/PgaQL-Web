@@ -5,7 +5,7 @@
 </script>
 
 <div class="nav-bar fixed w-full flex h-14 z-10">
-    <a class="nav-home my-auto ml-5 cursor-pointer" href="/">
+    <a class="nav-home my-auto ml-5 hover:underline cursor-pointer" href="/">
         Paul Koenig
     </a>
     <div class="flex my-auto ml-auto mr-5 gap-1">
@@ -18,17 +18,17 @@
         </a>
         <a
             class="nav-btn"
-            href="/about-me"
-            class:active={page.url.pathname === '/about-me'}
-        >
-            About Me
-        </a>
-        <a
-            class="nav-btn"
             href="/articles"
             class:active={page.url.pathname === '/articles'}
         >
             Articles
+        </a>
+        <a
+            class="nav-btn"
+            href="/about-me"
+            class:active={page.url.pathname === '/about-me'}
+        >
+            About Me
         </a>
         <!-- <a
             class="nav-btn"
