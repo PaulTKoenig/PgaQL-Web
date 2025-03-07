@@ -63,12 +63,8 @@
     <div class="text-5xl font-bold">
         Projects
     </div>
-    <div class="text-2xl font-bold py-5">
-        I pledge Allegiance to the flag
-        of the United States of America
-        and to the Republic for which it stands,
-        one nation under God, indivisible,
-        with Liberty and Justice for all.
+    <div class="text-2xl py-5 dark-text">
+        Personal projects, hackathons, and other collaborative efforts I have worked on throughout the years
     </div>
     <div class="projects-container">
         {#each projects as project}

@@ -61,7 +61,7 @@
 
     .article-container:hover {
         cursor: pointer;
-        border: 1px solid #03DAC6;
+/*        border: 1px solid #03DAC6;*/
 
         --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 1);
         box-shadow: var(--tw-ring-offset-shadow, 0 0 #fff), var(--tw-ring-shadow, 0 0 #fff), var(--tw-shadow);

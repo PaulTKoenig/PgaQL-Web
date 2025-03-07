@@ -20,6 +20,37 @@
       speed: 5,
     });
 
+
+
+
+    // const autoplayInterval = 5000; // Time in milliseconds (e.g., 3000ms = 3 seconds)
+
+    // let autoplayTimer;
+
+    // const startAutoplay = () => {
+    //   // Clear any previous interval to prevent multiple intervals running
+    //   clearInterval(autoplayTimer);
+
+    //   autoplayTimer = setInterval(() => {
+    //     embla.scrollNext(); // Move to the next slide
+    //   }, autoplayInterval);
+    // };
+
+    // const stopAutoplay = () => {
+    //   clearInterval(autoplayTimer);
+    // };
+
+    // // Start autoplay when the carousel is initialized
+    // startAutoplay();
+
+    // // Optionally, stop autoplay when the user manually interacts with the carousel
+    // embla.on('select', startAutoplay);
+    // embla.on('select', stopAutoplay);
+    // embla.on('drag', stopAutoplay);
+    // embla.on('pointerdown', stopAutoplay);
+
+
+
     // Update selected index on slide change
     embla.on('select', () => {
       selectedIndex = embla.selectedScrollSnap();
@@ -68,10 +99,10 @@
             <p class="text-xl font-bold">
               Statistical Approach to Predicting NCAAB Outcomes
             </p>
-            <p class="text-lg pt-3 hidden lg:block">
+            <p class="text-lg pt-3 hidden 2x:block">
               Predictive model for future NCAA basketball matchups with a 73% accuracy rate, based on analysis of 2,129 games during the 2022-23 season. Outperformed when compared to similar models across the same game range (such as TeamRanking.com - 71.2%)
             </p>
-            <p class="text-lg pt-3 block lg:hidden">
+            <p class="text-lg pt-3 block 2x:hidden">
               Predictive model for future basketball matchups with a 73% accuracy
             </p>
             <div class="project-tags-container">
@@ -80,9 +111,7 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <a class="carousel-action-btn coming-soon-btn">
-              <div>Article Coming Soon</div>
-            </a>
+            <a class="carousel-action-btn" href="/articles/001">Read More</a>
           </div>
         </div>
         <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl ml-auto hidden xl:block" />
@@ -112,7 +141,7 @@
             </a>
           </div>
         </div>
-        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden xl:block" />
+        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden 2x:block" />
       </div>
     </div>
     <div class="embla__slide">
@@ -130,9 +159,7 @@
             </p>
             <div class="project-tags-container">
               <div class="project-tag bg-teal">React</div>
-              <div class="project-tag bg-teal">Node.JS</div>
               <div class="project-tag bg-teal">Express.JS</div>
-              <div class="project-tag bg-teal">MongoDB</div>
               <div class="project-tag bg-teal">Kafka</div>
               <div class="project-tag bg-copper">Full Stack</div>
             </div>
@@ -143,7 +170,7 @@
             </a>
           </div>
         </div>
-        <img src={bball_r_us} alt='Basketballs "R" Us' class="p-3 rounded-2xl ml-auto hidden xl:block" />
+        <img src={bball_r_us} alt='Basketballs "R" Us' class="p-3 rounded-2xl ml-auto hidden 2x:block" />
       </div>
     </div>
 	  <!-- <div class="embla__slide">
@@ -309,6 +336,7 @@
     padding: .25rem .75rem;
     border-radius: 4px;
     font-size: small;
+    white-space: nowrap !important;
   }
 
   .bg-copper {

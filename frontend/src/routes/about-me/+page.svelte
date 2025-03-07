@@ -1,7 +1,3 @@
-<script>
-
-</script>
-
 <div class="pt-nav px-20vh">
     <div class="text-5xl font-bold">
         About Me
@@ -17,12 +13,16 @@
     </div>
 
     <div class="section-header text-3xl font-bold">
-        Contact Info
+        More
     </div>
 
     <div class="section-container text-xl dark-text">
         Email - paul.koenig.002@gmail.com
     </div>
+
+    <a class="section-container text-xl dark-text" href="/resume">
+        Resume
+    </a>
 </div>
 
 <style type="text/css">
@@ -39,6 +39,6 @@
     }
 
     .section-container {
-        padding: 1rem 0 0;
+        padding: 1rem 0 1rem;
     }
 </style>

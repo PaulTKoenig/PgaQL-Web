@@ -15,7 +15,7 @@
             title: "Winter bulk"
         },
         {
-            title: "going insane"
+            title: "Not getting victory royales in fortnite"
         }
     ]
 </script>
@@ -30,7 +30,7 @@
         </div>
         <div class="flex flex-col gap-6 dark-text">
             <div class="text-xl font-bold">
-                I'm a shitty developer with range of experience in web development, systems engineering, and data science. I got into coding in 2019 from the need to take an extra elective in course schedule and a curiosity for the internet, which eventually led me to major in Computer Science at The Ohio State University.
+                I'm a shitty developer with a range of experience in web development, systems engineering, and data science. I got into coding in 2019 from the need to take an extra elective in course schedule and a curiosity for the internet, which eventually led me to major in Computer Science at The Ohio State University.
             </div>
 
             <div class="text-xl font-bold">
@@ -41,14 +41,16 @@
 
     <div class="projects-section-header">
         <div class="text-3xl font-bold">
-            Personal Projects
+            My Favorite Projects
         </div>
         <a class="more-projects-btn ml-auto text-lg font-bold" href="/projects">
             All Projects
         </a>
     </div>
 
-    <Carousel />
+    <div class="projects-carousel">
+        <Carousel />
+    </div>
 
     <div class="section-header text-3xl font-bold">
         What I'm Doing Now<span class="text-base">&nbsp;&nbsp;(outside of work)</span>
