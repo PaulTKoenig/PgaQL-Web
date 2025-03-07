@@ -20,22 +20,20 @@
     ]
 </script>
 
-<div class="px-20vh">
-    <div class="pt-nav">
-        <div class="text-4xl font-bold pb-4">
-            Hi, I'm Paul
+<div class="px-10vh">
+    <div class="text-4xl font-bold pb-4">
+        Hi, I'm Paul
+    </div>
+    <div class="text-4xl font-bold pb-8">
+        Software Engineer
+    </div>
+    <div class="flex flex-col gap-6 dark-text">
+        <div class="text-xl font-bold">
+            I'm a shitty developer with a range of experience in web development, systems engineering, and data science. I got into coding in 2019 from the need to take an extra elective in course schedule and a curiosity for the internet, which eventually led me to major in Computer Science at The Ohio State University.
         </div>
-        <div class="text-4xl font-bold pb-8">
-            Software Engineer
-        </div>
-        <div class="flex flex-col gap-6 dark-text">
-            <div class="text-xl font-bold">
-                I'm a shitty developer with a range of experience in web development, systems engineering, and data science. I got into coding in 2019 from the need to take an extra elective in course schedule and a curiosity for the internet, which eventually led me to major in Computer Science at The Ohio State University.
-            </div>
 
-            <div class="text-xl font-bold">
-                I love music and spending time outdoors, enjoying activities like golf, snowboarding, and fishing in my free time. I created this page to share more about my development journey and life experiences.
-            </div>
+        <div class="text-xl font-bold">
+            I love music and spending time outdoors, enjoying activities like golf, snowboarding, and fishing in my free time. I created this page to share more about my development journey and life experiences.
         </div>
     </div>
 
@@ -99,6 +97,13 @@
 </div>
 
 <style type="text/css">
+
+    @media (min-width: 1200px) {
+        .px-10vh {
+            padding: 0 10vh;
+        }
+    }
+
     .more-projects-btn {
         border: 1px solid lightgrey;
 		border-radius: 8px;
@@ -115,10 +120,6 @@
 
     .more-projects-btn:hover {
       text-decoration: underline;
-    }
-
-    .pt-nav {
-        padding-top: max(3.5rem, 12vh);
     }
 
     .min-h-40vh {

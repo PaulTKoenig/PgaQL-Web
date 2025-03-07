@@ -7,7 +7,18 @@
 <main>
   <Nav />
 
-  <div class="z-0">
+  <div class="pt-nav px-10vh z-0">
     {@render children()}
   </div>
 </main>
+
+<style type="text/css">
+  .pt-nav {
+      padding-top: max(3.5rem, 12vh);
+  }
+
+  .px-10vh {
+      padding-left: 10vh;
+      padding-right: 10vh;
+  }
+</style>

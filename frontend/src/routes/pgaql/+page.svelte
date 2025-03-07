@@ -43,7 +43,7 @@
 }
 </script>
 
-<div class="pt-nav xl:w-1/2 lg:w-3/5 md:w-3/4 sm:w-5/6 mx-auto pb-20">
+<div class="xl:w-3/4 lg:w-4/5  mx-auto pb-20">
   <div class="pgaql-container">
     <div class="pgaql-tabs flex mb-10">
       <div class="pgaql-query-tab" class:pgaql-query-tab-active={queryTab === 0} onclick={() => updateQueryTab(0)}>

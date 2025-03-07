@@ -59,59 +59,49 @@
 
 </script>
 
-<div class="px-10vh pt-nav">
-    <div class="text-5xl font-bold">
-        Projects
-    </div>
-    <div class="text-2xl py-5 dark-text">
-        Personal projects, hackathons, and other collaborative efforts I have worked on throughout the years
-    </div>
-    <div class="projects-container">
-        {#each projects as project}
-            <div class="project-container">
-                <div class="flex flex-col h-full">
-                    <div class="flex">
-                        <div class="flex text-xl font-bold">
-                            {project.name}
-                            {#if project.favorite}
-                                <span class="teal-star">&nbsp;*</span>
-                            {/if}
-                        </div>
-                        <div class="ml-auto dark-text">{project.year}</div>
-                    </div>
-                    <div class="p-3 dark-text">{project.description}</div>
-                    <div class="carousel-action-btns-container">
-                        {#if project.demo_link}
-                            <a class="carousel-action-btn coming-soon-btn" href={project.demo_link} target="_blank" rel="noopener noreferrer">
-                              Demo
-                            </a>
-                        {/if}
-                        {#if project.repo_link}
-                            <a class="carousel-action-btn coming-soon-btn" href={project.repo_link} target="_blank" rel="noopener noreferrer">
-                              Repo
-                            </a>
-                        {/if}
-                        {#if project.article_link}
-                            <a class="carousel-action-btn coming-soon-btn" href={project.article_link}>
-                              Article
-                            </a>
+<div class="text-5xl font-bold">
+    Projects
+</div>
+<div class="text-2xl py-5 dark-text">
+    Personal projects, hackathons, and other collaborative efforts I have worked on throughout the years
+</div>
+<div class="projects-container">
+    {#each projects as project}
+        <div class="project-container">
+            <div class="flex flex-col h-full">
+                <div class="flex">
+                    <div class="flex text-xl font-bold">
+                        {project.name}
+                        {#if project.favorite}
+                            <span class="teal-star">&nbsp;*</span>
                         {/if}
                     </div>
+                    <div class="ml-auto dark-text">{project.year}</div>
+                </div>
+                <div class="p-3 dark-text">{project.description}</div>
+                <div class="carousel-action-btns-container">
+                    {#if project.demo_link}
+                        <a class="carousel-action-btn coming-soon-btn" href={project.demo_link} target="_blank" rel="noopener noreferrer">
+                          Demo
+                        </a>
+                    {/if}
+                    {#if project.repo_link}
+                        <a class="carousel-action-btn coming-soon-btn" href={project.repo_link} target="_blank" rel="noopener noreferrer">
+                          Repo
+                        </a>
+                    {/if}
+                    {#if project.article_link}
+                        <a class="carousel-action-btn coming-soon-btn" href={project.article_link}>
+                          Article
+                        </a>
+                    {/if}
                 </div>
             </div>
-        {/each}
-    </div>
+        </div>
+    {/each}
 </div>
 
 <style type="text/css">
-    .pt-nav {
-        padding-top: max(3.5rem, 12vh);
-    }
-
-    .px-10vh {
-        padding-left: 10vh;
-        padding-right: 10vh;
-    }
 
     .projects-container {
         display: grid;

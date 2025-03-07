@@ -2,37 +2,27 @@
     import { articles } from '../../lib/articles.ts';
 </script>
 
-<div class="px-10vh pt-nav">
-    <div class="text-5xl font-bold">
-        Articles
-    </div>
-    <div class="text-2xl font-bold py-5">
-        I pledge Allegiance to the flag
-        of the United States of America
-        and to the Republic for which it stands,
-        one nation under God, indivisible,
-        with Liberty and Justice for all.
-    </div>
-    <div class="articles-container">
-        {#each articles as article}
-            <a class="article-container" href={"/articles/" + article.id}>
-                <div class="text-xl font-bold">{article.title}</div>
-                <div>{article.date}</div>
-                <div>{article.description}</div>
-            </a>
-        {/each}
-    </div>
+<div class="text-5xl font-bold">
+    Articles
+</div>
+<div class="text-2xl font-bold py-5">
+    I pledge Allegiance to the flag
+    of the United States of America
+    and to the Republic for which it stands,
+    one nation under God, indivisible,
+    with Liberty and Justice for all.
+</div>
+<div class="articles-container">
+    {#each articles as article}
+        <a class="article-container" href={"/articles/" + article.id}>
+            <div class="text-xl font-bold">{article.title}</div>
+            <div>{article.date}</div>
+            <div>{article.description}</div>
+        </a>
+    {/each}
 </div>
 
 <style type="text/css">
-    .pt-nav {
-        padding-top: max(3.5rem, 12vh);
-    }
-
-    .px-10vh {
-        padding-left: 10vh;
-        padding-right: 10vh;
-    }
 
     .articles-container {
         display: grid;

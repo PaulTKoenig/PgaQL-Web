@@ -31,7 +31,7 @@
   }
 </script>
 
-<div class="pt-nav px-10vh w-full">
+<div class="w-full">
   {#if loading}
     <div class="loading-spinner-container">
       <div class="loading-spinner"></div>
@@ -54,14 +54,6 @@
 </div>
 
 <style type="text/css">
-    .pt-nav {
-        padding-top: max(3.5rem, 12vh);
-    }
-
-    .px-10vh {
-        padding-left: 20vh;
-        padding-right: 20vh;
-    }
 
     .projects-container {
         display: grid;
