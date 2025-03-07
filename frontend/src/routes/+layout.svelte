@@ -21,4 +21,11 @@
       padding-left: 10vh;
       padding-right: 10vh;
   }
+
+  @media (max-width: 1000px) {
+    .px-10vh {
+      padding-left: 5vh;
+      padding-right: 5vh;
+    }
+  }
 </style>

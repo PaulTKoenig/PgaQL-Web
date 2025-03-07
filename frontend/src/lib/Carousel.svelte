@@ -142,6 +142,7 @@
           </div>
         </div>
         <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden 2x:block" />
+        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden xl:block 2x:hidden w-1/2" />
       </div>
     </div>
     <div class="embla__slide">
@@ -171,31 +172,9 @@
           </div>
         </div>
         <img src={bball_r_us} alt='Basketballs "R" Us' class="p-3 rounded-2xl ml-auto hidden 2x:block" />
+        <img src={bball_r_us} alt='Basketballs "R" Us' class="p-3 rounded-2xl ml-auto hidden xl:block 2x:hidden w-1/2" />
       </div>
     </div>
-	  <!-- <div class="embla__slide">
-	    <div class="carousel-item">
-        <div class="p-10 flex flex-col">
-          <div>
-            <p class="text-xl font-bold">
-              SO VITS SVC clip generator
-            </p>
-            <p class="text-lg pt-3">
-              Data collection project to automate creating AI voice clones
-            </p>
-            <div class="project-tags-container">
-              <div class="project-tag bg-teal">Python</div>
-              <div class="project-tag bg-copper">Backend</div>
-            </div>
-          </div>
-          <div class="carousel-action-btns-container">
-            <a class="carousel-action-btn coming-soon-btn">
-              <div>Demo Coming Soon</div>
-            </a>
-          </div>
-        </div>
-      </div>
-	  </div> -->
 	</div>
 	</div>
 

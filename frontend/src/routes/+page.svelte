@@ -98,7 +98,7 @@
 
 <style type="text/css">
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1500px) {
         .px-10vh {
             padding: 0 10vh;
         }
