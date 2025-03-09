@@ -2,7 +2,8 @@
   import { onMount } from 'svelte';
   import { Chart } from '$lib';
   import { QueryBuilder, QueryNotebook } from '$lib';
-	let input = $state("");
+
+  let submittedQuery = $state("");
   let queryTab = $state(0);
 
   const updateQueryTab = (updatedTab) => {
@@ -13,29 +14,31 @@
   let error = $state(null);
   let loading = $state(false);
 
-  async function fetchData() {
-  loading = true;
-  error = null;
+  async function fetchData(e) {
+    loading = true;
+    error = null;
+    let input = e.detail.input;
 
-  try {
-    const encodedQuery = encodeURIComponent(input);
-    const response = await fetch(`/api/interpret-query?query=${encodedQuery}`);
-    
-    if (!response.ok) {
-      if (response.status === 400) {
-        throw new Error('Invalid grammar');
-      } else {
-        throw new Error('Sorry something went wrong. Please try again');
+    try {
+      const encodedQuery = encodeURIComponent(input);
+      const response = await fetch(`/api/interpret-query?query=${encodedQuery}`);
+      
+      if (!response.ok) {
+        if (response.status === 400) {
+          throw new Error('Invalid grammar');
+        } else {
+          throw new Error('Sorry something went wrong. Please try again');
+        }
       }
-    }
 
-    data = await response.json()
-  } catch (err) {
-    error = err.message;
-  } finally {
-    loading = false;
+      data = await response.json();
+      submittedQuery=input;
+    } catch (err) {
+      error = err.message;
+    } finally {
+      loading = false;
+    }
   }
-}
 </script>
 
 <div class="xl:w-3/4 lg:w-4/5  mx-auto pb-20">
@@ -54,9 +57,9 @@
 
     <div class="p-5">
       {#if queryTab === 0}
-        <QueryBuilder bind:input on:submit={fetchData} />
+        <QueryBuilder on:submit={fetchData} />
       {:else if queryTab === 1}
-        <QueryNotebook bind:input on:submit={fetchData} />
+        <QueryNotebook on:submit={fetchData} />
       {:else}
         ah shit
       {/if}
@@ -69,7 +72,9 @@
         <p><b>Error:</b> {error}</p>
       {:else if data.length > 0}
       <div class="pt-5">
+        {submittedQuery}
         <Chart {data} />
+        }
       </div>
       {/if}
     </div>

@@ -1,36 +1,72 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { queryBuilderSteps } from './pgaql_queryBuilderSteps'
 
 	const dispatch = createEventDispatcher();
 
-	export let input = "";
+	let inputArray = $state([]);
+	let queryBuilderStep = $state(0);
 
-	function handleAppendInput(btnValue) {
-		input+=btnValue;
+    function addToInputArray(inputValue) {
+        inputArray.push(inputValue);
+        queryBuilderStep+=1;
+    }
+
+	function handleRestart() {
+		inputArray=[];
+		queryBuilderStep=0;
 	}
 
-	function handleClear() {
-		input="";
+	function handleRevert() {
+		inputArray.pop();
+		queryBuilderStep-=1;
 	}
 
 	function handleSubmit() {
-		dispatch('submit');
+		let input = "";
+		inputArray.map((inputValue, inputIdx) => {
+			if (inputIdx !== 0) {
+				input+=" ";
+			}
+			input+=inputValue;
+		});
+		dispatch('submit', { input });
 	}
 </script>
 
 <div class="flex flex-col text-center items-center justify-center">
-	<p>
+	<p class="font-bold pb-5">
 		Build a query by selecting what you would like to chart
 	</p>
-	<div class="w-full py-10">
-		<button class="query-submit-btn" onclick={handleAppendInput("CHART")}>CHART</button> 
+	<p>Step {queryBuilderSteps[queryBuilderStep].step}</p>
+	<p>{queryBuilderSteps[queryBuilderStep].title}</p>
+	<div class="w-full py-10 flex gap-8 justify-center">
+		{#if queryBuilderSteps[queryBuilderStep].options}
+
+			{#each queryBuilderSteps[queryBuilderStep].options as step}
+
+				<button class="query-submit-btn" onclick={() => addToInputArray(step.value)}>{step.label}</button>
+			{/each}
+		{:else}
+			<button class="query-clear-btn" onclick={handleRestart}>Restart</button> 
+			<button class="query-submit-btn" onclick={handleSubmit}>Search</button> 
+		{/if}
 	</div>
 	<div class="w-full py-10">
-		Input: "{input}"
+		Input: "
+		<span class="font-bold">	
+    		{#each inputArray as inputValue, index}
+    			{#if index > 0}  
+    				&nbsp;
+    			{/if}
+    			{inputValue}
+    		{/each}
+		</span>
+		"
 	</div>
 	<div class="w-full flex gap-8 justify-center">
-		<button class="query-clear-btn" onclick={handleClear}>Clear</button> 
-		<button class="query-submit-btn" onclick={handleSubmit} disabled={input.trim() === ""}>Search</button> 
+		<button class="query-clear-btn" onclick={handleRevert} disabled={queryBuilderStep===0}>Revert</button> 
+		<button class="query-submit-btn" onclick={null} disabled>Skip</button> 
 	</div>
 	<p class="pt-5 px-5">
 	  <b>Example:</b> CHART box_score IN scatter_plot FOR fga VS fgm WHERE team_abbr = 'CLE'
@@ -38,6 +74,11 @@
 </div>
 
 <style type="text/css">
+
+	button:disabled {
+		pointer-events: none;
+		background-color: grey;
+	}
 
 	textarea {
 	    border-radius: 8px;

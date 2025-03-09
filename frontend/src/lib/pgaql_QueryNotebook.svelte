@@ -3,10 +3,10 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let input = "";
+	let input = $state("");
 	
 	function handleSubmit() {
-		dispatch('submit');
+		dispatch('submit', { input });
 	}
 </script>
 
