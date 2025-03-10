@@ -153,7 +153,7 @@
               Basketballs "R" Us
             </p>
             <p class="text-lg pt-3 hidden lg:block">
-              One stop ecommerce shop for all things basketball. Built with fully functional backend for inventory management and order processing. 
+              One stop e-commerce shop for all things basketball with fully functional inventory management and order processing. 
             </p>
             <p class="text-lg pt-3 block lg:hidden">
               One stop ecommerce shop for all things basketball.

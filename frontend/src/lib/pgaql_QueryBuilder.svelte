@@ -34,25 +34,24 @@
 	}
 </script>
 
-<div class="flex flex-col text-center items-center justify-center">
-	<p class="font-bold pb-5">
+<div class="flex flex-col">
+	<p class="font-bold pb-3 text-xl">
 		Build a query by selecting what you would like to chart
 	</p>
-	<p>Step {queryBuilderSteps[queryBuilderStep].step}</p>
-	<p>{queryBuilderSteps[queryBuilderStep].title}</p>
-	<div class="w-full py-10 flex gap-8 justify-center">
+	<p class="text-xl">Step {queryBuilderSteps[queryBuilderStep].step}: &nbsp; {queryBuilderSteps[queryBuilderStep].title}</p>
+	<div class="w-full py-24 flex gap-8 justify-center text-lg">
 		{#if queryBuilderSteps[queryBuilderStep].options}
 
 			{#each queryBuilderSteps[queryBuilderStep].options as step}
 
-				<button class="query-submit-btn" onclick={() => addToInputArray(step.value)}>{step.label}</button>
+				<button class="query-feature-btn" onclick={() => addToInputArray(step.value)}>{step.label}</button>
 			{/each}
 		{:else}
 			<button class="query-clear-btn" onclick={handleRestart}>Restart</button> 
 			<button class="query-submit-btn" onclick={handleSubmit}>Search</button> 
 		{/if}
 	</div>
-	<div class="w-full py-10">
+	<div class="w-full text-xl">
 		Input: "
 		<span class="font-bold">	
     		{#each inputArray as inputValue, index}
@@ -64,13 +63,10 @@
 		</span>
 		"
 	</div>
-	<div class="w-full flex gap-8 justify-center">
-		<button class="query-clear-btn" onclick={handleRevert} disabled={queryBuilderStep===0}>Revert</button> 
-		<button class="query-submit-btn" onclick={null} disabled>Skip</button> 
+	<div class="flex gap-8">
+		<button class="query-revert-btn" onclick={handleRevert} disabled={queryBuilderStep===0}>Revert</button> 
+		<button class="query-skip-btn" onclick={null} disabled>Skip</button> 
 	</div>
-	<p class="pt-5 px-5">
-	  <b>Example:</b> CHART box_score IN scatter_plot FOR fga VS fgm WHERE team_abbr = 'CLE'
-	</p>
 </div>
 
 <style type="text/css">
@@ -91,10 +87,14 @@
 	    width: 100%;
 	  }
 
-	.query-clear-btn, .query-submit-btn {
-		width: 25%;
+	.query-clear-btn, .query-submit-btn, .query-revert-btn, .query-skip-btn, .query-feature-btn {
+		width: 200px;
 		margin-top: 1rem;
 		border: 1px solid #F0F0F0;
+    }
+
+    .query-feature-btn {
+    	width: auto;
     }
 
     .gap-8 {

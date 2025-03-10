@@ -10,12 +10,10 @@
 	}
 </script>
 
-<div class="flex flex-col text-center items-center justify-center">
+<div class="flex flex-col text-center items-center justify-center gap-5">
+	<p class="font-bold">Write a query you would like to chart</p>
 	<textarea bind:value={input} placeholder="Enter your query"></textarea>
-	<button class="query-submit-btn" onclick={handleSubmit} disabled={input.trim() === ""}>Search</button> 
-	<p class="pt-5 px-5">
-	  <b>Example:</b> CHART box_score IN scatter_plot FOR fga VS fgm WHERE team_abbr = 'CLE'
-	</p>
+	<button class="query-submit-btn" onclick={handleSubmit} disabled={input.trim() === ""}>Search</button>
 </div>
 
 <style type="text/css">
@@ -28,6 +26,7 @@
 	    font-family: inherit;
 	    transition: border-color 0.25s;
 	    width: 100%;
+	    min-height: 200px;
 	}
 
 	.query-submit-btn {
