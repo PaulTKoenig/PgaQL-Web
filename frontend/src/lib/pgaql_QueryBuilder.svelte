@@ -1,36 +1,40 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { queryBuilderSteps } from './pgaql_queryBuilderSteps'
+	import SearchableDropdown from './SearchableDropdown.svelte';
 
 	const dispatch = createEventDispatcher();
 
 	let inputArray = $state([]);
 	let queryBuilderStep = $state(0);
+	let selectedOptionForStep = $state("");
+	let statFieldAggregateType = $state("");
 
-    function addToInputArray(stepValue) {
+    function addToInputArray() {
+    	console.log("next")
     	let inputValue = "";
     	const stepQueryPrefix = queryBuilderSteps[queryBuilderStep].queryPrefix;
-    	console.log(stepQueryPrefix)
 
     	if (stepQueryPrefix) {
     		inputValue+=stepQueryPrefix;
     	}
-    	console.log(inputValue)
-    	inputValue+=stepValue;
-    	console.log(inputValue)
+    	inputValue+=selectedOptionForStep;
 
         inputArray.push(inputValue);
         queryBuilderStep+=1;
+        selectedOptionForStep="";
     }
 
 	function handleRestart() {
 		inputArray=[];
 		queryBuilderStep=0;
+        selectedOptionForStep="";
 	}
 
 	function handleRevert() {
 		inputArray.pop();
 		queryBuilderStep-=1;
+        selectedOptionForStep="";
 	}
 
 	function handleSubmit() {
@@ -48,26 +52,54 @@
 		});
 		return input;
 	}
+
+	function handleSelectedOptionForStep(stepValue) {
+		selectedOptionForStep = stepValue;
+		if (queryBuilderSteps[queryBuilderStep].options.length === 1) {
+			addToInputArray();
+		}
+	}
+
+	function handleSetStatFieldAggregateType(stepValue) {
+		if (statFieldAggregateType === stepValue) {
+			statFieldAggregateType = "";
+		} else {
+			statFieldAggregateType = stepValue;
+		}
+	}
+
+	const options = ['Apple', 'Banana', 'Cherry', 'Grapes', 'Mango', 'Orange'];
 </script>
 
 <div class="flex flex-col">
 	<p class="font-bold pb-3 text-xl">
 		Build a query by selecting what you would like to chart
 	</p>
-	<p class="text-xl">Step {queryBuilderSteps[queryBuilderStep].step}: &nbsp;
-		{queryBuilderSteps[queryBuilderStep].title}</p> 
-	<div class="py-16 text-lg">
-		{#if queryBuilderSteps[queryBuilderStep].options && queryBuilderSteps[queryBuilderStep].options.length >= 3}
+	<p class="text-xl">
+		<span class="font-bold">Step {queryBuilderSteps[queryBuilderStep].step}:</span> 
+		&nbsp;{queryBuilderSteps[queryBuilderStep].title}</p> 
+	<div class="pt-16 pb-20 px-8 text-lg">
+		{#if queryBuilderSteps[queryBuilderStep].stepType === "STAT_FIELD_STEP" && inputArray.includes("CHART season_box_score")}
+			<p>Aggregate Types (Optional)</p>
+	        <div class="flex gap-5 pb-12">
+				<button class="query-clear-btn" class:selectedOption={statFieldAggregateType==="avg"} onclick={() => handleSetStatFieldAggregateType("avg")}>Average</button> 
+				<button class="query-submit-btn" class:selectedOption={statFieldAggregateType==="total"} onclick={() => handleSetStatFieldAggregateType("total")}>Total</button> 
+			</div>
+			<p>Stat Field (Required)</p>
+		{/if}
+		{#if queryBuilderSteps[queryBuilderStep].stepType === "WHERE_STEP"}
+			<SearchableDropdown statFieldOptions={queryBuilderSteps[queryBuilderStep].options} />
+		{:else if queryBuilderSteps[queryBuilderStep].options && queryBuilderSteps[queryBuilderStep].options.length >= 3}
 			<div class="grid grid-cols-3 gap-5">
 				{#each queryBuilderSteps[queryBuilderStep].options as step}
-					<button class="query-feature-btn" onclick={() => addToInputArray(step.value)}>	{step.label}
+					<button class="query-feature-btn" class:selectedOption={selectedOptionForStep===step.value} onclick={() => handleSelectedOptionForStep(step.value)}>{step.label}
 					</button>
 				{/each}
 			</div>
 		{:else if queryBuilderSteps[queryBuilderStep].options}
 	        <div class="flex justify-center gap-5">
 				{#each queryBuilderSteps[queryBuilderStep].options as step}
-					<button class="query-feature-btn" onclick={() => addToInputArray(step.value)}>	{step.label}
+					<button class="query-feature-btn" class:selectedOption={selectedOptionForStep===step.value} onclick={() => handleSelectedOptionForStep(step.value)}>{step.label}
 					</button>
 				{/each}
 			</div>
@@ -84,9 +116,12 @@
     		{concatQuery()}
 		</span>
 	</div>
-	<div class="flex gap-8">
-		<button class="query-revert-btn" onclick={handleRevert} disabled={queryBuilderStep===0}>Revert</button> 
-		<button class="query-skip-btn" onclick={null} disabled>Skip</button> 
+	<div class="flex flex-col">
+		<button class="query-next-btn" onclick={addToInputArray} disabled={selectedOptionForStep===""}>Next Step</button> 
+		<div class="flex gap-3">
+			<button class="query-revert-btn" onclick={handleRevert} disabled={queryBuilderStep===0}>Revert</button> 
+			<button class="query-skip-btn" onclick={null} disabled>Skip</button> 
+		</div>
 	</div>
 </div>
 
@@ -108,7 +143,7 @@
 	    width: 100%;
 	  }
 
-	.query-clear-btn, .query-submit-btn, .query-revert-btn, .query-skip-btn, .query-feature-btn {
+	.query-clear-btn, .query-submit-btn, .query-revert-btn, .query-skip-btn, .query-feature-btn, .query-next-btn {
 		width: 200px;
 		margin-top: 1rem;
 		border: 1px solid #F0F0F0;
@@ -120,5 +155,9 @@
 
     .gap-8 {
     	gap: 2rem;
+    }
+
+    .selectedOption {
+    	color: #03DAC6;
     }
 </style>

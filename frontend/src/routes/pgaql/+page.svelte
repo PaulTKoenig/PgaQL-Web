@@ -46,7 +46,7 @@
   <div class="w-1/3 xl:w-1/4 mx-auto pb-20">
     <div class="pgaql-menu-container">
       <p class="font-bold">
-        Welcome to PgaQL. This is an interactive UI to build queries with the language the qiery language 'PgaQL' allowing users to easily search and chart trends for their favorite athletes and teams
+        Welcome to PgaQL. This is an interactive UI to build queries with the language the query language 'PgaQL' allowing users to easily search and chart trends for their favorite athletes and teams
       </p>
       <p class="py-10">
         Example: CHART box_score IN scatter_plot FOR fga VS fgm WHERE team_abbr = 'CLE'
@@ -94,7 +94,6 @@
       <div class="pt-5">
         {submittedQuery}
         <Chart {data} />
-        }
       </div>
       {/if}
     </div>

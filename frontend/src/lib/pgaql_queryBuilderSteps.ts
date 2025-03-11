@@ -90,6 +90,10 @@ export const queryBuilderSteps = [
         	{ 
         		label: "Player Game Stats", 
         		value: "CHART box_score"
+        	},
+        	{ 
+        		label: "Season Game Stats", 
+        		value: "CHART season_box_score"
         	}
         ]
     },
@@ -105,18 +109,21 @@ export const queryBuilderSteps = [
     },
     {
         step: "3",
+        stepType: "STAT_FIELD_STEP",
         title: "What stat would you like on the X-Axis?",
         options: allStatFields,
         queryPrefix: "FOR "
     },
     {
         step: "4",
+        stepType: "STAT_FIELD_STEP",
         title: "What stat would you like on the Y-Axis?",
         options: allStatFields,
         queryPrefix: "VS "
     },
     {
         step: "5",
+        stepType: "WHERE_STEP",
         title: "Add any where conditions?",
         options: [
         	{
