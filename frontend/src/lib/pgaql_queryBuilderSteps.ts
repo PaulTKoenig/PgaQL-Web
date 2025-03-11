@@ -88,12 +88,20 @@ export const queryBuilderSteps = [
         title: "What would you like to plot?",
         options: [
         	{ 
-        		label: "Player Game Stats", 
+        		label: "Game Player Stats", 
         		value: "CHART box_score"
         	},
         	{ 
-        		label: "Season Game Stats", 
-        		value: "CHART season_box_score"
+        		label: "Season Player Stats", 
+        		value: "CHART season_player_box_score"
+        	},
+        	{ 
+        		label: "Game Team Stats", 
+        		value: "CHART game_team_box_score"
+        	},
+        	{ 
+        		label: "Season Team Stats", 
+        		value: "CHART season_team_box_score"
         	}
         ]
     },
