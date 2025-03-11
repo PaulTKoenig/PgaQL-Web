@@ -1,3 +1,87 @@
+const allStatFields = [
+	{ 
+		label: "Minutes", 
+		value: "mins"
+	},
+	{ 
+		label: "Field Goals Made", 
+		value: "fgm"
+	},
+	{ 
+		label: "Field Goal Attempts", 
+		value: "fga"
+	},
+	{ 
+		label: " Field Goal %", 
+		value: "fg_pct"
+	},
+	{ 
+		label: "Thee Pointers Made", 
+		value: "three_pm"
+	},
+	{ 
+		label: "Thee Point Attempts", 
+		value: "three_pa"
+	},
+	{ 
+		label: "Thee Point %", 
+		value: "three_pct"
+	},
+	{ 
+		label: "Free Throws Made", 
+		value: "ftm"
+	},
+	{ 
+		label: "Free Throw Attempts", 
+		value: "fta"
+	},
+	{ 
+		label: "Free Throw %", 
+		value: "ft_pct"
+	},
+	{ 
+		label: "Offensive Rebounds", 
+		value: "o_reb"
+	},
+	{ 
+		label: "Defensive Rebounds", 
+		value: "d_reb"
+	},
+	{ 
+		label: "Rebounds", 
+		value: "reb"
+	},
+	{ 
+		label: "Assists", 
+		value: "ast"
+	},
+	{ 
+		label: "Steals", 
+		value: "stl"
+	},
+	{ 
+		label: "Blocks", 
+		value: "blk"
+	},
+	{ 
+		label: "Turnovers", 
+		value: "turnover"
+	},
+	{ 
+		label: "Personal Fouls", 
+		value: "pf"
+	},
+	{ 
+		label: "Points", 
+		value: "pts"
+	},
+	{ 
+		label: "Plus / Minus", 
+		value: "plus_minus"
+	}
+]
+
+
 export const queryBuilderSteps = [
     {
         step: "1",
@@ -22,22 +106,14 @@ export const queryBuilderSteps = [
     {
         step: "3",
         title: "What stat would you like on the X-Axis?",
-        options: [
-        	{ 
-        		label: "Field Goal Attempts", 
-        		value: "FOR fga"
-        	}
-        ]
+        options: allStatFields,
+        queryPrefix: "FOR "
     },
     {
         step: "4",
         title: "What stat would you like on the Y-Axis?",
-        options: [
-        	{
-        		label: "Field Goals Made",
-        		value: "VS fgm",
-        	}
-        ]
+        options: allStatFields,
+        queryPrefix: "VS "
     },
     {
         step: "5",

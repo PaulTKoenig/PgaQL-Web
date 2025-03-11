@@ -15,6 +15,7 @@
 <style type="text/css">
   .pt-nav {
       padding-top: max(3.5rem, 12vh);
+      padding-bottom: 5rem;
   }
 
   .px-10vh {

@@ -7,7 +7,18 @@
 	let inputArray = $state([]);
 	let queryBuilderStep = $state(0);
 
-    function addToInputArray(inputValue) {
+    function addToInputArray(stepValue) {
+    	let inputValue = "";
+    	const stepQueryPrefix = queryBuilderSteps[queryBuilderStep].queryPrefix;
+    	console.log(stepQueryPrefix)
+
+    	if (stepQueryPrefix) {
+    		inputValue+=stepQueryPrefix;
+    	}
+    	console.log(inputValue)
+    	inputValue+=stepValue;
+    	console.log(inputValue)
+
         inputArray.push(inputValue);
         queryBuilderStep+=1;
     }
@@ -23,6 +34,11 @@
 	}
 
 	function handleSubmit() {
+		let input = concatQuery();
+		dispatch('submit', { input });
+	}
+
+	function concatQuery() {
 		let input = "";
 		inputArray.map((inputValue, inputIdx) => {
 			if (inputIdx !== 0) {
@@ -30,7 +46,7 @@
 			}
 			input+=inputValue;
 		});
-		dispatch('submit', { input });
+		return input;
 	}
 </script>
 
@@ -38,30 +54,35 @@
 	<p class="font-bold pb-3 text-xl">
 		Build a query by selecting what you would like to chart
 	</p>
-	<p class="text-xl">Step {queryBuilderSteps[queryBuilderStep].step}: &nbsp; {queryBuilderSteps[queryBuilderStep].title}</p>
-	<div class="w-full py-24 flex gap-8 justify-center text-lg">
-		{#if queryBuilderSteps[queryBuilderStep].options}
-
-			{#each queryBuilderSteps[queryBuilderStep].options as step}
-
-				<button class="query-feature-btn" onclick={() => addToInputArray(step.value)}>{step.label}</button>
-			{/each}
+	<p class="text-xl">Step {queryBuilderSteps[queryBuilderStep].step}: &nbsp;
+		{queryBuilderSteps[queryBuilderStep].title}</p> 
+	<div class="py-16 text-lg">
+		{#if queryBuilderSteps[queryBuilderStep].options && queryBuilderSteps[queryBuilderStep].options.length >= 3}
+			<div class="grid grid-cols-3 gap-5">
+				{#each queryBuilderSteps[queryBuilderStep].options as step}
+					<button class="query-feature-btn" onclick={() => addToInputArray(step.value)}>	{step.label}
+					</button>
+				{/each}
+			</div>
+		{:else if queryBuilderSteps[queryBuilderStep].options}
+	        <div class="flex justify-center gap-5">
+				{#each queryBuilderSteps[queryBuilderStep].options as step}
+					<button class="query-feature-btn" onclick={() => addToInputArray(step.value)}>	{step.label}
+					</button>
+				{/each}
+			</div>
 		{:else}
-			<button class="query-clear-btn" onclick={handleRestart}>Restart</button> 
-			<button class="query-submit-btn" onclick={handleSubmit}>Search</button> 
+	        <div class="flex justify-center gap-5">
+				<button class="query-clear-btn" onclick={handleRestart}>Restart</button> 
+				<button class="query-submit-btn" onclick={handleSubmit}>Search</button> 
+			</div>
 		{/if}
 	</div>
 	<div class="w-full text-xl">
-		Input: "
+		Input:&nbsp;
 		<span class="font-bold">	
-    		{#each inputArray as inputValue, index}
-    			{#if index > 0}  
-    				&nbsp;
-    			{/if}
-    			{inputValue}
-    		{/each}
+    		{concatQuery()}
 		</span>
-		"
 	</div>
 	<div class="flex gap-8">
 		<button class="query-revert-btn" onclick={handleRevert} disabled={queryBuilderStep===0}>Revert</button> 

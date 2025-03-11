@@ -92,8 +92,6 @@
         </ul>
     </div>
 
-    <div class="p-12"/>
-
 </div>
 
 <style type="text/css">
