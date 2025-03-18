@@ -1,7 +1,7 @@
 <script>
     const projects = [
         {
-            name: "pgaql interpreter",
+            name: "PgaQL Interpreter",
             description: "Interpreter for the developed language 'PgaQL' that allows users to easily find trends in their favorite athletes and teams",
             demo_link: "/pgaql",
             repo_link: "https://github.com/PaulTKoenig/PgaQL-Interpreter",
@@ -15,44 +15,48 @@
             year: "2024"
         },
         {
-            name: "no code",
+            name: "MLExpress",
             description: "Web application enabling users to interact with datasets and experiment building and fine-tuning ML models without coding; Includes data exploration, cleaning, transformation, visualization, and model development",
             repo_link: "https://github.com/PaulTKoenig/MLExpress",
             year: "2024",
             favorite: true
         },
         {
-            name: "bball r us",
+            name: 'Basketballs "R" Us',
+            description: "One stop e-commerce shop for all things basketball with fully functional inventory management and order processing",
             year: "2023",
             favorite: true
         },
         {
-            name: "hotel scraper",
+            name: "Resort Price & Amenity Data Collection Service",
             description: "Data collection system for 7 resorts to monitor patterns in dynamic room pricing, aiding in forecasting real estate returns; Saves the client 60 hours of manual collection each quarter",
             year: "2023"
         },
         {
-            name: "indoor maps - hackohio 3",
+            name: "Community-Driven Indoor Navigation App",
+            description: "Placed 2nd out of 25 teams in Ohio State University Hackathon",
             year: "2023"
         },
         {
-            name: "ai voice generation dataset automation",
+            name: "Automated Dataset Builder for AI Voice Generation",
             description: "Data collection project to automate creating AI voice clones",
             year: "2023"
         },
         {
-            name: "ncaab predict",
+            name: "Statistical Approach to Predicting NCAAB Outcomes",
             description: "Predictive model for future NCAA basketball matchups with a 73% accuracy rate, based on analysis of 2,129 games during the 2022-23 season",
             article_link: "/articles/001",
             year: "2022",
             favorite: true
         },
         {
-            name: "walk step run - hackohio 2",
+            name: "Student Commute Matching App for Safer Traveling at Night",
+            description: "Placed 2nd out of 25 teams in Ohio State University Hackathon",
             year: "2022"
         },
         {
-            name: "steering wheel - hackohio 1",
+            name: "Automated Navigation System for Driver Safety",
+            description: "Navigation system utilizing image processing by giving vibrating cues to an arduino in the steering wheel",
             year: "2022"
         }
     ];
@@ -70,10 +74,10 @@
         <div class="project-container">
             <div class="flex flex-col h-full">
                 <div class="flex">
-                    <div class="flex text-xl font-bold">
+                    <div class="text-xl font-bold max-w-3/4">
                         {project.name}
                         {#if project.favorite}
-                            <span class="teal-star">&nbsp;*</span>
+                            <span class="teal-star">*</span>
                         {/if}
                     </div>
                     <div class="ml-auto dark-text">{project.year}</div>

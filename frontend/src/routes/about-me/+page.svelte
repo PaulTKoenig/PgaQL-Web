@@ -4,7 +4,7 @@
     </div>
     <div class="flex flex-col gap-8 dark-text py-10">
         <div class="text-xl font-bold">
-            I'm a shitty developer who loves getting things done. I first got into coding in 2019 with a curiosity for the internet and the need for an elective to fill out my course schedule. This led to majoring in Computer Science at The Ohio State University, where I've since expanded my knowledge through a range of work and personal project experiences in full stack web development, systems engineering, and data science.
+            I'm a really shitty developer who loves getting things done. I first got into coding in 2019 with a curiosity for the internet and the need for an elective to fill out my course schedule. This led to majoring in Computer Science at The Ohio State University, where I've since expanded my knowledge through a range of work and personal project experiences in full stack web development, systems engineering, and data science.
         </div>
 
         <div class="text-xl font-bold">
@@ -16,13 +16,13 @@
         More
     </div>
 
-    <div class="section-container text-xl dark-text">
-        Email - paul.koenig.002@gmail.com
-    </div>
-
     <a class="section-container text-xl dark-text" href="/resume">
         Resume
     </a>
+
+    <div class="section-container text-xl dark-text">
+        Email - paul.koenig.002@gmail.com
+    </div>
 </div>
 
 <style type="text/css">
@@ -34,7 +34,7 @@
     }
 
     .section-header {
-        padding: 6rem 0 .5rem;
+        padding: 6rem 0 1.5rem;
     }
 
     .section-container {

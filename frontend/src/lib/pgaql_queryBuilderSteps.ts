@@ -133,12 +133,13 @@ export const queryBuilderSteps = [
         step: "5",
         stepType: "WHERE_STEP",
         title: "Add any where conditions?",
-        options: [
-        	{
-        		label: "Team is the Cleveland Cavaliers",
-        		value: "WHERE team_abbr = 'CLE'",
-        	}
-        ]
+        options: allStatFields
+        //[
+        //	{
+        //		label: "Team is the Cleveland Cavaliers",
+        //		value: "WHERE team_abbr = 'CLE'",
+        //	}
+        //]
     },
     {
         step: "6",

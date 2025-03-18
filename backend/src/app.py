@@ -6,9 +6,20 @@ import re
 
 app = Flask(__name__)
 
-@app.route('/api/hello', methods=['GET'])
+@app.route('/api/get-all-field-values', methods=['GET'])
 def home():
-    return jsonify([{"message": "Hello from Flasks!"}])
+    connection = sqlite3.connect('./src/db/box_score.db')
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT fgm FROM box_score")
+
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    connection.close()
+
+    return jsonify(results), 200
 
 @app.route('/api/interpret-query', methods=['GET'])
 def interpret_query():

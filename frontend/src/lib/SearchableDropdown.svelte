@@ -1,16 +1,30 @@
 <script>
-	export let statFieldOptions = [];
-	let searchQuery = '';
-	let statFieldIsActive = false;
-	let valueFieldIsActive = false;
-	const options = ['Apple', 'Banana', 'Orange', 'Grapes', 'Peach', 'Mango', 'Pineapple'];
+  import { onMount } from 'svelte';
 
-	const filteredOptions = () => {
-		return options.filter(option => option.toLowerCase().includes(searchQuery.toLowerCase()));
+  let props = $props();
+	let statFieldOptions = props.statFieldOptions;
+
+	let whereField = $state("");
+  let whereValue = $state("");
+	let statFieldIsActive = $state(false);
+	let valueFieldIsActive = $state(false);
+	// let options = ['Apple', 'Banana', 'Orange', 'Grapes', 'Peach', 'Mango', 'Pineapple'];
+
+  let options = $state(['Apple', 'Banana', 'Orange', 'Grapes', 'Peach', 'Mango', 'Pineapple']);
+  let data = $state([]);
+  let error = $state(null);
+
+	const filteredStatValueOptions = () => {
+
+    const optionsWithoutSelected = options.filter(option => option.toLowerCase().includes(whereValue.toLowerCase()));
+		return optionsWithoutSelected;
 	};
 
 	const filteredStatFieldOptions = () => {
-		return statFieldOptions.filter(option => option.label.toLowerCase().includes(searchQuery.toLowerCase()));
+
+    const optionsWithoutSelected = statFieldOptions.filter(option => option.label.toLowerCase().includes(whereField.toLowerCase()));
+
+    return optionsWithoutSelected;
 	};
 
 	function toggleStatFieldDropdown() {
@@ -29,26 +43,61 @@
 		valueFieldIsActive = false;
 	}
 
-	function selectOption(option) {
-		searchQuery = option;
-		closeDropdown();
+
+  function selectWhereFieldOption(option) {
+    console.log(option)
+    whereField = option;
+    closeStatFieldDropdown();
+  }
+
+	function selectWhereValueOption(option) {
+    console.log(option)
+		whereValue = option;
+		closeValueFieldDropdown();
 	}
+
+  async function fetchOptionValuesData() {
+    error = null;
+
+    try {
+      const response = await fetch(`/api/get-all-field-values`);
+      
+      if (!response.ok) {
+        throw new Error('Sorry something went wrong. Please try again');
+      }
+
+      responseJson = await response.json();
+      options = responseJson.map(option => option[0]);
+    } catch (err) {
+      error = err.message;
+    }
+  }
+
+  onMount(() => {
+    fetchOptionValuesData();
+  });
 </script>
 
-<div class="dropdown">
+<div 
+  class="dropdown"
+  on:blur={closeStatFieldDropdown}
+>
   <input 
     type="text" 
-    bind:value={searchQuery} 
+    bind:value={whereField} 
     placeholder="Search..."
     on:focus={toggleStatFieldDropdown} 
-    on:blur={closeStatFieldDropdown}
   />
   
-  <div class="dropdown-menu {statFieldIsActive ? 'active' : ''}">
+  <div 
+    class="dropdown-menu {statFieldIsActive ? 'active' : ''}"
+  >
     {#each filteredStatFieldOptions() as option}
       <div 
-        class="dropdown-item" 
-        on:click={() => selectOption(option.label)}
+        class="dropdown-item"  
+        on:click={() => {
+          selectWhereFieldOption(option.label)
+        }}
       >
         {option.label}
       </div>
@@ -56,20 +105,22 @@
   </div>
 </div>
 &nbsp;&nbsp;=&nbsp;&nbsp;
-<div class="dropdown">
+<div 
+  class="dropdown"
+  on:blur={closeValueFieldDropdown}
+>
   <input 
     type="text" 
-    bind:value={searchQuery} 
+    bind:value={whereValue} 
     placeholder="Search..."
-    on:focus={toggleValueFieldDropdown} 
-    on:blur={closeValueFieldDropdown}
+    on:focus={toggleValueFieldDropdown}
   />
   
   <div class="dropdown-menu {valueFieldIsActive ? 'active' : ''}">
-    {#each filteredOptions() as option}
+    {#each filteredStatValueOptions() as option}
       <div 
-        class="dropdown-item" 
-        on:click={() => selectOption(option)}
+        class="dropdown-item"
+        on:click={() => selectWhereValueOption(option)}
       >
         {option}
       </div>
@@ -89,15 +140,15 @@
     left: 0;
     right: 0;
     background: white;
-	border-radius: 8px;
-	border: 1px solid #202124;
+    border-radius: 8px;
+    border: 1px solid #202124;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-height: 200px;
     overflow-y: auto;
     z-index: 1;
     display: none;
 /*    color: #202124;*/
-	background-color: #333333;
+    background-color: #333333;
   }
 
   .dropdown-menu.active {
@@ -106,19 +157,19 @@
 
   .dropdown-item {
     padding: 8px 12px;
-    cursor: pointer;
   }
 
   .dropdown-item:hover {
     background-color: #f0f0f0;
     color: #202124;
+    cursor: pointer;
   }
 
   input {
     padding: 8px;
     width: 200px;
     box-sizing: border-box;
-	border-radius: 8px;
-	border: 1px solid #F0F0F0;
+  	border-radius: 8px;
+  	border: 1px solid #F0F0F0;
   }
 </style>

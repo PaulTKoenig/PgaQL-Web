@@ -6,10 +6,10 @@
 
     const whatImDoingNowList = [
         {
-            title: "Finishing beta version of PgaQL"
+            title: "BetaQL"
         },
         {
-            title: "Finally getting around to documenting all of my personal projects"
+            title: "Finally documenting personal projects"
         },
         {
             title: "Winter bulk"
@@ -29,7 +29,7 @@
     </div>
     <div class="flex flex-col gap-6 dark-text">
         <div class="text-xl font-bold">
-            I'm a shitty developer with a range of experience in web development, systems engineering, and data science. I got into coding in 2019 from the need to take an extra elective in course schedule and a curiosity for the internet, which eventually led me to major in Computer Science at The Ohio State University.
+            I'm a really shitty developer with a range of experience in web development, systems engineering, and data science. I got into coding in 2019 from the need to take an extra elective in course schedule and a curiosity for the internet, which eventually led me to major in Computer Science at The Ohio State University.
         </div>
 
         <div class="text-xl font-bold">

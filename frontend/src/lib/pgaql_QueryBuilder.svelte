@@ -11,7 +11,6 @@
 	let statFieldAggregateType = $state("");
 
     function addToInputArray() {
-    	console.log("next")
     	let inputValue = "";
     	const stepQueryPrefix = queryBuilderSteps[queryBuilderStep].queryPrefix;
 
