@@ -32,7 +32,7 @@
   <input 
     type="text" 
     bind:value={props.value}
-    placeholder="Search..."
+    placeholder={props.placeholder || "Search..."}
     on:focus={toggleDropdown}
     on:blur={() => setTimeout(closeDropdown, 150)}
     disabled={props.disabled}

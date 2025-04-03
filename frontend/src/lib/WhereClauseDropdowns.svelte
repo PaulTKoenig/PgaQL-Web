@@ -3,9 +3,7 @@
   import Dropdown from './Dropdown.svelte';
 
   let props = $props();
-
-	let whereFieldSelectedOption = $state("");
-  let whereValueSelectedOption = $state("");
+  let whereClauseIdx = props.whereClauseIdx;
 
   let whereValueDisabled = $state(true);
 
@@ -14,21 +12,16 @@
   let data = $state([]);
   let error = $state(null);
 
-  $effect(() => {
-      if (whereFieldSelectedOption !== "" && whereValueSelectedOption !== "") {
-        props.handleSelectedOptionForStep("WHERE " + whereFieldSelectedOption.value + " = " + whereValueSelectedOption);
-      }
-  });
-
 
   function handleSelectWhereFieldOption(selectedOption) {
-    whereFieldSelectedOption = selectedOption;
+    props.whereStepSelectedOptions[whereClauseIdx].whereFieldSelectedOption = selectedOption;
+    props.whereStepSelectedOptions[whereClauseIdx].whereValueSelectedOption = "";
     whereValueDisabled = false;
     fetchOptionValuesData();
   }
 
 	function handleSelectWhereValueOption(selectedOption) {
-    whereValueSelectedOption = selectedOption;
+    props.whereStepSelectedOptions[whereClauseIdx].whereValueSelectedOption = selectedOption;
 	}
 
   async function fetchOptionValuesData() {
@@ -50,19 +43,42 @@
           tempStatValueOptions.push(optionValue)
         }
       });
-      statValueOptions = tempStatValueOptions.sort();
+      statValueOptions = smartSort(tempStatValueOptions);
+      console.log(smartSort)
     } catch (err) {
       error = err.message;
       console.error(error)
     }
   }
+
+  function smartSort(list) {
+
+    const hadEmptyString = list.includes("");
+    list = list.filter(item => item !== "");
+
+    if (list.every(item => !isNaN(item))) {
+        list.sort((a, b) => Number(a) - Number(b));
+    } else {
+        list.sort();
+    }
+
+    if (hadEmptyString) {
+        list.push("N/A");
+    }
+
+    return list;
+  }
 </script>
 
-<Dropdown options={props.statFieldOptions} value={whereFieldSelectedOption ? whereFieldSelectedOption.label : ""} disabled={false} onSelect={handleSelectWhereFieldOption} bindLabel={"label"} />
-&nbsp;&nbsp;
-<span class="text-2xl">=</span>
-&nbsp;&nbsp;
-<Dropdown options={statValueOptions} value={whereValueSelectedOption} disabled={whereValueDisabled} onSelect={handleSelectWhereValueOption} />
+<div class="flex items-center justify-center">
+  WHERE
+  &nbsp;&nbsp;
+  <Dropdown options={props.statFieldOptions} value={props.whereStepSelectedOptions[whereClauseIdx].whereFieldSelectedOption ? props.whereStepSelectedOptions[whereClauseIdx].whereFieldSelectedOption.label : ""} disabled={false} placeholder={"Search Stat Field..."} onSelect={handleSelectWhereFieldOption} bindLabel={"label"} />
+  &nbsp;&nbsp;&nbsp;
+  <span class="text-2xl">=</span>
+  &nbsp;&nbsp;&nbsp;
+  <Dropdown options={statValueOptions} value={props.whereStepSelectedOptions[whereClauseIdx].whereValueSelectedOption} disabled={whereValueDisabled} placeholder={"Search Field Value..."} onSelect={handleSelectWhereValueOption} />
+</div>
 
 <style>
   .dropdown {

@@ -1,7 +1,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { queryBuilderSteps } from './pgaql_queryBuilderSteps';
-	import WhereFieldDropdowns from './WhereFieldDropdowns.svelte';
+	import WhereClauseDropdowns from './WhereClauseDropdowns.svelte';
 	import Dropdown from './Dropdown.svelte';
 
 	const dispatch = createEventDispatcher();
@@ -13,6 +13,13 @@
 	let xAxisSelectedOption = $state("");
 	let yAxisSelectedOption = $state("");
 
+  	let whereStepSelectedOptions = $state([
+  		{
+  			whereFieldSelectedOption: "",
+  			whereValueSelectedOption: ""
+  		}
+  	]);
+
     function addToInputArray() {
     	let inputValue = "";
     	const stepQueryPrefix = queryBuilderSteps[queryBuilderStep].queryPrefix;
@@ -23,6 +30,11 @@
     	inputValue+=selectedOptionForStep;
 
         inputArray.push(inputValue);
+        queryBuilderStep+=1;
+        selectedOptionForStep="";
+    }
+
+    function handleSkip() {
         queryBuilderStep+=1;
         selectedOptionForStep="";
     }
@@ -76,6 +88,31 @@
 	const options = ['Apple', 'Banana', 'Cherry', 'Grapes', 'Mango', 'Orange'];
 
 	$effect(() => {
+	    let allWhereClausesCompleted = true;
+	    let whereClauseValues = "WHERE "
+
+	    whereStepSelectedOptions.forEach((whereStep, idx) => {
+	    	if (allWhereClausesCompleted) {
+	    		console.log(whereStepSelectedOptions[idx].whereFieldSelectedOption.value)
+	    		console.log(whereStepSelectedOptions[idx].whereValueSelectedOption)
+		    	if (whereStepSelectedOptions[idx].whereFieldSelectedOption.value === "" || whereStepSelectedOptions[idx].whereValueSelectedOption === "") {
+			        allWhereClausesCompleted = false;
+				} else {
+					if (idx !== 0) {
+						whereClauseValues += " AND ";
+					}
+					whereClauseValues += whereStepSelectedOptions[idx].whereFieldSelectedOption.value + " = " + whereStepSelectedOptions[idx].whereValueSelectedOption;
+				}
+
+			}
+	    })
+
+	    if (allWhereClausesCompleted) {
+	      	handleSelectedOptionForStep(whereClauseValues);
+		}
+	  });
+
+	$effect(() => {
 	    if (xAxisSelectedOption !== "" && yAxisSelectedOption !== "") {
 			selectedOptionForStep = xAxisSelectedOption.value + " VS " + yAxisSelectedOption.value;
 	    }
@@ -87,6 +124,17 @@
 
 	const handleSetYSelectedOption = (selectedOption) => {
 		yAxisSelectedOption = selectedOption;
+	}
+
+	const addNewWhereClause = () => {
+		whereStepSelectedOptions.push({
+  			whereFieldSelectedOption: "",
+  			whereValueSelectedOption: ""
+  		});
+	}
+
+	const removeLastWhereClause = () => {
+		whereStepSelectedOptions.pop();
 	}
 </script>
 
@@ -107,16 +155,27 @@
 			<p>Stat Field (Required)</p>
 		{/if}
 		{#if queryBuilderSteps[queryBuilderStep].stepType === "WHERE_STEP"}
-			<WhereFieldDropdowns statFieldOptions={queryBuilderSteps[queryBuilderStep].options} handleSelectedOptionForStep={handleSelectedOptionForStep} />
+
+			{#each whereStepSelectedOptions as _, idx}
+				<div class="flex justify-center py-3">
+					{idx !== 0 ? "AND" : ""}
+				</div>
+				<WhereClauseDropdowns statFieldOptions={queryBuilderSteps[queryBuilderStep].options} handleSelectedOptionForStep={handleSelectedOptionForStep} whereStepSelectedOptions={whereStepSelectedOptions} whereClauseIdx={idx} />
+			{/each}
+
+			<div class="flex justify-center gap-5">
+				<button class="text-2xl query-feature-btn" onclick={addNewWhereClause}>+</button>
+				<button class="text-2xl query-feature-btn" onclick={removeLastWhereClause} disabled={whereStepSelectedOptions.length === 1}>-</button>
+			</div>
 		{:else if queryBuilderSteps[queryBuilderStep].stepType === "STAT_FIELD_STEP"}
 			<div class="flex justify-center gap-10">
 				<div>
 					<div>X Axis</div>
-					<Dropdown options={queryBuilderSteps[queryBuilderStep].options.filter(option => option.value !== yAxisSelectedOption.value)} value={xAxisSelectedOption ? xAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetXSelectedOption} bindLabel={"label"} />
+					<Dropdown options={queryBuilderSteps[queryBuilderStep].options.filter(option => option.value !== yAxisSelectedOption.value)} value={xAxisSelectedOption ? xAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetXSelectedOption} bindLabel={"label"} placeholder={"Search Stat Field..."} />
 				</div>
 				<div>
 					<div>Y Axis</div>
-					<Dropdown options={queryBuilderSteps[queryBuilderStep].options.filter(option => option.value !== xAxisSelectedOption.value)} value={yAxisSelectedOption ? yAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetYSelectedOption} bindLabel={"label"} />
+					<Dropdown options={queryBuilderSteps[queryBuilderStep].options.filter(option => option.value !== xAxisSelectedOption.value)} value={yAxisSelectedOption ? yAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetYSelectedOption} bindLabel={"label"} placeholder={"Search Stat Field..."} />
 				</div>
 			</div>
 		{:else if queryBuilderSteps[queryBuilderStep].options && queryBuilderSteps[queryBuilderStep].options.length >= 3}
@@ -147,10 +206,10 @@
 		</span>
 	</div>
 	<div class="flex flex-col">
-		<button class="query-next-btn" onclick={addToInputArray} disabled={selectedOptionForStep===""}>Next Step</button> 
+		<button class="query-next-btn" onclick={addToInputArray} disabled={selectedOptionForStep===""}>Next</button> 
 		<div class="flex gap-3">
 			<button class="query-revert-btn" onclick={handleRevert} disabled={queryBuilderStep===0}>Revert</button> 
-			<button class="query-skip-btn" onclick={null} disabled>Skip</button> 
+			<button class="query-skip-btn" onclick={handleSkip} disabled={queryBuilderStep!==3}>Skip</button> 
 		</div>
 	</div>
 </div>
