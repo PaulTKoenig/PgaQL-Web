@@ -6,7 +6,7 @@
   let isActive = $state(false);
 
   const filteredOptions = () => {
-    
+
     if (props.value === undefined || props.value.toString().trim() === "") {
       return props.options
     }

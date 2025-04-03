@@ -118,7 +118,7 @@ export const queryBuilderSteps = [
     {
         step: "3",
         stepType: "STAT_FIELD_STEP",
-        title: "What stat would you like on the X-Axis?",
+        title: "What stats would you like on each Axis?",
         options: allStatFields,
         queryPrefix: "FOR "
     },

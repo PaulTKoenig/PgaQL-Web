@@ -109,8 +109,16 @@
 		{#if queryBuilderSteps[queryBuilderStep].stepType === "WHERE_STEP"}
 			<WhereFieldDropdowns statFieldOptions={queryBuilderSteps[queryBuilderStep].options} handleSelectedOptionForStep={handleSelectedOptionForStep} />
 		{:else if queryBuilderSteps[queryBuilderStep].stepType === "STAT_FIELD_STEP"}
-			<Dropdown options={queryBuilderSteps[queryBuilderStep].options} value={xAxisSelectedOption ? xAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetXSelectedOption} bindLabel={"label"} />
-			<Dropdown options={queryBuilderSteps[queryBuilderStep].options} value={yAxisSelectedOption ? yAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetYSelectedOption} bindLabel={"label"} />
+			<div class="flex justify-center gap-10">
+				<div>
+					<div>X Axis</div>
+					<Dropdown options={queryBuilderSteps[queryBuilderStep].options.filter(option => option.value !== yAxisSelectedOption.value)} value={xAxisSelectedOption ? xAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetXSelectedOption} bindLabel={"label"} />
+				</div>
+				<div>
+					<div>Y Axis</div>
+					<Dropdown options={queryBuilderSteps[queryBuilderStep].options.filter(option => option.value !== xAxisSelectedOption.value)} value={yAxisSelectedOption ? yAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetYSelectedOption} bindLabel={"label"} />
+				</div>
+			</div>
 		{:else if queryBuilderSteps[queryBuilderStep].options && queryBuilderSteps[queryBuilderStep].options.length >= 3}
 			<div class="grid grid-cols-3 gap-5">
 				{#each queryBuilderSteps[queryBuilderStep].options as step}
