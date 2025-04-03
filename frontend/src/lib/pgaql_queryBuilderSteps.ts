@@ -124,13 +124,6 @@ export const queryBuilderSteps = [
     },
     {
         step: "4",
-        stepType: "STAT_FIELD_STEP",
-        title: "What stat would you like on the Y-Axis?",
-        options: allStatFields,
-        queryPrefix: "VS "
-    },
-    {
-        step: "5",
         stepType: "WHERE_STEP",
         title: "Add any where conditions?",
         options: allStatFields
@@ -142,7 +135,7 @@ export const queryBuilderSteps = [
         //]
     },
     {
-        step: "6",
+        step: "5",
         title: "Your Query is Finshed!"
     },
 ];

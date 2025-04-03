@@ -13,7 +13,19 @@
 		</div>
 		<ul class="dark-text text-xl">
 		    <li>
-		        lawyer
+		        Managed 4 different React applications that streamline the process for managing legal documents
+		    </li>
+		    <li>
+		        Played a key in implementing a workflow for submmiting, reviewing, and completing a type of legal document. This includes migrating the old process for this function into a new repository and converting data storage from Oracle to MongoDB. 
+		    </li>
+		    <li>
+		        Contributed to the development of a new application that streamlines the process of submitting, reviewing, escalating, and completing Non-disclosure documents. This project tough 7 months from start to finish
+		    </li>
+		    <li>
+		        Developing a new application that allows for a central hub for all legal applications
+		    </li>
+		    <li>
+		        Reducing post-release defects by leading an initiave to increase team's functional testing coverage through the use of Selenium and Cucumber
 		    </li>
 		</ul>
 
@@ -27,7 +39,7 @@
 		</div>
 		<ul class="dark-text text-xl">
 		    <li>
-		        Saving team 3 hours of data cleaning each day by development of technology risk prevention dashboard
+		        Saved team 3 hours of data cleaning each day by development of technology risk prevention dashboard
 		    </li>
 		    <li>
 				Led automation features that decrease human error in technology risk report saving over $70,000/year
@@ -83,7 +95,7 @@
 			<div>
 			    The Ohio State University
 			</div>
-			<div class="ml-auto">
+			<div class="ml-auto dark-text text-xl">
 			    2020 - 2023
 			</div>
 		</div>

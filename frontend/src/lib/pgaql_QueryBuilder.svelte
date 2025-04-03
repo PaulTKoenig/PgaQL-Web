@@ -1,7 +1,8 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import { queryBuilderSteps } from './pgaql_queryBuilderSteps'
-	import SearchableDropdown from './SearchableDropdown.svelte';
+	import { queryBuilderSteps } from './pgaql_queryBuilderSteps';
+	import WhereFieldDropdowns from './WhereFieldDropdowns.svelte';
+	import Dropdown from './Dropdown.svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -9,6 +10,8 @@
 	let queryBuilderStep = $state(0);
 	let selectedOptionForStep = $state("");
 	let statFieldAggregateType = $state("");
+	let xAxisSelectedOption = $state("");
+	let yAxisSelectedOption = $state("");
 
     function addToInputArray() {
     	let inputValue = "";
@@ -28,6 +31,9 @@
 		inputArray=[];
 		queryBuilderStep=0;
         selectedOptionForStep="";
+        xAxisSelectedOption="";
+        yAxisSelectedOption="";
+        statFieldAggregateType="";
 	}
 
 	function handleRevert() {
@@ -68,6 +74,20 @@
 	}
 
 	const options = ['Apple', 'Banana', 'Cherry', 'Grapes', 'Mango', 'Orange'];
+
+	$effect(() => {
+	    if (xAxisSelectedOption !== "" && yAxisSelectedOption !== "") {
+			selectedOptionForStep = xAxisSelectedOption.value + " VS " + yAxisSelectedOption.value;
+	    }
+	});
+
+	const handleSetXSelectedOption = (selectedOption) => {
+		xAxisSelectedOption = selectedOption;
+	}
+
+	const handleSetYSelectedOption = (selectedOption) => {
+		yAxisSelectedOption = selectedOption;
+	}
 </script>
 
 <div class="flex flex-col">
@@ -87,7 +107,10 @@
 			<p>Stat Field (Required)</p>
 		{/if}
 		{#if queryBuilderSteps[queryBuilderStep].stepType === "WHERE_STEP"}
-			<SearchableDropdown statFieldOptions={queryBuilderSteps[queryBuilderStep].options} />
+			<WhereFieldDropdowns statFieldOptions={queryBuilderSteps[queryBuilderStep].options} handleSelectedOptionForStep={handleSelectedOptionForStep} />
+		{:else if queryBuilderSteps[queryBuilderStep].stepType === "STAT_FIELD_STEP"}
+			<Dropdown options={queryBuilderSteps[queryBuilderStep].options} value={xAxisSelectedOption ? xAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetXSelectedOption} bindLabel={"label"} />
+			<Dropdown options={queryBuilderSteps[queryBuilderStep].options} value={yAxisSelectedOption ? yAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetYSelectedOption} bindLabel={"label"} />
 		{:else if queryBuilderSteps[queryBuilderStep].options && queryBuilderSteps[queryBuilderStep].options.length >= 3}
 			<div class="grid grid-cols-3 gap-5">
 				{#each queryBuilderSteps[queryBuilderStep].options as step}

@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile.dev  # or Dockerfile.prod
     container_name: backend
     ports:
-      - "5000:5000"
+      - "5001:5001"
     volumes:
       - ../backend:/app  # Mounts the backend code to the container
     environment:
