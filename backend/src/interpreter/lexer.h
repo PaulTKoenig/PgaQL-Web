@@ -3,7 +3,7 @@
 
 
 typedef enum {
-    SEARCHABLE_FIELD,
+    WHERE_FIELD,
     EQUALS,
     WHERE_VALUE,
     CHART,
@@ -11,11 +11,19 @@ typedef enum {
     IN,
     CHART_TYPE,
     FOR,
+    AXIS_TOKEN_TYPE,
     VS,
     FIND,
     SEARCH_LIMIT_TOKEN,
     player,
     WHERE,
+    AND,
+    SELECT,
+    FROM,
+    BOX_SCORE,
+    AGGREGATE,
+    GROUP_BY,
+    COMMA,
     INVALID_TOKEN
 } TOKEN_TYPE;
 

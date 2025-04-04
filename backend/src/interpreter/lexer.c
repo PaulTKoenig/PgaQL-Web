@@ -7,7 +7,7 @@
 
 
 const char *SEARCHABLE_FIELDS[] = {
-    "team_abbr", "team_city", "player_name", "start_position",
+    "team_abbr", "team_city", "player_id", "player_name", "start_position",
     "mins", "fgm", "fga", "fg_pct", "three_pm", "three_pa", "three_pct",
     "ftm", "fta", "ft_pct", "o_reb", "d_reb", "reb", "ast", "stl",
     "blk", "turnover", "pf", "pts", "plus_minus"
@@ -43,8 +43,8 @@ void print_token(TOKEN token) {
         case CHART:
             printf("Token Type: CHART, Content: %c, Length: %d\n", *(token.content), token.token_length);
             break;
-        case SEARCHABLE_FIELD:
-            printf("Token Type: SEARCHABLE_FIELD, Content: %c, Length: %d\n", *(token.content), token.token_length);
+        case WHERE_FIELD:
+            printf("Token Type: WHERE_FIELD, Content: %c, Length: %d\n", *(token.content), token.token_length);
             break;
         case EQUALS:
             printf("Token Type: EQUALS, Content: %c, Length: %d\n", *(token.content), token.token_length);
@@ -64,6 +64,9 @@ void print_token(TOKEN token) {
         case FOR:
             printf("Token Type: FOR, Content: %c, Length: %d\n", *(token.content), token.token_length);
             break;
+        case AXIS_TOKEN_TYPE:
+            printf("Token Type: AXIS_TOKEN_TYPE, Content: %c, Length: %d\n", *(token.content), token.token_length);
+            break;
         case VS:
             printf("Token Type: VS, Content: %c, Length: %d\n", *(token.content), token.token_length);
             break;
@@ -72,6 +75,12 @@ void print_token(TOKEN token) {
             break;
         case WHERE:
             printf("Token Type: WHERE, Content: %c, Length: %d\n", *(token.content), token.token_length);
+            break;
+        case AND:
+            printf("Token Type: AND, Content: %c, Length: %d\n", *(token.content), token.token_length);
+            break;
+        case AGGREGATE:
+            printf("Token Type: AGGREGATE, Content: %c, Length: %d\n", *(token.content), token.token_length);
             break;
         case INVALID_TOKEN:
             printf("Unknown Token Type, Content: %c, Length: %d\n", *(token.content), token.token_length);
@@ -128,17 +137,33 @@ int set_token_type(TOKEN **token, char *input) {
     } else if (compare_strings("FOR", input, tokenLength)) {
         token_ptr->type = FOR;
     } else if (exists_in_set(SEARCHABLE_FIELDS, SEARCHABLE_FIELDS_SIZE, input, tokenLength)) {
-        token_ptr->type = SEARCHABLE_FIELD;
+        token_ptr->type = AXIS_TOKEN_TYPE;
     } else if (compare_strings("VS", input, tokenLength)) {
         token_ptr->type = VS;
-    } else if (compare_strings("box_score", input, tokenLength)) {
-        token_ptr->type = CHARTED_TOKEN_TYPE;
     } else if (compare_strings("scatter_plot", input, tokenLength)) {
         token_ptr->type = CHART_TYPE;
     } else if (compare_strings("player", input, tokenLength)) {
         token_ptr->type = player;
     } else if (compare_strings("WHERE", input, tokenLength)) {
         token_ptr->type = WHERE;
+    } else if (compare_strings("AND", input, tokenLength)) {
+        token_ptr->type = AND;
+    } else if (compare_strings("box_score", input, tokenLength)) {
+        token_ptr->type = CHARTED_TOKEN_TYPE;
+    } else if (compare_strings("season_player_box_score", input, tokenLength)) {
+        token_ptr->type = CHARTED_TOKEN_TYPE;
+    } else if (compare_strings("season_team_box_score", input, tokenLength)) {
+        token_ptr->type = CHARTED_TOKEN_TYPE;
+    } else if (compare_strings("AVG", input, tokenLength)) {
+        token_ptr->type = AGGREGATE;
+    } else if (compare_strings("SUM", input, tokenLength)) {
+        token_ptr->type = AGGREGATE;
+    } else if (compare_strings("MAX", input, tokenLength)) {
+        token_ptr->type = AGGREGATE;
+    } else if (compare_strings("MIN", input, tokenLength)) {
+        token_ptr->type = AGGREGATE;
+    } else if (compare_strings("COUNT", input, tokenLength)) {
+        token_ptr->type = AGGREGATE;
     } else {
         token_ptr->type = WHERE_VALUE;
     }
@@ -173,6 +198,7 @@ TOKEN_NODE* lex(char *input) {
 
 char* type_to_string(TOKEN_TYPE t) {
     switch(t) {
+        case WHERE_FIELD: return "WHERE_FIELD";
         case EQUALS: return "EQUALS";
         case WHERE_VALUE: return "WHERE_VALUE";
         case CHART: return "CHART";
@@ -180,12 +206,14 @@ char* type_to_string(TOKEN_TYPE t) {
         case IN: return "IN";
         case CHART_TYPE: return "CHART_TYPE";
         case FOR: return "FOR";
-        case SEARCHABLE_FIELD: return "SEARCHABLE_FIELD";
+        case AXIS_TOKEN_TYPE: return "AXIS_TOKEN_TYPE";
         case VS: return "VS";
         case FIND: return "FIND";
         case SEARCH_LIMIT_TOKEN: return "SEARCH_LIMIT_TOKEN";
         case player: return "player";
         case WHERE: return "WHERE";
+        case AND: return "AND";
+        case AGGREGATE: return "AGGREGATE";
         case INVALID_TOKEN: return "INVALID_TOKEN";
         default: return "Unknown";
     }

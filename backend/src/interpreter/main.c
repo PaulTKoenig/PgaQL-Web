@@ -9,7 +9,7 @@
 
 int main(void) {
 
-    // char input[] = "CHART players IN scatter_plot FOR driving_distance VS score WHERE tournament = Masters";
+    // char input[] = "CHART season_player_box_score IN scatter_plot FOR AVG pts VS SUM fgm WHERE team_abbr = 'CLE' AND player_id = '1627745'";
 
     char *input = malloc(CHUNK_SIZE * sizeof(char));  // Start with an initial buffer
     if (input == NULL) {
@@ -40,8 +40,6 @@ int main(void) {
     input[position] = '\0';
 
 
-
-
     TOKEN_NODE *token_list_head = lex(input);
 
     // print_token_list(token_list_head);
@@ -54,11 +52,11 @@ int main(void) {
     // print_ast(ast);
 
     char *query_string = interpret(ast);
-
     // printf("%s\n", query_string);
+
     printf("{\"status\": \"success\", \"error_code\": %d, \"message\": \"%s\"}\n", 200, query_string);
 
-    // CLEAN UP MEMORY
+    // // // CLEAN UP MEMORY
     free_token_list(token_list_head);
     free(ast);
     free(query_string);

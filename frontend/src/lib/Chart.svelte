@@ -11,7 +11,7 @@
 
   function updateChartData() {
     if (chartInstance) {
-      chartInstance.data.datasets[0].data = data.map(item => ({ x: item[0], y: item[1] }));
+      chartInstance.data.datasets[0].data = data.map(item => ({ x: item[1], y: item[2] }));
       chartInstance.update();
     }
   }
@@ -29,7 +29,7 @@
     const chartData = {
       datasets: [{
         label: 'Scatter Dataset',
-        data: data.map(item => ({ x: item[0], y: item[1] })),
+        data: data.map(item => ({ x: item[1], y: item[2] })),
         backgroundColor: 'rgba(75, 192, 192, 1)',
         pointRadius: 5
       }]
