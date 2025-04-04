@@ -6,12 +6,12 @@ import re
 
 app = Flask(__name__)
 
-@app.route('/api/get-all-field-values', methods=['GET'])
-def home():
+@app.route('/api/get-all-field-values/<string:field_name>', methods=['GET'])
+def getFieldValues(field_name):
     connection = sqlite3.connect('./src/db/box_score.db')
     cursor = connection.cursor()
 
-    cursor.execute("SELECT fgm FROM box_score")
+    cursor.execute(f"SELECT {field_name} FROM box_score")
 
 
     results = cursor.fetchall()

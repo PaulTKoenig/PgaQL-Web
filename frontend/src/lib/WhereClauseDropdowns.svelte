@@ -17,18 +17,18 @@
     props.whereStepSelectedOptions[whereClauseIdx].whereFieldSelectedOption = selectedOption;
     props.whereStepSelectedOptions[whereClauseIdx].whereValueSelectedOption = "";
     whereValueDisabled = false;
-    fetchOptionValuesData();
+    fetchOptionValuesData(selectedOption.value);
   }
 
 	function handleSelectWhereValueOption(selectedOption) {
     props.whereStepSelectedOptions[whereClauseIdx].whereValueSelectedOption = selectedOption;
 	}
 
-  async function fetchOptionValuesData() {
+  async function fetchOptionValuesData(selectedField) {
     error = null;
 
     try {
-      const response = await fetch(`/api/get-all-field-values`);
+      const response = await fetch("/api/get-all-field-values/" + selectedField);
 
       if (!response.ok) {
         throw new Error('Sorry something went wrong. Please try again');
@@ -44,7 +44,7 @@
         }
       });
       statValueOptions = smartSort(tempStatValueOptions);
-      console.log(smartSort)
+
     } catch (err) {
       error = err.message;
       console.error(error)
