@@ -3,6 +3,7 @@
     import emblaCarouselSvelte from 'embla-carousel-svelte';
     import { Carousel } from '$lib';
     import { articles } from '../lib/articles.ts';
+    let profilePicture = '../profile_picture2.jpg';
 
     const whatImDoingNowList = [
         {
@@ -21,20 +22,25 @@
 </script>
 
 <div class="px-10vh">
-    <div class="text-4xl font-bold pb-4">
-        Hi, I'm Paul
-    </div>
-    <div class="text-4xl font-bold pb-8">
-        Software Engineer
-    </div>
-    <div class="flex flex-col gap-6 dark-text">
-        <div class="text-xl font-bold">
-            I'm a really shitty developer with a range of experience in web development, systems engineering, and data science. I got into coding in 2019 from the need to take an extra elective in course schedule and a curiosity for the internet, which eventually led me to major in Computer Science at The Ohio State University.
-        </div>
+    <div class="xl:flex items-center">
+        <div>
+            <div class="text-4xl font-bold pb-4">
+                Hi, I'm Paul
+            </div>
+            <div class="text-4xl font-bold pb-8">
+                Software Engineer
+            </div>
+            <div class="flex flex-col gap-6 dark-text">
+                <div class="text-xl font-bold">
+                    I'm a curious and driven developer with experience in web development, systems engineering, and data science. I began coding in 2019 after a one-off C# programming elective sparked my interest, ultimately leading me to major in Computer Science at The Ohio State University.
+                </div>
 
-        <div class="text-xl font-bold">
-            I love music and spending time outdoors, enjoying activities like golf, snowboarding, and fishing in my free time. I created this page to share more about my development journey and life experiences.
+                <div class="text-xl font-bold">
+                    I love music and spending time outdoors, enjoying activities like golf, snowboarding, and fishing in my free time. I created this page to share more about my development journey and life experiences.
+                </div>
+            </div>
         </div>
+        <img src={profilePicture} alt="Profile Picture" class="hidden xl:block ml-24 h-72 rounded-lg" />
     </div>
 
     <div class="projects-section-header">
