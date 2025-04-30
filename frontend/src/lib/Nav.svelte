@@ -15,11 +15,11 @@
     </a>
     <div class="flex my-auto ml-auto mr-5 gap-1">
 
-        <button class="nav-dropdown-btn" onclick={toggleNav}>
+        <button class="nav-dropdown-btn" class:nav-dropdown-btn-close={showNav} onclick={toggleNav}>
             {#if showNav}
-                Pages ▼
+                ✕
             {:else}
-                Pages ▲
+                ☰
             {/if}
         </button> 
         {#if showNav}
@@ -118,6 +118,21 @@
           background-color: #555555 !important;
 
         }
+    }
+
+    .nav-dropdown-btn {
+        font-size: x-large;
+        padding: 0.15rem 0.65rem 0.25rem;
+        text-align: center;
+    }
+
+    .nav-dropdown-btn-close {
+        padding: 0.25rem 0.65rem;
+    }
+
+    .nav-dropdown-btn:hover {
+        background-color: #333333 !important;
+        border: none;
     }
 
     .nav-bar {
