@@ -10,7 +10,7 @@
         },
         {
             name: "paul.com",
-            description: "my wesbite",
+            description: "Portfolio to showcase my journey as a software developer",
             repo_link: "https://github.com/PaulTKoenig/PgaQL-Web",
             year: "2024"
         },
@@ -35,7 +35,8 @@
         {
             name: "Community-Driven Indoor Navigation App",
             description: "Placed 2nd out of 25 teams in Ohio State University Hackathon",
-            year: "2023"
+            year: "2023",
+            medal: true
         },
         {
             name: "Automated Dataset Builder for AI Voice Generation",
@@ -52,7 +53,8 @@
         {
             name: "Student Commute Matching App for Safer Traveling at Night",
             description: "Placed 2nd out of 25 teams in Ohio State University Hackathon",
-            year: "2022"
+            year: "2022",
+            medal: true
         },
         {
             name: "Automated Navigation System for Driver Safety",
@@ -73,14 +75,17 @@
     {#each projects as project}
         <div class="project-container">
             <div class="flex flex-col h-full">
-                <div class="flex">
-                    <div class="text-xl font-bold max-w-3/4">
+                <div class="flex pb-2">
+                    <div class="flex items-center text-xl font-bold max-w-3/4">
                         {project.name}
-                        {#if project.favorite}
-                            <span class="teal-star">*</span>
-                        {/if}
                     </div>
                     <div class="ml-auto dark-text">{project.year}</div>
+                </div>
+                <div class="flex gap-2">
+                    {#if project.favorite}  <span class="ml-2 bg-yellow-400 text-white text-xs px-2 py-1 rounded-full">⭐ Favorite</span>
+                            {/if}
+                    {#if project.medal}  <span class="ml-2 bg-gray-400 text-white text-xs px-2 py-1 rounded-full">🏅 2nd Place Hackathon</span>
+                            {/if}
                 </div>
                 <div class="p-3 dark-text">{project.description}</div>
                 <div class="carousel-action-btns-container">
@@ -148,10 +153,5 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-    }
-
-    .teal-star {
-        color: #03DAC6;
-        font-size: larger;
     }
 </style>

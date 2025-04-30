@@ -13,19 +13,19 @@
 		</div>
 		<ul class="dark-text text-xl">
 		    <li>
-		        Managed 4 different React applications that streamline the process for managing legal documents
+		        Managed and maintained four React applications used to streamline and automate legal document management processes, improving operational efficiency and user experience.
 		    </li>
 		    <li>
-		        Played a key in implementing a workflow for submmiting, reviewing, and completing a type of legal document. This includes migrating the old process for this function into a new repository and converting data storage from Oracle to MongoDB. 
+		        Played a key role in implementing of a new workflow for the submission, review, and completion of a particular legal document, including the leading migration of legacy processes into a modern codebase and transitioning data storage from Oracle to MongoDB, resulting in enhanced scalability and reduced maintenance overhead.
 		    </li>
 		    <li>
-		        Contributed to the development of a new application that streamlines the process of submitting, reviewing, escalating, and completing Non-disclosure documents. This project tough 7 months from start to finish
+		    	Contributed to the full lifecycle of a new application for Non-Disclosure Agreement (NDA) processing—covering submission, review, escalation, and completion—over a 7-month development timeline, automating many of the team's currently manual workflow and implenting features that were not possible in the previous sharepoint solution
 		    </li>
 		    <li>
-		        Developing a new application that allows for a central hub for all legal applications
+		        Developing a centralized legal application hub integrating multiple legal services via iframes and microfrontends. Key contributions include: building dynamic data grids, implementing user behavior tracking through click analytics, enhancing UI/UX, overhauling functional testing efforts, and addressing complex security and rendering concerns.
 		    </li>
 		    <li>
-		        Reducing post-release defects by leading an initiave to increase team's functional testing coverage through the use of Selenium and Cucumber
+		        Reduced post-release defects by spearheading an initiative to improve functional test coverage using Selenium and Cucumber, resulting in more reliable releases and improved team confidence in code quality.
 		    </li>
 		</ul>
 
@@ -39,7 +39,7 @@
 		</div>
 		<ul class="dark-text text-xl">
 		    <li>
-		        Saved team 3 hours of data cleaning each day by development of technology risk prevention dashboard
+		        Saved team 3 hours of data cleaning each day through the development of the technology risk prevention dashboard
 		    </li>
 		    <li>
 				Led automation features that decrease human error in technology risk report saving over $70,000/year
@@ -129,7 +129,7 @@
 		        Professional Level - Relational Databases (Microsoft SQL Server, Oracle, PostgreSQL, SQLite), NoSQL Databases (MongoDB, Unit Testing (Jest, JUnit), Version Control (Git), APIs (Spring Boot, Flask)
 		    </div>
 		    <div>
-		        Proficient Level - AWS, Automation Testing (Cucumber, Selenium), Linux/Unix
+		        Proficient Level - AWS, Automation Testing (Selenium), Linux/Unix
 		    </div>
 		</div>
 	</div>

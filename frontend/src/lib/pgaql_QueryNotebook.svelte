@@ -31,6 +31,7 @@
 
 	.query-submit-btn {
 		width: 25%;
+		min-width: 100px;
 		margin-top: 1rem;
 		border: 1px solid #F0F0F0;
     }

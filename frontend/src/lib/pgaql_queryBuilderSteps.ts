@@ -1,5 +1,57 @@
 const allStatFields = [
 	{ 
+		label: "First Name", 
+		value: "firstName"
+	},
+	{ 
+		label: "Last Name", 
+		value: "lastName"
+	},
+	{ 
+		label: "Game Date", 
+		value: "gameDate"
+	},
+	{ 
+		label: "Player Team City", 
+		value: "playerteamCity"
+	},
+	{ 
+		label: "Player Team Name", 
+		value: "playerteamName"
+	},
+	{ 
+		label: "Opponent Team City", 
+		value: "opponentteamCity"
+	},
+	{ 
+		label: "Opponent Team Name", 
+		value: "opponentteamName"
+	},
+	{ 
+		label: "Game Type", 
+		value: "gameType"
+	},
+	{ 
+		label: "Game Label", 
+		value: "gameLabel"
+	},
+	{ 
+		label: "Game Sub Label", 
+		value: "gameSubLabel"
+	},
+	{ 
+		label: "Series Game Number", 
+		value: "seriesGameNumber"
+	},
+	{ 
+		label: "Team Won", 
+		value: "win"
+	},
+	{ 
+		label: "Home Game", 
+		value: "home"
+	},
+	{ 
 		label: "Minutes", 
 		value: "mins"
 	},
@@ -89,7 +141,7 @@ export const queryBuilderSteps = [
         options: [
         	{ 
         		label: "Game Player Stats", 
-        		value: "CHART box_score"
+        		value: "CHART player_stats"
         	},
         	{ 
         		label: "Season Player Stats", 

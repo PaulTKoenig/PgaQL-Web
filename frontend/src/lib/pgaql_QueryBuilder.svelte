@@ -93,8 +93,6 @@
 
 	    whereStepSelectedOptions.forEach((whereStep, idx) => {
 	    	if (allWhereClausesCompleted) {
-	    		console.log(whereStepSelectedOptions[idx].whereFieldSelectedOption.value)
-	    		console.log(whereStepSelectedOptions[idx].whereValueSelectedOption)
 		    	if (whereStepSelectedOptions[idx].whereFieldSelectedOption.value === "" || whereStepSelectedOptions[idx].whereValueSelectedOption === "") {
 			        allWhereClausesCompleted = false;
 				} else {
@@ -179,7 +177,7 @@
 				</div>
 			</div>
 		{:else if queryBuilderSteps[queryBuilderStep].options && queryBuilderSteps[queryBuilderStep].options.length >= 3}
-			<div class="grid grid-cols-3 gap-5">
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 				{#each queryBuilderSteps[queryBuilderStep].options as step}
 					<button class="query-feature-btn" class:selectedOption={selectedOptionForStep===step.value} onclick={() => handleSelectedOptionForStep(step.value)}>{step.label}
 					</button>
@@ -240,6 +238,7 @@
 
     .query-feature-btn {
     	width: auto;
+    	min-height: 80px;
     }
 
     .gap-8 {

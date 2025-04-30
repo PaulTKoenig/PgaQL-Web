@@ -42,14 +42,14 @@
 </script>
 
 
-<div class="flex">
-  <div class="w-1/3 xl:w-1/4 mx-auto pb-20">
+<div class="lg:flex">
+  <div class="w-full lg:w-1/3 xl:w-1/4 mx-auto pb-10 md:pb-20">
     <div class="pgaql-menu-container">
       <p class="font-bold">
         PgaQL UI is an interactive platform to build queries with the query language 'PgaQL' allowing users to easily search and chart trends for their favorite athletes and teams
       </p>
       <p class="py-10">
-        Example: CHART box_score IN scatter_plot FOR fga VS fgm WHERE team_abbr = 'CLE'
+        Example: CHART player_stats IN scatter_plot FOR fga VS fgm WHERE blk = '10'
       </p>
       <p class:font-bold={true}>
         Build a Query
@@ -60,7 +60,7 @@
     </div>
   </div>
 
-  <div class="flex flex-col gap-10 w-2/3 xl:w-3/4 mx-auto pb-20">
+  <div class="flex flex-col gap-10 w-full lg:w-2/3 xl:w-3/4 mx-auto pb-20">
     <div class="pgaql-main-container">
       <div class="pgaql-tabs flex mb-10">
         <div class="pgaql-query-tab" class:pgaql-query-tab-active={queryTab === 0} onclick={() => updateQueryTab(0)}>
