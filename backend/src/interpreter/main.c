@@ -56,7 +56,7 @@ int main(void) {
 
     printf("{\"status\": \"success\", \"error_code\": %d, \"message\": \"%s\"}\n", 200, query_string);
 
-    // // // CLEAN UP MEMORY
+    // CLEAN UP MEMORY
     free_token_list(token_list_head);
     free(ast);
     free(query_string);

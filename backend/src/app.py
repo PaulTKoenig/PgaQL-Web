@@ -6,12 +6,27 @@ import re
 
 app = Flask(__name__)
 
-@app.route('/api/get-all-field-values/<string:field_name>', methods=['GET'])
-def getFieldValues(field_name):
-    connection = sqlite3.connect('./src/db/box_score.db')
+@app.route('/api/get-player-details/<string:player_id>', methods=['GET'])
+def getPlayerDetails(player_id):
+    connection = sqlite3.connect('./src/db/player_stats.db')
     cursor = connection.cursor()
 
-    cursor.execute(f"SELECT {field_name} FROM box_score")
+    cursor.execute(f"SELECT playerId, firstName, lastName, playerTeamCity, playerTeamName FROM player_stats WHERE playerId = '{player_id}'")
+
+
+    results = cursor.fetchone()
+
+    cursor.close()
+    connection.close()
+
+    return jsonify(results), 200
+
+@app.route('/api/get-all-field-values/<string:field_name>', methods=['GET'])
+def getFieldValues(field_name):
+    connection = sqlite3.connect('./src/db/player_stats.db')
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT {field_name} FROM player_stats")
 
 
     results = cursor.fetchall()
@@ -24,9 +39,9 @@ def getFieldValues(field_name):
 @app.route('/api/interpret-query', methods=['GET'])
 def interpret_query():
 
-    # message = "CHART box_score IN scatter_plot FOR blk VS fgm WHERE game_id = '0022300061'"
+    # message = "CHART player_stats IN scatter_plot FOR blk VS fgm WHERE game_id = '0022300061'"
 
-    query_string = request.args.get('query')  # Get the query parameter from the URL
+    query_string = request.args.get('query')
 
     if query_string:
 
@@ -46,7 +61,7 @@ def interpret_query():
             if result["status"] == "success":
                 print("The process was successful:", result["message"])
 
-                connection = sqlite3.connect('./src/db/box_score.db')
+                connection = sqlite3.connect('./src/db/player_stats.db')
                 cursor = connection.cursor()
 
                 cursor.execute(result["message"])
