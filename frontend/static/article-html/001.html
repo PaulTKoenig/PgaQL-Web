@@ -1,23 +1,36 @@
 <div class="text-5xl font-bold pb-10">
-	Statistical Approach to Predicting NCAAB Outcomes
+	MLExpress
 </div>
 
 <div class="text-2xl font-bold py-5">
-	Developed logistic regression model that predicts the outcome of basketball games at a ~97% accuracy given the final box score and derived advanced stats from NCAA College basketball games.
+
+	MLExpress is a project that roots from a business competition at The Ohio State University. The goal was to develop a solution to any problem, not specifically a technology issue, and present the project as if it were shark tank. Throughout the competition, we were paired with mentors to teach us the steps of bringing a business to life, attended weekly meetings to learn about the competition, and heard from previous participants and local business gurus. Unfortunately, I had to drop out of the competition due to a clause in my work contract that states they own all of my intellectual property, I learned a ton and had a lot of fun building this project.
+
 </div>
 
 <div class="text-2xl font-bold py-5">
-	Developed two team ranking systems based off scoring and overall efficiency, data preprocessing transformation algorithm that significantly reduced model overfitting, and future matchup box score prediction to ~30% accuracy.
+
+	Our solution was an educational website that allows a user to preprocess and train predictive machine learning models without a line of code. The interface would visually show what is happening to the data, teach users best practices, and include courses on how/why each step works. The models would train locally on a computer with tensorflow.js or on a cloud service if the user wanted to train larger models. This would work well with a platform like kaggle where users could attain data sets from kaggle and train it on our website. 
+
 </div>
 
 <div class="text-2xl font-bold py-5">
-	When put together, achieved ~73% accuracy in producing the correct outcome of games only using statistics provided before the game.
+
+	I built a fully functional prototype in react that was able to take a data set, preprocess it, and train it on 2 different types of models to compare the results.
+
 </div>
 
 <div class="text-2xl font-bold py-5">
-	Outperformed all similar models found with publicly available prediction accuracies including the TeamRanking.com Decision Tree Model (71.2%), a website that is described as "the web's #1 source for algorithmic sports predictions and data".
-</div>
+	
+	Example of using the app:
 
-<div class="text-2xl font-bold py-20">
-	More in-depth details including code snippets coming soon...
+	Upload a csv or xls file
+	View the dataset and summary of each feature
+	view distributions for each feature
+	remove any outliers
+	scale or transform any features
+	select what features are the outcome(s) and what to train
+	train models and update hyperparameters as needed
+
+
 </div>
