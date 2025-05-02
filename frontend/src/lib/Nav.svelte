@@ -50,11 +50,19 @@
                 </a>
                 <a
                     class="nav-btn nav-dropdown-item"
+                    href="/resume"
+                    class:active={page.url.pathname === '/resume'}
+                    onclick={toggleNav}
+                >
+                    Resume
+                </a>
+                <a
+                    class="nav-btn nav-dropdown-item"
                     href="/pgaql"
                     class:active={page.url.pathname === '/pgaql'}
                     onclick={toggleNav}
                 >
-                    PgaQL
+                    NbaQL
                 </a>
             </div>
         {/if}
@@ -82,10 +90,17 @@
             </a>
             <a
                 class="nav-btn"
+                href="/resume"
+                class:active={page.url.pathname === '/resume'}
+            >
+                Resume
+            </a>
+            <a
+                class="nav-btn"
                 href="/pgaql"
                 class:active={page.url.pathname === '/pgaql'}
             >
-                PgaQL
+                NbaQL
             </a>
         </div>
         <a class="social-media-nav-logo ml-3" href="https://github.com/PaulTKoenig">
@@ -103,13 +118,13 @@
 
 <style>
 
-    @media (min-width: 700px) {
+    @media (min-width: 800px) {
         .nav-dropdown-btn, .nav-dropdown {
           display: none;
         }
     }
 
-    @media (max-width: 699px) {
+    @media (max-width: 799px) {
         .default-nav-buttons {
           display: none !important;
         }
@@ -174,11 +189,11 @@
         display: flex;
         flex-direction: column;
         text-align: center;
-        border: 1px solid black;
+        border: .5px solid #111111;
         border-radius: 4px;
         padding: 0.5rem;
         background-color: #333333;
-        top: 60px;
+        top: 55px;
         right: 125px;
     }
 
