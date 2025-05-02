@@ -11,7 +11,7 @@
             technologies: ['C', 'Svelte']
         },
         {
-            name: "paul.com",
+            name: "IHatePaulKoenig.com",
             description: "Portfolio to showcase my journey as a software developer",
             repo_link: "https://github.com/PaulTKoenig/PgaQL-Web",
             year: "2024",
@@ -68,8 +68,8 @@
             technologies: ['Python', 'Flask']
         },
         {
-            name: "Automated Navigation System for Driver Safety",
-            description: "Navigation system utilizing image processing by giving vibrating cues to an arduino in the steering wheel",
+            name: "Automated Steering Navigation System for Driver Safety",
+            description: "Navigation system utilizing image processing by giving vibrating cues within the steering wheel by an arduino",
             year: "2022",
             technologies: ['Python', 'OpenCV']
         }
