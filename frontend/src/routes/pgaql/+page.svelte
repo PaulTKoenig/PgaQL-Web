@@ -46,7 +46,7 @@
   <div class="w-full lg:w-1/3 xl:w-1/4 mx-auto pb-10 md:pb-20">
     <div class="pgaql-menu-container">
       <p class="font-bold">
-        PgaQL UI is an interactive platform to build queries with the query language 'PgaQL' allowing users to easily search and chart trends for their favorite athletes and teams
+        NbaQL UI is an interactive platform to build queries with the query language 'NbaQL' allowing users to easily search and chart trends for their favorite athletes and teams
       </p>
       <p class="py-10">
         Example: CHART player_stats IN scatter_plot FOR fga VS fgm WHERE blk = '10'
