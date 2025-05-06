@@ -86,7 +86,12 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <a class="carousel-action-btn" href="/pgaql">Demo</a>
+            <a class="carousel-action-btn" href="/pgaql">
+              Demo
+            </a>
+            <a class="carousel-action-btn coming-soon-btn">
+              <div>Article Coming Soon</div>
+            </a>
           </div>
         </div>
         <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl ml-auto hidden xl:block" />
@@ -111,7 +116,7 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <a class="carousel-action-btn" href="/articles/001">Read More</a>
+            <a class="carousel-action-btn" href="/articles/003">Read More</a>
           </div>
         </div>
         <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl ml-auto hidden xl:block" />
@@ -136,8 +141,8 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <a class="carousel-action-btn coming-soon-btn">
-              <div>Article Coming Soon</div>
+            <a class="carousel-action-btn" href="/articles/001">
+              Read More
             </a>
           </div>
         </div>
@@ -166,8 +171,8 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <a class="carousel-action-btn coming-soon-btn">
-              <div>Article Coming Soon</div>
+            <a class="carousel-action-btn" href="/articles/002">
+              Read More
             </a>
           </div>
         </div>
