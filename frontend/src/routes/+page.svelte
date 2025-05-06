@@ -27,12 +27,9 @@
             <div class="text-4xl font-bold pb-4">
                 Hi, I'm Paul
             </div>
-            <div class="text-4xl font-bold pb-8">
-                Software Engineer
-            </div>
             <div class="flex flex-col gap-6 dark-text">
                 <div class="text-xl font-bold">
-                    I'm a curious and driven developer with experience in web development, systems engineering, and data science. I began coding in 2019 after a one-off C# programming elective sparked my interest, ultimately leading me to major in Computer Science at The Ohio State University.
+                    I'm a curious and driven software engineer with experience in web development, systems engineering, and data science. I began coding in 2019 after a one-off programming elective in C# sparked my interest, ultimately leading me to major in Computer Science at The Ohio State University.
                 </div>
 
                 <div class="text-xl font-bold">
