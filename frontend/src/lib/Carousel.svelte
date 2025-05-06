@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import EmblaCarousel from 'embla-carousel';
-  let pgaqlSnapshot = '/pgaql.png';
+  let nbaqlSnapshot = '/nbaql.png';
   let bball_r_us = '/bball-r-us.png';
   let bball_chart = '/bball-chart.webp';
   let mlexpress = '/mlexpress.png';
@@ -70,13 +70,13 @@
         <div class="p-10 flex flex-col">
           <div>
     	      <p class="text-xl font-bold">
-              PgaQL Interpreter
+              NbaQL Interpreter & UI
             </p>
             <p class="text-lg pt-3 hidden lg:block">
-              Interpreter for the developed language 'PgaQL' that allows users to easily find trends in their favorite athletes and teams
+              Interpreter for the developed language 'NbaQL' that allows users to easily find trends in their favorite athletes and teams
             </p>
             <p class="text-lg pt-3 block lg:hidden">
-              Interpreter for the developed language 'PgaQL'
+              Interpreter for the developed language 'NbaQL'
             </p>
             <div class="project-tags-container">
               <div class="project-tag bg-teal">C</div>
@@ -86,7 +86,7 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <a class="carousel-action-btn" href="/pgaql/build-a-query">
+            <a class="carousel-action-btn" href="/nbaql/build-a-query">
               Demo
             </a>
             <a class="carousel-action-btn coming-soon-btn">
@@ -94,7 +94,7 @@
             </a>
           </div>
         </div>
-        <img src={pgaqlSnapshot} alt="PgaQL Interpreter" class="p-3 rounded-2xl ml-auto hidden xl:block" />
+        <img src={nbaqlSnapshot} alt="NbaQL Interpreter" class="p-3 rounded-2xl ml-auto hidden xl:block" />
 	    </div>
 	  </div>
     <div class="embla__slide">

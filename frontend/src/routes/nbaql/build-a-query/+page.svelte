@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { Chart, PgaqlHeader, QueryBuilder, QueryNotebook } from '$lib';
+  import { Chart, NbaqlHeader, NbaqlSidebar, QueryBuilder, QueryNotebook } from '$lib';
 
   let submittedQuery = $state("");
   let queryTab = $state(0);
@@ -41,19 +41,20 @@
 </script>
 
 
+<NbaqlHeader />
 <div class="lg:flex">
   <div class="w-full lg:w-1/3 xl:w-1/4 mx-auto pb-10 md:pb-20">
-    <PgaqlHeader />
+    <NbaqlSidebar />
   </div>
 
   <div class="flex flex-col gap-10 w-full lg:w-2/3 xl:w-3/4 mx-auto pb-20">
-    <div class="pgaql-main-container">
-      <div class="pgaql-tabs flex mb-10">
-        <div class="pgaql-query-tab" class:pgaql-query-tab-active={queryTab === 0} onclick={() => updateQueryTab(0)}>
+    <div class="nbaql-main-container">
+      <div class="nbaql-tabs flex mb-10">
+        <div class="nbaql-query-tab" class:nbaql-query-tab-active={queryTab === 0} onclick={() => updateQueryTab(0)}>
           Query Builder
         </div>
         <div 
-          class="pgaql-query-tab" class:pgaql-query-tab-active={queryTab === 1} onclick={() => updateQueryTab(1)}
+          class="nbaql-query-tab" class:nbaql-query-tab-active={queryTab === 1} onclick={() => updateQueryTab(1)}
         >Query Notebook</div>
         <!-- <div 
           class="w-1/3 border-b hover:shadow-lg focus:shadow-lg cursor-pointer p-3 transition-all"
@@ -71,7 +72,7 @@
         
       </div>
     </div>
-    <div class="pgaql-chart-container mx-auto" class:hidden={!loading && !error && data.length === 0}>
+    <div class="nbaql-chart-container mx-auto" class:hidden={!loading && !error && data.length === 0}>
       {#if loading}
         <p>Loading...</p>
       {:else if error}
@@ -88,7 +89,7 @@
 
 <style>
 
-    .pgaql-main-container, .pgaql-menu-container, .pgaql-chart-container {
+    .nbaql-main-container, .nbaql-menu-container, .nbaql-chart-container {
       padding: 3rem;
       margin: 0 1rem;
       border-radius: 16px;
@@ -99,12 +100,12 @@
         padding-top: max(3.5rem, 10vh);
     }
 
-    .pgaql-tabs {
+    .nbaql-tabs {
       border: 1px solid #222222;
       border-radius: 4px;
     }
 
-    .pgaql-query-tab {
+    .nbaql-query-tab {
       width: 50%;
       cursor: pointer;
       padding: 0.75rem;
@@ -113,11 +114,11 @@
       border-radius: 4px;
     }
 
-    .pgaql-query-tab:hover {
+    .nbaql-query-tab:hover {
       text-decoration: underline;
     }
 
-    .pgaql-query-tab-active {
+    .nbaql-query-tab-active {
       transition-property: all;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       transition-duration: 150ms;
@@ -125,7 +126,7 @@
       --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 1);
       box-shadow: var(--tw-ring-offset-shadow, 0 0 #fff), var(--tw-ring-shadow, 0 0 #fff), var(--tw-shadow);
     }
-    .pgaql-query-tab-active:hover {
+    .nbaql-query-tab-active:hover {
       border: initial;
     }
 </style>

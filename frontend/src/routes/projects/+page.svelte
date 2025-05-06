@@ -1,26 +1,27 @@
 <script>
     const projects = [
         {
-            name: "NbaQL Interpreter",
+            name: "NbaQL Interpreter & UI",
             description: "Interpreter for the developed language 'NbaQL' that allows users to easily find trends in their favorite athletes and teams",
-            demo_link: "/pgaql",
+            demo_link: "/nbaql/build-a-query",
             repo_link: "https://github.com/PaulTKoenig/PgaQL-Interpreter",
             year: "2024",
             favorite: true,
             active: true,
-            technologies: ['C', 'Svelte']
+            technologies: ['C', 'Svelte', 'Docker']
         },
         {
             name: "IHatePaulKoenig.com",
-            description: "Portfolio to showcase my journey as a software developer",
+            description: "Source of this website & NbaQL UI",
             repo_link: "https://github.com/PaulTKoenig/PgaQL-Web",
             year: "2024",
             active: true,
-            technologies: ['Svelte']
+            technologies: ['Svelte', 'Docker']
         },
         {
             name: "MLExpress",
             description: "Web application enabling users to interact with datasets and experiment building and fine-tuning ML models without coding; Includes data exploration, cleaning, transformation, visualization, and model development",
+            article_link: "/articles/001",
             repo_link: "https://github.com/PaulTKoenig/MLExpress",
             year: "2024",
             favorite: true,
@@ -29,6 +30,7 @@
         {
             name: 'Basketballs "R" Us',
             description: "One stop e-commerce shop for all things basketball with fully functional inventory management and order processing",
+            article_link: "/articles/002",
             year: "2023",
             favorite: true,
             technologies: ['React', 'Node.js', 'Express.js', 'Kafka']
@@ -55,7 +57,7 @@
         {
             name: "Statistical Approach to Predicting NCAAB Outcomes",
             description: "Predictive model for future NCAA basketball matchups with a 73% accuracy rate, based on analysis of 2,129 games during the 2022-23 season",
-            article_link: "/articles/001",
+            article_link: "/articles/003",
             year: "2022",
             favorite: true,
             technologies: ['Python', 'PyTorch', 'TensorFlow']
@@ -119,7 +121,7 @@
                 <div class="p-3 dark-text">{project.description}</div>
                 <div class="carousel-action-btns-container">
                     {#if project.demo_link}
-                        <a class="carousel-action-btn coming-soon-btn" href={project.demo_link} target="_blank" rel="noopener noreferrer">
+                        <a class="carousel-action-btn coming-soon-btn" href={project.demo_link}>
                           Demo
                         </a>
                     {/if}

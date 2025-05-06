@@ -1,6 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import { queryBuilderSteps } from './pgaql_queryBuilderSteps';
+	import { queryBuilderSteps } from './queryBuilderSteps';
 	import WhereClauseDropdowns from './WhereClauseDropdowns.svelte';
 	import Dropdown from './Dropdown.svelte';
 
