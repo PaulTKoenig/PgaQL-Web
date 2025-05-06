@@ -176,8 +176,6 @@
     }
 
     .social-media-nav-logo {
-        background-color: #202124;
-        color: red;
         padding: 0 .5rem;
         border-radius: 4px;
         display: flex;
