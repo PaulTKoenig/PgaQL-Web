@@ -6,7 +6,7 @@
     Articles
 </div>
 <div class="text-2xl font-bold py-5">
-    Personal notes about development, projects, and anything else
+    Deeper dive into projects, development, and any other thoughts I have
 </div>
 <div class="articles-container">
     {#each articles as article}

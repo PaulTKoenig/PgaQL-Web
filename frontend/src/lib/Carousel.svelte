@@ -86,7 +86,7 @@
             </div>
           </div>
           <div class="carousel-action-btns-container">
-            <a class="carousel-action-btn" href="/pgaql">
+            <a class="carousel-action-btn" href="/pgaql/build-a-query">
               Demo
             </a>
             <a class="carousel-action-btn coming-soon-btn">

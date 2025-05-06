@@ -53,8 +53,8 @@
                     </a>
                     <a
                         class="nav-btn nav-dropdown-item"
-                        href="/pgaql"
-                        class:active={page.url.pathname === '/pgaql'}
+                        href="/pgaql/build-a-query"
+                        class:active={page.url.pathname === '/pgaql/build-a-query'}
                         onclick={closeNav}
                     >
                         NbaQL
@@ -86,8 +86,8 @@
             </a>
             <a
                 class="nav-btn"
-                href="/pgaql"
-                class:active={page.url.pathname === '/pgaql'}
+                href="/pgaql/build-a-query"
+                class:active={page.url.pathname === '/pgaql/build-a-query'}
             >
                 NbaQL
             </a>

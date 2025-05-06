@@ -72,16 +72,11 @@
 
     <div class="section-header">
         <div class="text-3xl font-bold">
-            Articles
+            Recent Articles
         </div>
         <a class="more-articles-btn ml-auto text-lg font-bold" href="/articles">
             All Articles
         </a>
-    </div>
-    <div class="section-description">
-        <div class="text-lg dark-text">
-            Personal notes about development, projects, and anything else
-        </div>
     </div>
 
     <div class="articles-section-container text-xl dark-text">

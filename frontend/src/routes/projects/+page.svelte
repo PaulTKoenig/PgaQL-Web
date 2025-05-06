@@ -89,7 +89,7 @@
     Projects
 </div>
 <div class="text-2xl py-5 dark-text">
-    Personal projects, hackathons, and other collaborative efforts I have worked on throughout the years
+    Personal projects, hackathons, and other collaborative efforts I have worked on
 </div>
 <label>
   <input type="checkbox" bind:checked={showFavoritesFirst} />

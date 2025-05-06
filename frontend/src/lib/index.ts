@@ -5,3 +5,4 @@ export { default as Nav } from './Nav.svelte';
 export { default as ProjectCard } from './ProjectCard.svelte';
 export { default as QueryBuilder } from './pgaql_QueryBuilder.svelte';
 export { default as QueryNotebook } from './pgaql_QueryNotebook.svelte';
+export { default as PgaqlHeader } from './pgaql_Header.svelte';

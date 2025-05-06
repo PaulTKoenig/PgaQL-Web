@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { Chart } from '$lib';
-  import { QueryBuilder, QueryNotebook } from '$lib';
+  import { Chart, PgaqlHeader, QueryBuilder, QueryNotebook } from '$lib';
 
   let submittedQuery = $state("");
   let queryTab = $state(0);
@@ -44,20 +43,7 @@
 
 <div class="lg:flex">
   <div class="w-full lg:w-1/3 xl:w-1/4 mx-auto pb-10 md:pb-20">
-    <div class="pgaql-menu-container">
-      <p class="font-bold">
-        NbaQL UI is an interactive platform to build queries with the query language 'NbaQL' allowing users to easily search and chart trends for their favorite athletes and teams
-      </p>
-      <p class="py-10">
-        Example: CHART player_stats IN scatter_plot FOR fga VS fgm WHERE blk = '10'
-      </p>
-      <p class:font-bold={true}>
-        Build a Query
-      </p>
-      <p>
-        Read Documentation
-      </p>
-    </div>
+    <PgaqlHeader />
   </div>
 
   <div class="flex flex-col gap-10 w-full lg:w-2/3 xl:w-3/4 mx-auto pb-20">
