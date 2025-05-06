@@ -106,7 +106,7 @@
                     <div class="ml-auto dark-text">{project.year}</div>
                 </div>
                 <div class="flex gap-2">
-                    {#if project.favorite}  <span class="ml-2 bg-yellow-400 text-white text-xs px-2 py-1 rounded-full">⭐ Favorite</span>
+                    {#if project.favorite}  <span class="ml-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">⭐ Favorite</span>
                     {/if}
                     {#if project.medal}  <span class="ml-2 bg-gray-400 text-white text-xs px-2 py-1 rounded-full">🏅 2nd Place Hackathon</span>
                     {/if}

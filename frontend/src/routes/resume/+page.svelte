@@ -13,6 +13,12 @@
 		</div>
 		<ul class="dark-text text-xl">
 		    <li>
+		        Developing a centralized legal application hub integrating 15 other legal services and counting. Key contributions include: building dynamic data grids, implementing user behavior tracking through click analytics, enhancing UI/UX, overhauling functional testing efforts, and addressing complex security and rendering concerns.
+		    </li>
+		    <li>
+		        Reduced post-release defects by spearheading an initiative to improve functional test coverage using Selenium and Cucumber, resulting in more reliable releases and improved team confidence in code quality.
+		    </li>
+		    <li>
 		        Managed and maintained four React applications used to streamline and automate legal document management processes, improving operational efficiency and user experience.
 		    </li>
 		    <li>
@@ -20,12 +26,6 @@
 		    </li>
 		    <li>
 		    	Contributed to the full lifecycle of a new application for Non-Disclosure Agreement (NDA) processing—covering submission, review, escalation, and completion—over a 7-month development timeline, automating many of the team's currently manual workflow and implenting features that were not possible in the previous sharepoint solution
-		    </li>
-		    <li>
-		        Developing a centralized legal application hub integrating multiple legal services via iframes and microfrontends. Key contributions include: building dynamic data grids, implementing user behavior tracking through click analytics, enhancing UI/UX, overhauling functional testing efforts, and addressing complex security and rendering concerns.
-		    </li>
-		    <li>
-		        Reduced post-release defects by spearheading an initiative to improve functional test coverage using Selenium and Cucumber, resulting in more reliable releases and improved team confidence in code quality.
 		    </li>
 		</ul>
 

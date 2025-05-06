@@ -7,6 +7,9 @@
     const toggleNav = () => {
         showNav = !showNav;
     }
+    const closeNav = () => {
+        showNav = false;
+    }
 </script>
 
 <div class="nav-bar fixed w-full flex h-14 z-10">
@@ -15,57 +18,59 @@
     </a>
     <div class="flex my-auto ml-auto mr-5 gap-1">
 
-        <button class="nav-dropdown-btn" class:nav-dropdown-btn-close={showNav} onclick={toggleNav}>
+        <div tabindex="0" onblur={closeNav}>
+            <button class="nav-dropdown-btn" class:nav-dropdown-btn-close={showNav} onclick={toggleNav}>
+                {#if showNav}
+                    ✕
+                {:else}
+                    ☰
+                {/if}
+            </button> 
             {#if showNav}
-                ✕
-            {:else}
-                ☰
+                <div class="nav-dropdown">
+                    <a
+                        class="nav-btn nav-dropdown-item"
+                        href="/projects"
+                        class:active={page.url.pathname === '/projects'}
+                        onclick={closeNav}
+                    >
+                        Projects
+                    </a>
+                    <a
+                        class="nav-btn nav-dropdown-item"
+                        href="/articles"
+                        class:active={page.url.pathname === '/articles'}
+                        onclick={closeNav}
+                    >
+                        Articles
+                    </a>
+                    <a
+                        class="nav-btn nav-dropdown-item"
+                        href="/about-me"
+                        class:active={page.url.pathname === '/about-me'}
+                        onclick={closeNav}
+                    >
+                        About Me
+                    </a>
+                    <a
+                        class="nav-btn nav-dropdown-item"
+                        href="/resume"
+                        class:active={page.url.pathname === '/resume'}
+                        onclick={closeNav}
+                    >
+                        Resume
+                    </a>
+                    <a
+                        class="nav-btn nav-dropdown-item"
+                        href="/pgaql"
+                        class:active={page.url.pathname === '/pgaql'}
+                        onclick={closeNav}
+                    >
+                        NbaQL
+                    </a>
+                </div>
             {/if}
-        </button> 
-        {#if showNav}
-            <div class="nav-dropdown">
-                <a
-                    class="nav-btn nav-dropdown-item"
-                    href="/projects"
-                    class:active={page.url.pathname === '/projects'}
-                    onclick={toggleNav}
-                >
-                    Projects
-                </a>
-                <a
-                    class="nav-btn nav-dropdown-item"
-                    href="/articles"
-                    class:active={page.url.pathname === '/articles'}
-                    onclick={toggleNav}
-                >
-                    Articles
-                </a>
-                <a
-                    class="nav-btn nav-dropdown-item"
-                    href="/about-me"
-                    class:active={page.url.pathname === '/about-me'}
-                    onclick={toggleNav}
-                >
-                    About Me
-                </a>
-                <a
-                    class="nav-btn nav-dropdown-item"
-                    href="/resume"
-                    class:active={page.url.pathname === '/resume'}
-                    onclick={toggleNav}
-                >
-                    Resume
-                </a>
-                <a
-                    class="nav-btn nav-dropdown-item"
-                    href="/pgaql"
-                    class:active={page.url.pathname === '/pgaql'}
-                    onclick={toggleNav}
-                >
-                    NbaQL
-                </a>
-            </div>
-        {/if}
+        </div>
         <div class="default-nav-buttons">
             <a
                 class="nav-btn"

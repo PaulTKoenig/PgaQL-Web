@@ -6,11 +6,7 @@
     Articles
 </div>
 <div class="text-2xl font-bold py-5">
-    I pledge Allegiance to the flag
-    of the United States of America
-    and to the Republic for which it stands,
-    one nation under God, indivisible,
-    with Liberty and Justice for all.
+    Personal notes about development, projects, and anything else
 </div>
 <div class="articles-container">
     {#each articles as article}
