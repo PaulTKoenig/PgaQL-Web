@@ -43,11 +43,11 @@
 
 <NbaqlHeader />
 <div class="lg:flex">
-  <div class="w-full lg:w-1/3 xl:w-1/4 mx-auto pb-10 md:pb-20">
+  <div class="w-full xl:w-1/3 2xl:w-1/4 mx-auto pb-10">
     <NbaqlSidebar />
   </div>
 
-  <div class="flex flex-col gap-10 w-full lg:w-2/3 xl:w-3/4 mx-auto pb-20">
+  <div class="flex flex-col gap-10 w-full lg:w-2/3 xl:w-3/4 mx-auto">
     <div class="nbaql-main-container">
       <div class="nbaql-tabs flex mb-10">
         <div class="nbaql-query-tab" class:nbaql-query-tab-active={queryTab === 0} onclick={() => updateQueryTab(0)}>

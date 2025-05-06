@@ -21,36 +21,6 @@
     });
 
 
-
-
-    // const autoplayInterval = 5000; // Time in milliseconds (e.g., 3000ms = 3 seconds)
-
-    // let autoplayTimer;
-
-    // const startAutoplay = () => {
-    //   // Clear any previous interval to prevent multiple intervals running
-    //   clearInterval(autoplayTimer);
-
-    //   autoplayTimer = setInterval(() => {
-    //     embla.scrollNext(); // Move to the next slide
-    //   }, autoplayInterval);
-    // };
-
-    // const stopAutoplay = () => {
-    //   clearInterval(autoplayTimer);
-    // };
-
-    // // Start autoplay when the carousel is initialized
-    // startAutoplay();
-
-    // // Optionally, stop autoplay when the user manually interacts with the carousel
-    // embla.on('select', startAutoplay);
-    // embla.on('select', stopAutoplay);
-    // embla.on('drag', stopAutoplay);
-    // embla.on('pointerdown', stopAutoplay);
-
-
-
     // Update selected index on slide change
     embla.on('select', () => {
       selectedIndex = embla.selectedScrollSnap();
@@ -226,7 +196,6 @@
     justify-content: left;
     text-align: left;
     border-radius: 10px;
-/*    border: 5px solid #03DAC6;*/
     background-color: lightgrey;
   }
 

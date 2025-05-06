@@ -6,7 +6,7 @@
 </script>
 
 <div class="nbaql-nav-pill-container">
-	<div class="flex gap-5 items-start">
+	<div class="flex flex-wrap gap-5 items-start">
 		<a class="nbaql-nav-btn" href="/nbaql/build-a-query" class:nbaql-nav-pill-active={page.url.pathname === "/nbaql/build-a-query"}>
         <img src={buildIcon} alt="Build a Query Icon" />
 		Build a Query
@@ -48,6 +48,7 @@
     	padding: 0.5rem;
     	border-radius: 4px;
     	display: flex;
+    	white-space: nowrap;
     	gap: 0.5rem;
     }
 

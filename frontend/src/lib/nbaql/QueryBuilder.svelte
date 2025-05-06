@@ -177,12 +177,12 @@
 				</div>
 			</div>
 		{:else if queryBuilderSteps[queryBuilderStep].options && queryBuilderSteps[queryBuilderStep].options.length >= 3}
-			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-				{#each queryBuilderSteps[queryBuilderStep].options as step}
-					<button class="query-feature-btn" class:selectedOption={selectedOptionForStep===step.value} onclick={() => handleSelectedOptionForStep(step.value)}>{step.label}
-					</button>
-				{/each}
-			</div>
+		<div class="query-builder-btn-grid">
+			{#each queryBuilderSteps[queryBuilderStep].options as step}
+				<button class="query-feature-btn" class:selectedOption={selectedOptionForStep===step.value} onclick={() => handleSelectedOptionForStep(step.value)}>{step.label}
+				</button>
+			{/each}
+		</div>
 		{:else if queryBuilderSteps[queryBuilderStep].options}
 	        <div class="flex justify-center gap-5">
 				{#each queryBuilderSteps[queryBuilderStep].options as step}
@@ -232,13 +232,22 @@
 
 	.query-clear-btn, .query-submit-btn, .query-revert-btn, .query-skip-btn, .query-feature-btn, .query-next-btn {
 		width: 200px;
-		margin-top: 1rem;
+		margin-top: 0.5rem;
 		border: 1px solid #F0F0F0;
     }
 
     .query-feature-btn {
-    	width: auto;
-    	min-height: 80px;
+    	width: 200px;
+    	white-space: nowrap;
+    }
+
+    .query-builder-btn-grid {
+    	display: grid;
+    	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    	justify-items: center;
+    	gap: 1.25rem;
+    	max-width: 420px;
+		margin: 0 auto;
     }
 
     .gap-8 {
