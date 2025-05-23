@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { Chart, NbaqlHeader, NbaqlSidebar, QueryBuilder, QueryNotebook } from '$lib';
+  import { Chart, Grid, NbaqlHeader, NbaqlSidebar, QueryBuilder, QueryNotebook } from '$lib';
 
   let submittedQuery = $state("");
   let queryTab = $state(0);
@@ -9,9 +9,35 @@
       queryTab=updatedTab;
   }
 
-  let data = $state([]);
+  let data = $state({});
   let error = $state(null);
   let loading = $state(false);
+  let playerData = new Map();
+
+  async function fetchPlayerData(playerId) {
+    let error = null;
+
+    try {
+      const response = await fetch("/api/get-player-details/" + playerId);
+
+      if (!response.ok) {
+        throw new Error('Sorry something went wrong. Please try again');
+      }
+
+      const responseJson = await response.json();
+
+      return responseJson
+    } catch (err) {
+      error = err.message;
+      console.error(error)
+    }
+  }
+
+  async function loadPlayerData() {
+    const promises = data.rowData.map(item => fetchPlayerData(item[0]));
+    const players = await Promise.all(promises);
+    playerData = new Map(players.map(player => [player[0], `${player[1]} ${player[2]}`]));
+  }
 
   async function fetchData(e) {
     loading = true;
@@ -32,6 +58,8 @@
 
       data = await response.json();
       submittedQuery=input;
+
+      await loadPlayerData();
     } catch (err) {
       error = err.message;
     } finally {
@@ -72,15 +100,27 @@
         
       </div>
     </div>
-    <div class="nbaql-chart-container mx-auto" class:hidden={!loading && !error && data.length === 0}>
+
+    <div class="nbaql-chart-container mx-auto" class:hidden={!loading && !error && (!("rowData" in data) || data.rowData?.length === 0)}>
       {#if loading}
         <p>Loading...</p>
       {:else if error}
         <p><b>Error:</b> {error}</p>
-      {:else if data.length > 0}
+      {:else if data.rowData?.length > 0}
       <div class="pt-5">
-        {submittedQuery}
-        <Chart {data} />
+        <Chart {data} {playerData} />
+      </div>
+      {/if}
+    </div>
+
+    <div class="nbaql-chart-container mx-auto" class:hidden={!loading && !error && (!("rowData" in data) || data.rowData?.length === 0)}>
+      {#if loading}
+        <p>Loading...</p>
+      {:else if error}
+        <p><b>Error:</b> {error}</p>
+      {:else if data.rowData?.length > 0}
+      <div>
+        <Grid {data} {playerData} />
       </div>
       {/if}
     </div>

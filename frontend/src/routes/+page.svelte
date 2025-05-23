@@ -10,13 +10,7 @@
             title: "BetaQL"
         },
         {
-            title: "Finally documenting personal projects"
-        },
-        {
-            title: "Winter bulk"
-        },
-        {
-            title: "Not getting victory royales in fortnite"
+            title: "Documenting personal projects"
         }
     ]
 </script>
@@ -58,7 +52,7 @@
     </div>
     <div class="section-description">
         <div class="text-lg dark-text">
-            Last updated 3/3/2025
+            Last updated 5/15/2025
         </div>
     </div>
 

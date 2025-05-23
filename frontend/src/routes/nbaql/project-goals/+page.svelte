@@ -10,25 +10,19 @@
 
   <div class="flex flex-col gap-10 w-full lg:w-2/3 xl:w-3/4 mx-auto">
     <div class="nbaql-goals-container">
-      <p>Short Term (3 months)</p>
+      <p>Short Term (3-6 months)</p>
       <ul>
-        <li>Be able to handle box score data from every season in NBA history. Will need to implement lazy loading and create abstract views such as season and career</li>
-        <li>Images for players</li>
-        <li>Expand With Step ability</li>
+        <li>Support complete historical NBA box score data, including efficient handling through lazy loading and abstract views such as per-season and career summaries.</li>
+        <li>Display player images alongside relevant stats and visualizations.</li>
+        <li>Introduce additional plot types to enhance data exploration and visualization capabilities.</li>
+        <li>Enhance the WITH clause functionality to support advanced logical operators and enable users to define custom data fields derived from existing ones.</li>
       </ul>
 
-      <p class="pt-10">Long Term (1 year)</p>
+      <p class="pt-10">Long Term (1+ years)</p>
   		<ul>
-        <li>Build a sql-like database from scratch out of Golang or C to directly query from</li>
-        <li>More Data such as NBA combine, player info, historical game odds</li>
-        <li>allow custom data fields</li>
-        <li>add in more plot types</li>
-      </ul>
-
-      <p class="pt-10">Long Long Term (2-3 years)</p>
-      <ul>
-        <li>NLP search</li>
-        <li>More Sports</li>
+        <li>Develop a relational database engine from scratch using Go or C to optimize performance and provide direct querying capabilities over the dataset.</li>
+        <li>Implement a natural language interface to allow users to search and analyze data using conversational queries.</li>
+        <li>Expand the dataset and query capabilities to include more detailed basketball data and support for other sports.</li>
       </ul>
   	</div>
   </div>

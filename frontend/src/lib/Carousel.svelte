@@ -11,7 +11,7 @@
   let nextButton;
   let selectedIndex = 0;
   
-  const slides = [1, 2, 3, 4];
+  const slides = [1, 2, 3];
 
   onMount(() => {
     const emblaNode = document.querySelector('.embla');
@@ -120,7 +120,7 @@
         <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden xl:block 2x:hidden w-1/2" />
       </div>
     </div>
-    <div class="embla__slide">
+    <!-- <div class="embla__slide">
       <div class="carousel-item">
         <div class="p-10 flex flex-col">
           <div>
@@ -149,7 +149,7 @@
         <img src={bball_r_us} alt='Basketballs "R" Us' class="p-3 rounded-2xl ml-auto hidden 2x:block" />
         <img src={bball_r_us} alt='Basketballs "R" Us' class="p-3 rounded-2xl ml-auto hidden xl:block 2x:hidden w-1/2" />
       </div>
-    </div>
+    </div> -->
 	</div>
 	</div>
 

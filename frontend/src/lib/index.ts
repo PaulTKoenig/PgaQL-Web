@@ -7,3 +7,4 @@ export { default as QueryBuilder } from './nbaql/QueryBuilder.svelte';
 export { default as QueryNotebook } from './nbaql/QueryNotebook.svelte';
 export { default as NbaqlSidebar } from './nbaql/Sidebar.svelte';
 export { default as NbaqlHeader } from './nbaql/HeaderPills.svelte';
+export { default as Grid } from './nbaql/Grid.svelte';

@@ -54,7 +54,10 @@ int main(void) {
     char *query_string = interpret(ast);
     // printf("%s\n", query_string);
 
-    printf("{\"status\": \"success\", \"error_code\": %d, \"message\": \"%s\"}\n", 200, query_string);
+    char *x_column_name = get_x_column_name(ast);
+    char *y_column_name = get_y_column_name(ast);
+
+    printf("{\"status\": \"success\", \"error_code\": %d, \"message\": { \"query\": \"%s\", \"x_column_name\": \"%s\", \"y_column_name\": \"%s\" }}\n", 200, query_string, x_column_name, y_column_name);
 
     // CLEAN UP MEMORY
     free_token_list(token_list_head);

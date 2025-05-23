@@ -64,15 +64,14 @@ def interpret_query():
                 connection = sqlite3.connect('./src/db/player_stats.db')
                 cursor = connection.cursor()
 
-                cursor.execute(result["message"])
-
+                cursor.execute(result["message"]["query"])
 
                 results = cursor.fetchall()
 
                 cursor.close()
                 connection.close()
 
-                return jsonify(results), 200
+                return jsonify({ "rowData": results, "x_column_name": result["message"]["x_column_name"], "y_column_name": result["message"]["y_column_name"]}), 200
             else:
                 print("The process failed with error code", result["error_code"], ":", result["message"])
                 return result["message"], 400

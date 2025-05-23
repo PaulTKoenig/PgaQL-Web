@@ -13,19 +13,19 @@
 		</div>
 		<ul class="dark-text text-xl">
 		    <li>
-		        Developing a centralized legal application hub integrating 15 other legal services and counting. Key contributions include: building dynamic data grids, implementing user behavior tracking through click analytics, enhancing UI/UX, overhauling functional testing efforts, and addressing complex security and rendering concerns.
+		        Developing a centralized legal application hub integrating 10 other legal services and counting. Key contributions include:  implementing user behavior tracking through click analytics, addressing complex security and rendering concerns, building dynamic data grids, enhancing UI/UX, and overhauling functional testing efforts.
 		    </li>
 		    <li>
 		        Reduced post-release defects by spearheading an initiative to improve functional test coverage using Selenium and Cucumber, resulting in more reliable releases and improved team confidence in code quality.
 		    </li>
 		    <li>
+		    	Contributed to the full lifecycle of a new application for Non-Disclosure Agreement (NDA) processing — covering submission, review, escalation, and completion — over a 7-month development timeline, automating many of the team's currently manual workflow and implenting features that were not possible in the previous sharepoint solution
+		    </li>
+		    <li>
+		        Played a key role in implementing a revamped workflow process for the submission, review, and completion of a document, including leading the migration of legacy processes into a modern codebase and transitioning data storage from Oracle to MongoDB, resulting in enhanced scalability and reduced maintenance overhead.
+		    </li>
+		    <li>
 		        Managed and maintained four React applications used to streamline and automate legal document management processes, improving operational efficiency and user experience.
-		    </li>
-		    <li>
-		        Played a key role in implementing of a new workflow for the submission, review, and completion of a particular legal document, including the leading migration of legacy processes into a modern codebase and transitioning data storage from Oracle to MongoDB, resulting in enhanced scalability and reduced maintenance overhead.
-		    </li>
-		    <li>
-		    	Contributed to the full lifecycle of a new application for Non-Disclosure Agreement (NDA) processing—covering submission, review, escalation, and completion—over a 7-month development timeline, automating many of the team's currently manual workflow and implenting features that were not possible in the previous sharepoint solution
 		    </li>
 		</ul>
 
@@ -88,6 +88,35 @@
 	</div>
 
 	<div class="section-header text-4xl">
+	    Skills
+	</div>
+	<div class="section-content">
+		<div class="text-2xl pb-5">
+		    Languages
+		</div>
+		<div class="flex flex-col gap-5 dark-text text-xl">
+		    <div>
+		        Professional Level - Java, JavaScript (React.js, Redux), Python, SQL, TypeScript
+		    </div>
+		    <div>
+		        Proficient Level - C, Go, Svelte (SvelteKit)
+		    </div>
+		</div>
+		<div class="text-2xl pt-10 pb-5">
+		    Concepts
+		</div>
+		<div class="flex flex-col gap-5 dark-text text-xl">
+		    <div>
+		        Professional Level - Relational Databases, NoSQL Databases, Version Control (Git), APIs (Spring Boot, Flask), Testing (Jest, JUnit, Selenium)
+		    </div>
+		    <div>
+		        Proficient Level - AWS, Linux/Unix
+		    </div>
+		</div>
+	</div>
+
+
+	<div class="section-header text-4xl">
 	    Education
 	</div>
 	<div class="section-content">
@@ -102,34 +131,6 @@
 		<div class="dark-text text-xl">
 		    <div>
 		        Bachelor of Computer Science & Engineering
-		    </div>
-		</div>
-	</div>
-
-	<div class="section-header text-4xl">
-	    Skills
-	</div>
-	<div class="section-content">
-		<div class="text-2xl pb-5">
-		    Languages
-		</div>
-		<div class="flex flex-col gap-5 dark-text text-xl">
-		    <div>
-		        Professional Level - Java, JavaScript (React.js), Python, SQL, TypeScript
-		    </div>
-		    <div>
-		        Proficient Level - C, C#, Ruby on Rails, Svelte (SvelteKit)
-		    </div>
-		</div>
-		<div class="text-2xl pt-10 pb-5">
-		    Concepts
-		</div>
-		<div class="flex flex-col gap-5 dark-text text-xl">
-		    <div>
-		        Professional Level - Relational Databases (Microsoft SQL Server, Oracle, PostgreSQL, SQLite), NoSQL Databases (MongoDB, Unit Testing (Jest, JUnit), Version Control (Git), APIs (Spring Boot, Flask)
-		    </div>
-		    <div>
-		        Proficient Level - AWS, Automation Testing (Selenium), Linux/Unix
 		    </div>
 		</div>
 	</div>

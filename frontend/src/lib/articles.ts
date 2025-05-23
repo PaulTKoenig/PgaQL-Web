@@ -7,14 +7,14 @@ export const articles = [
     },
     {
         id: "002",
-        title: "Basketball 'R' Us",
-        date: "2/2/22",
-        description: "these are more and more thoughts"
-    },
-    {
-        id: "003",
         title: "NCAAB",
         date: "2/2/22",
         description: "these are more and more thoughts"
     }
+    // {
+    //     id: "002",
+    //     title: "Basketball 'R' Us",
+    //     date: "2/2/22",
+    //     description: "these are more and more thoughts"
+    // },
 ];

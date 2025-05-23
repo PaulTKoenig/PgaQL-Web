@@ -4,38 +4,18 @@
 
   Chart.register(LinearScale, PointElement, Title, Tooltip, Legend, ScatterController);
 
-  export let data = [];
+  export let data = {};
+  export let playerData = new Map();
 
   let chartContainer;
   let chartInstance;
-  let playerData = new Map();
 
   let hoveredPoint = null;
 
   function updateChartData() {
     if (chartInstance) {
-      chartInstance.data.datasets[0].data = data.map(item => ({ playerId: item[0], x: item[1], y: item[2] }));
+      chartInstance.data.datasets[0].data = data.rowData.map(item => ({ playerId: item[0], x: item[1], y: item[2] }));
       chartInstance.update();
-    }
-  }
-
-  async function fetchPlayerData(playerId) {
-    let error = null;
-
-    try {
-      const response = await fetch("/api/get-player-details/" + playerId);
-
-      if (!response.ok) {
-        throw new Error('Sorry something went wrong. Please try again');
-      }
-
-      const responseJson = await response.json();
-
-      return responseJson;
-
-    } catch (err) {
-      error = err.message;
-      console.error(error)
     }
   }
 
@@ -52,7 +32,7 @@
     const chartData = {
       datasets: [{
         label: 'Scatter Dataset',
-        data: data.map(item => ({ playerId: item[0], x: item[1], y: item[2] })),
+        data: data.rowData.map(item => ({ playerId: item[0], x: item[1], y: item[2] })),
         backgroundColor: 'rgba(75, 192, 192, 1)',
         pointRadius: 5
       }]
@@ -65,11 +45,39 @@
         scales: {
           x: {
             type: 'linear',
-            position: 'bottom'
+            position: 'bottom',
+            title: {
+              display: true,
+              text: data.x_column_name,
+              color: '#999999',
+              font: {
+                size: 16,
+                weight: 'bold'
+              },
+              padding: {
+                top: 10,
+                bottom: 0
+              }
+            }
           },
           y: {
             type: 'linear',
-            position: 'left'
+            position: 'left',
+            title: {
+              display: true,
+              text: data.y_column_name,
+              color: '#999999',
+              font: {
+                size: 16,
+                weight: 'bold'
+              },
+              padding: {
+                top: 10,
+                bottom: 0,
+                left: 0,
+                right: 10
+              }
+            }
           },
           onHover: function(event, elements) {
             if (elements.length > 0) {
@@ -95,7 +103,7 @@
                 const first = tooltipItems[0];
                 const x = first.raw.x;
                 const y = first.raw.y;
-                return `X: ${x}, Y: ${y}`;
+                return `${data.x_column_name}: ${x}, ${data.y_column_name}: ${y}`;
               }
             }
           }
@@ -105,16 +113,10 @@
     const ctx = chartContainer.getContext('2d');
     chartInstance = new Chart(ctx, config);
 
-    async function loadPlayerData() {
-      const promises = data.map(item => fetchPlayerData(item[0]));
-      const players = await Promise.all(promises);
-      playerData = new Map(players.map(player => [player[0], `${player[1]} ${player[2]}`]));
-    }
-    loadPlayerData();
   });
 
   $: {
-    if (data.length > 0) {
+    if (data.rowData.length > 0) {
       updateChartData();
     }
   }

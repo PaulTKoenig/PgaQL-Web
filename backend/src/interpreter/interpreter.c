@@ -240,3 +240,27 @@ char* interpret(AST* ast) {
 
     return query_string;
 }
+
+char* get_x_column_name(AST* ast) {
+
+    SQL_IDENTIFIER_TOKEN_NODE *sql_identifier_token_node = NULL;
+
+    CHART_IDENTIFIER_NODE chart_identifier_node = ast->chart_identifier;
+
+    append_column_identifier_to_query_fixed(&sql_identifier_token_node, chart_identifier_node.x_axis_token, NULL, true);
+    char* x_column_name = build_query_string(sql_identifier_token_node);
+
+    return x_column_name;
+}
+
+char* get_y_column_name(AST* ast) {
+
+    SQL_IDENTIFIER_TOKEN_NODE *sql_identifier_token_node = NULL;
+
+    CHART_IDENTIFIER_NODE chart_identifier_node = ast->chart_identifier;
+
+    append_column_identifier_to_query_fixed(&sql_identifier_token_node, chart_identifier_node.y_axis_token, NULL, true);
+    char* y_column_name = build_query_string(sql_identifier_token_node);
+
+    return y_column_name;
+}

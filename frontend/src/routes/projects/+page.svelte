@@ -30,7 +30,6 @@
         {
             name: 'Basketballs "R" Us',
             description: "One stop e-commerce shop for all things basketball with fully functional inventory management and order processing",
-            article_link: "/articles/002",
             year: "2023",
             favorite: true,
             technologies: ['React', 'Node.js', 'Express.js', 'Kafka']
