@@ -13,13 +13,13 @@
 		</div>
 		<ul class="dark-text text-xl">
 		    <li>
-		        Developing a centralized legal application hub integrating 10 other legal services and counting. Key contributions include:  implementing user behavior tracking through click analytics, addressing complex security and rendering concerns, building dynamic data grids, enhancing UI/UX, and overhauling functional testing efforts.
+		        Developing a centralized legal application hub integrating 10 other legal services. Key contributions include implementing user behavior tracking through click analytics, addressing complex security and rendering concerns, building dynamic data grids, enhancing UI/UX, and overhauling functional testing efforts.
 		    </li>
 		    <li>
 		        Reduced post-release defects by spearheading an initiative to improve functional test coverage using Selenium and Cucumber, resulting in more reliable releases and improved team confidence in code quality.
 		    </li>
 		    <li>
-		    	Contributed to the full lifecycle of a new application for Non-Disclosure Agreement (NDA) processing — covering submission, review, escalation, and completion — over a 7-month development timeline, automating many of the team's currently manual workflow and implenting features that were not possible in the previous sharepoint solution
+		    	Contributed to the full lifecycle of a new application for Non-Disclosure Agreement (NDA) processing — covering submission, review, escalation, and completion — over a 7-month development timeline, automating many of the team's current manual workflows and implenting features that were not possible in the previous sharepoint solution
 		    </li>
 		    <li>
 		        Played a key role in implementing a revamped workflow process for the submission, review, and completion of a document, including leading the migration of legacy processes into a modern codebase and transitioning data storage from Oracle to MongoDB, resulting in enhanced scalability and reduced maintenance overhead.
@@ -96,7 +96,7 @@
 		</div>
 		<div class="flex flex-col gap-5 dark-text text-xl">
 		    <div>
-		        Professional Level - Java, JavaScript (React.js, Redux), Python, SQL, TypeScript
+		        Professional Level - Java, JavaScript (React.js), Python, SQL, TypeScript
 		    </div>
 		    <div>
 		        Proficient Level - C, Go, Svelte (SvelteKit)

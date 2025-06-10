@@ -10,7 +10,8 @@
 
   <div class="flex flex-col gap-10 w-full lg:w-2/3 xl:w-3/4 mx-auto">
     <div class="nbaql-docs-container">
-      <p>
+      Coming Soon...
+      <!-- <p>
         query : action features conditions?;
       </p>
 
@@ -61,7 +62,7 @@
 
       <p>
         CHART golfers IN box_plot FOR driving_distance_per_par_5 VS score WHERE tournament = "US Open" and driving_distance_per_par_5 defined as (FIND driving_distance_average WHERE par = 5 AND tournament = "US Open")
-      </p>
+      </p> -->
   	</div>
   </div>
 </div>

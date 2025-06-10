@@ -6,12 +6,64 @@ import re
 
 app = Flask(__name__)
 
+@app.route('/api/get-player-details', methods=['POST'])
+def get_player_details():
+    data = request.get_json()
+
+    if not data or 'player_ids' not in data:
+        return jsonify({'error': 'Missing player_ids in request body'}), 400
+
+    player_ids = data['player_ids']
+
+    if not isinstance(player_ids, list) or not all(isinstance(pid, str) for pid in player_ids):
+        return jsonify({'error': 'player_ids must be a list of strings'}), 400
+
+    if len(player_ids) == 0:
+        return jsonify({'error': 'player_ids list is empty'}), 400
+
+    placeholders = ','.join(['?'] * len(player_ids))
+    query = f"""
+        SELECT playerId, firstName, lastName, playerTeamCity, playerTeamName
+        FROM player_stats
+        WHERE rowid IN (
+            SELECT MIN(rowid)
+            FROM player_stats
+            WHERE playerId IN ({placeholders})
+            GROUP BY playerId
+        )
+    """
+
+    connection = sqlite3.connect('./src/db/player_stats.db')
+    cursor = connection.cursor()
+    cursor.execute(query, player_ids)
+    results = cursor.fetchall()
+
+    cursor.close()
+    connection.close()
+
+    players = [
+        {
+            "playerId": row[0],
+            "firstName": row[1],
+            "lastName": row[2],
+            "playerTeamCity": row[3],
+            "playerTeamName": row[4]
+        }
+        for row in results
+    ]
+
+    return jsonify(players), 200
+
+
 @app.route('/api/get-player-details/<string:player_id>', methods=['GET'])
 def getPlayerDetails(player_id):
     connection = sqlite3.connect('./src/db/player_stats.db')
     cursor = connection.cursor()
 
-    cursor.execute(f"SELECT playerId, firstName, lastName, playerTeamCity, playerTeamName FROM player_stats WHERE playerId = '{player_id}'")
+    cursor.execute(
+        "SELECT playerId, firstName, lastName, playerTeamCity, playerTeamName FROM player_stats WHERE playerId = ?",
+        (player_id,)
+    )
 
 
     results = cursor.fetchone()
@@ -64,7 +116,7 @@ def interpret_query():
                 connection = sqlite3.connect('./src/db/player_stats.db')
                 cursor = connection.cursor()
 
-                cursor.execute(result["message"]["query"])
+                cursor.execute(result["message"]["query"] + " LIMIT 500;")
 
                 results = cursor.fetchall()
 

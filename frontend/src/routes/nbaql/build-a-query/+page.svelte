@@ -14,29 +14,35 @@
   let loading = $state(false);
   let playerData = new Map();
 
-  async function fetchPlayerData(playerId) {
+  async function fetchPlayerData(playerIds) {
     let error = null;
 
     try {
-      const response = await fetch("/api/get-player-details/" + playerId);
+      const response = await fetch("/api/get-player-details", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ player_ids: playerIds })
+      });
 
       if (!response.ok) {
         throw new Error('Sorry something went wrong. Please try again');
       }
 
       const responseJson = await response.json();
-
-      return responseJson
+      return responseJson;
     } catch (err) {
       error = err.message;
-      console.error(error)
+      console.error(error);
     }
   }
 
   async function loadPlayerData() {
-    const promises = data.rowData.map(item => fetchPlayerData(item[0]));
-    const players = await Promise.all(promises);
-    playerData = new Map(players.map(player => [player[0], `${player[1]} ${player[2]}`]));
+    const playerIds = data.rowData.map(item => item[0]);
+    const players = fetchPlayerData(playerIds);
+    console.log(await players);
+    playerData = new Map((await players).map(player => [player.playerId, `${player.firstName} ${player.lastName}`]));
   }
 
   async function fetchData(e) {
@@ -113,7 +119,7 @@
       {/if}
     </div>
 
-    <div class="nbaql-chart-container mx-auto" class:hidden={!loading && !error && (!("rowData" in data) || data.rowData?.length === 0)}>
+    <div class="nbaql-chart-container mx-auto" class:hidden={error || (!loading && (!("rowData" in data) || data.rowData?.length === 0))}>
       {#if loading}
         <p>Loading...</p>
       {:else if error}

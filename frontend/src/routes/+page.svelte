@@ -4,15 +4,6 @@
     import { Carousel } from '$lib';
     import { articles } from '../lib/articles.ts';
     let profilePicture = '../profile_picture2.jpg';
-
-    const whatImDoingNowList = [
-        {
-            title: "BetaQL"
-        },
-        {
-            title: "Documenting personal projects"
-        }
-    ]
 </script>
 
 <div class="px-10vh">
@@ -23,7 +14,7 @@
             </div>
             <div class="flex flex-col gap-6 dark-text">
                 <div class="text-xl font-bold">
-                    I'm a curious and driven software engineer with experience in web development, systems engineering, and data science. I began coding in 2019 after a one-off programming elective in C# sparked my interest, ultimately leading me to major in Computer Science at The Ohio State University.
+                    I'm a curious and driven software engineer with experience in full-stack development, data science, and systems engineering. I began coding in 2019 after a one-off programming elective in C# that sparked my interest, ultimately leading me to major in Computer Science at The Ohio State University.
                 </div>
 
                 <div class="text-xl font-bold">
@@ -58,30 +49,31 @@
 
     <div class="section-container text-xl dark-text">
         <ul>
-            {#each whatImDoingNowList as item}
-                <li class="py-1">{item.title}</li>
-            {/each}
+            <li class="py-1">Developing my latest project, <a href="/nbaql/build-a-query">NbaQL</a>, a custom query language for exploring NBA data</li>
+            <li class="py-1">Organizing past personal projects by refining repositories and writing concise articles to showcase their purpose, achievements, and what I learned</li>
+            <li class="py-1">Hoping my golf game gets better without practicing</li>
         </ul>
     </div>
 
     <div class="section-header">
         <div class="text-3xl font-bold">
-            Recent Articles
+            Articles
         </div>
-        <a class="more-articles-btn ml-auto text-lg font-bold" href="/articles">
+        <!-- <a class="more-articles-btn ml-auto text-lg font-bold" href="/articles">
             All Articles
-        </a>
+        </a> -->
     </div>
 
     <div class="articles-section-container text-xl dark-text">
-        <ul>
+        Coming Soon...
+        <!-- <ul>
             {#each articles as article}
                 <li class="flex py-1">
                     <a href={"articles/"+article.id}>{article.title}</a>
                     <div class="ml-auto hidden lg:block">{article.date}</div>
                 </li>
             {/each}
-        </ul>
+        </ul> -->
     </div>
 
 </div>
@@ -164,5 +156,10 @@
     .px-20vh {
         padding-left: 15%;
         padding-right: 15%;
+    }
+
+    .section-container li a {
+        text-decoration: underline;
+        color: #627fc4;
     }
 </style>
