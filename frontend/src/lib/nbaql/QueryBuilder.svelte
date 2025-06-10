@@ -99,7 +99,7 @@
 					if (idx !== 0) {
 						whereClauseValues += " AND ";
 					}
-					whereClauseValues += whereStepSelectedOptions[idx].whereFieldSelectedOption.value + " = " + whereStepSelectedOptions[idx].whereValueSelectedOption;
+					whereClauseValues += whereStepSelectedOptions[idx].whereFieldSelectedOption.value + " = '" + whereStepSelectedOptions[idx].whereValueSelectedOption + "'";
 				}
 
 			}

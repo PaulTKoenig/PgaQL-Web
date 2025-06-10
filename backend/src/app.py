@@ -78,7 +78,15 @@ def getFieldValues(field_name):
     connection = sqlite3.connect('./src/db/player_stats.db')
     cursor = connection.cursor()
 
-    cursor.execute(f"SELECT {field_name} FROM player_stats")
+    cursor.execute("PRAGMA table_info(player_stats)")
+    columns_info = cursor.fetchall()
+    column_names = {col[1] for col in columns_info}
+
+    if field_name not in column_names:
+        raise ValueError(f"Invalid field name: {field_name}")
+
+    query = f"SELECT {field_name} FROM player_stats"
+    cursor.execute(query)
 
 
     results = cursor.fetchall()
