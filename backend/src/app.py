@@ -124,7 +124,7 @@ def interpret_query():
                 connection = sqlite3.connect('./src/db/player_stats.db')
                 cursor = connection.cursor()
 
-                cursor.execute(result["message"]["query"] + " LIMIT 500;")
+                cursor.execute(result["message"]["query"] + " LIMIT 100;")
 
                 results = cursor.fetchall()
 

@@ -85,7 +85,7 @@
 		}
 	}
 
-	const options = ['Apple', 'Banana', 'Cherry', 'Grapes', 'Mango', 'Orange'];
+	const options = [];
 
 	$effect(() => {
 	    let allWhereClausesCompleted = true;
