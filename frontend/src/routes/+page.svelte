@@ -1,9 +1,14 @@
-<script>
+<script>    import { goto } from '$app/navigation';
+
     import { ProjectCard } from '$lib';
     import emblaCarouselSvelte from 'embla-carousel-svelte';
     import { Carousel } from '$lib';
     import { articles } from '../lib/articles.ts';
     let profilePicture = '../profile_picture2.jpg';
+
+    const navigate = (url) => {
+        goto(url);
+    }
 </script>
 
 <div class="px-10vh">
@@ -29,9 +34,9 @@
         <div class="text-3xl font-bold">
             My Favorite Projects
         </div>
-        <a class="more-projects-btn ml-auto text-lg font-bold" href="/projects">
-            All Projects
-        </a>
+        <button class="more-projects-btn xl:ml-auto text-lg font-bold" on:click={() => navigate("/projects")}>
+            <strong>All Projects</strong>
+        </button>
     </div>
 
     <div class="projects-carousel">
@@ -161,5 +166,26 @@
     .section-container li a {
         text-decoration: underline;
         color: #627fc4;
+    }
+
+    @media (max-width: 1280px) {
+        .projects-section-header {
+            display: block;
+        }
+
+        .more-projects-btn {
+            margin-top: 1rem;
+            display: block;
+        }
+
+        .section-container ul {
+            list-style-type: disc;
+            padding: 0 20px;
+        }
+
+        .articles-section-container ul {
+            padding: 0 20px;
+        }
+
     }
 </style>
