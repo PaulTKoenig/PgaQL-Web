@@ -182,6 +182,13 @@
     	font-weight: bold;
     }
 
+
+	@media (max-width: 1500px) {
+        .section-content {
+	    	padding: 2.5rem 1rem 0;
+	    }
+    }
+
     ul {
         list-style-type: disc;
         padding: 0 3rem;

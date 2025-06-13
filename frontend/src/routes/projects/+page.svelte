@@ -86,13 +86,13 @@
 
 </script>
 
-<div class="text-5xl font-bold">
+<div class="xl:text-5xl text-3xl font-bold">
     Projects
 </div>
-<div class="text-2xl py-5 dark-text">
+<div class="xl:text-2xl text-xl py-5 dark-text">
     Personal projects, hackathons, and other collaborative efforts I have worked on
 </div>
-<label>
+<label class="pb-5">
   <input type="checkbox" bind:checked={showFavoritesFirst} />
   Show Favorites First
 </label>
@@ -100,13 +100,13 @@
     {#each sortedProjects as project}
         <div class="project-container">
             <div class="flex flex-col h-full">
-                <div class="flex pb-2">
+                <div class="flex pb-4">
                     <div class="flex items-center text-xl font-bold max-w-3/4">
                         {project.name}
                     </div>
                     <div class="ml-auto dark-text">{project.year}</div>
                 </div>
-                <div class="flex gap-2">
+                <div class="flex flex-wrap gap-y-2 gap-x-1">
                     {#if project.favorite}  <span class="ml-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">⭐ Favorite</span>
                     {/if}
                     {#if project.medal}  <span class="ml-2 bg-gray-400 text-white text-xs px-2 py-1 rounded-full">🏅 2nd Place Hackathon</span>
@@ -152,12 +152,14 @@
     @media (max-width: 1500px) {
         .projects-container {
             grid-template-columns: repeat(2, 1fr);
+            padding: 0;
         }
     }
 
     @media (max-width: 1000px) {
         .projects-container {
             grid-template-columns: repeat(1, 1fr);
+            padding: 0;
         }
     }
 
