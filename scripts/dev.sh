@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker-compose -f scripts/docker-dev.yml up
+docker compose -f scripts/docker-dev.yml up
