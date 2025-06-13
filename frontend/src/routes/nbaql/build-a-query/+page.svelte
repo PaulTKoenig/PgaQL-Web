@@ -136,7 +136,7 @@
 <style>
 
     .nbaql-main-container, .nbaql-menu-container, .nbaql-chart-container {
-      padding: 3rem;
+      padding: 2rem;
       margin: 0 1rem;
       border-radius: 16px;
       background-color: #333333;

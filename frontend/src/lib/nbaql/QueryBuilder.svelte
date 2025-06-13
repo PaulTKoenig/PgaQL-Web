@@ -166,7 +166,7 @@
 				<button class="text-2xl query-feature-btn" onclick={removeLastWhereClause} disabled={whereStepSelectedOptions.length === 1}>-</button>
 			</div>
 		{:else if queryBuilderSteps[queryBuilderStep].stepType === "STAT_FIELD_STEP"}
-			<div class="flex justify-center gap-10">
+			<div class="flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-10">
 				<div>
 					<div>X Axis</div>
 					<Dropdown options={queryBuilderSteps[queryBuilderStep].options.filter(option => option.value !== yAxisSelectedOption.value)} value={xAxisSelectedOption ? xAxisSelectedOption.label : ""} disabled={false} onSelect={handleSetXSelectedOption} bindLabel={"label"} placeholder={"Search Stat Field..."} />
