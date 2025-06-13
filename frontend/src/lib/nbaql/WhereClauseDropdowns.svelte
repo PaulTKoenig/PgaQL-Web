@@ -70,14 +70,21 @@
   }
 </script>
 
-<div class="flex items-center justify-center">
-  WHERE
-  &nbsp;&nbsp;
-  <Dropdown options={props.statFieldOptions} value={props.whereStepSelectedOptions[whereClauseIdx].whereFieldSelectedOption ? props.whereStepSelectedOptions[whereClauseIdx].whereFieldSelectedOption.label : ""} disabled={false} placeholder={"Search Stat Field..."} onSelect={handleSelectWhereFieldOption} bindLabel={"label"} />
-  &nbsp;&nbsp;&nbsp;
-  <span class="text-2xl">=</span>
-  &nbsp;&nbsp;&nbsp;
-  <Dropdown options={statValueOptions} value={props.whereStepSelectedOptions[whereClauseIdx].whereValueSelectedOption} disabled={whereValueDisabled} placeholder={"Search Field Value..."} onSelect={handleSelectWhereValueOption} />
+<div class="pb-8">
+  <div class="flex items-center justify-center pb-3">
+    <div class="w-24 text-center">
+      WHERE
+    </div>
+
+    <Dropdown options={props.statFieldOptions} value={props.whereStepSelectedOptions[whereClauseIdx].whereFieldSelectedOption ? props.whereStepSelectedOptions[whereClauseIdx].whereFieldSelectedOption.label : ""} disabled={false} placeholder={"Search Stat Field..."} onSelect={handleSelectWhereFieldOption} bindLabel={"label"} />
+  </div>
+  <div class="flex items-center justify-center">
+    <div class="w-24 text-2xl text-center">
+      =
+    </div>
+
+    <Dropdown options={statValueOptions} value={props.whereStepSelectedOptions[whereClauseIdx].whereValueSelectedOption} disabled={whereValueDisabled} placeholder={"Search Field Value..."} onSelect={handleSelectWhereValueOption} />
+  </div>
 </div>
 
 <style>

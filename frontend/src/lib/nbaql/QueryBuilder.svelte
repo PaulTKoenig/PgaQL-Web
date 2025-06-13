@@ -155,7 +155,7 @@
 		{#if queryBuilderSteps[queryBuilderStep].stepType === "WHERE_STEP"}
 
 			{#each whereStepSelectedOptions as _, idx}
-				<div class="flex justify-center py-3">
+				<div class="flex justify-center pb-8">
 					{idx !== 0 ? "AND" : ""}
 				</div>
 				<WhereClauseDropdowns statFieldOptions={queryBuilderSteps[queryBuilderStep].options} handleSelectedOptionForStep={handleSelectedOptionForStep} whereStepSelectedOptions={whereStepSelectedOptions} whereClauseIdx={idx} />
