@@ -40,4 +40,11 @@
         list-style-type: disc;
         padding: 20px 50px;
     }
+
+
+  @media (max-width: 1500px) {
+      ul {
+          padding: 10px 25px;
+      }
+    }
 </style>
