@@ -120,11 +120,11 @@
 	    Education
 	</div>
 	<div class="section-content">
-		<div class="flex text-2xl pb-3">
-			<div>
+		<div class="block xl:flex text-2xl pb-1">
+			<div class="text-2xl pb-3">
 			    The Ohio State University
 			</div>
-			<div class="ml-auto dark-text text-xl">
+			<div class="xl:ml-auto dark-text text-xl">
 			    2020 - 2023
 			</div>
 		</div>
