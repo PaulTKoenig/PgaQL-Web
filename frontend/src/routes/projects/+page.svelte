@@ -86,10 +86,10 @@
 
 </script>
 
-<div class="xl:text-5xl text-3xl font-bold">
+<div class="text-xl 2xl:text-3xl font-bold">
     Projects
 </div>
-<div class="xl:text-2xl text-xl py-5 dark-text">
+<div class="text-base 2xl:text-xl py-5 dark-text">
     Personal projects, hackathons, and other collaborative efforts I have worked on
 </div>
 <label class="pb-5">
@@ -101,20 +101,20 @@
         <div class="project-container">
             <div class="flex flex-col h-full">
                 <div class="flex pb-4">
-                    <div class="flex items-center text-xl font-bold max-w-3/4">
+                    <div class="flex items-center text-base 2xl:text-xl font-bold max-w-3/4">
                         {project.name}
                     </div>
                     <div class="ml-auto dark-text">{project.year}</div>
                 </div>
                 <div class="flex flex-wrap gap-y-2 gap-x-1">
-                    {#if project.favorite}  <span class="ml-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">⭐ Favorite</span>
+                    {#if project.favorite}  <span class="ml-2 bg-yellow-500 text-white text-sm px-2.5 py-1 rounded-full">⭐ Favorite</span>
                     {/if}
-                    {#if project.medal}  <span class="ml-2 bg-gray-400 text-white text-xs px-2 py-1 rounded-full">🏅 2nd Place Hackathon</span>
+                    {#if project.medal}  <span class="ml-2 bg-gray-400 text-white text-sm px-2.5 py-1 rounded-full">🏅 2nd Place Hackathon</span>
                     {/if}
-                    {#if project.active}  <span class="ml-2 bg-green-600 text-white text-xs px-2 py-1 rounded-full">In Progress</span>
+                    {#if project.active}  <span class="ml-2 bg-green-600 text-white text-sm px-2.5 py-1 rounded-full">In Progress</span>
                     {/if}
 
-                    {#each project.technologies as tech}  <span class="ml-2 bg-teal text-white text-xs px-2 py-1 rounded-full">{tech}</span>
+                    {#each project.technologies as tech}  <span class="ml-2 bg-teal text-white text-sm px-2.5 py-1 rounded-full">{tech}</span>
                     {/each}
                 </div>
                 <div class="p-3 dark-text">{project.description}</div>
@@ -175,7 +175,7 @@
         align-self: flex-start;
         display: flex;
         gap: 1rem;
-        padding-top: 2rem;
+        padding-top: 1rem;
     }
 
       .carousel-action-btn {

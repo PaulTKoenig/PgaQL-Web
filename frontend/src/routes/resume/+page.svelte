@@ -1,17 +1,17 @@
 <div class="px-20vh">
-	<div class="text-4xl font-bold">
+	<div class="text-xl 2xl:text-3xl font-bold">
 	    Professional Experience
 	</div>
 	<div class="section-content">
-		<div class="flex flex-col xl:flex-row text-2xl pb-6">
+		<div class="flex flex-col xl:flex-row text-lg 2xl:text-2xl pb-4 2xl:pb-6">
 			<div>
 			    JPMorgan Chase & Co, Software Engineer
 			</div>
-			<div class="ml-0 xl:ml-auto dark-text text-xl">
+			<div class="ml-0 xl:ml-auto dark-text text-base 2xl:text-xl">
 			    Feb 2024 - Present
 			</div>
 		</div>
-		<ul class="dark-text text-xl">
+		<ul class="dark-text text-base 2xl:text-xl">
 		    <li>
 		        Developing a centralized legal application hub integrating 10 other legal services. Key contributions include implementing user behavior tracking through click analytics, addressing complex security and rendering concerns, building dynamic data grids, enhancing UI/UX, and overhauling functional testing efforts.
 		    </li>
@@ -29,15 +29,15 @@
 		    </li>
 		</ul>
 
-		<div class="flex flex-col xl:flex-row text-2xl pt-10 pb-6">
+		<div class="flex flex-col xl:flex-row text-lg 2xl:text-2xl pt-10 pb-4 2xl:pb-6">
 			<div>
 		    	JPMorgan Chase & Co, Software Engineering Intern
 			</div>
-			<div class="ml-0 xl:ml-auto dark-text text-xl">
+			<div class="ml-0 xl:ml-auto dark-text text-base 2xl:text-xl">
 			    Summer 2023
 			</div>
 		</div>
-		<ul class="dark-text text-xl">
+		<ul class="dark-text text-base 2xl:text-xl">
 		    <li>
 		        Saved team 3 hours of data cleaning each day through the development of the technology risk prevention dashboard
 		    </li>
@@ -49,15 +49,15 @@
 		    </li>
 		</ul>
 
-		<div class="flex flex-col xl:flex-row text-2xl pt-10 pb-6">
+		<div class="flex flex-col xl:flex-row text-lg 2xl:text-2xl pt-10 pb-4 2xl:pb-6">
 			<div>
 		    	John Deere, Software Engineering Intern
 			</div>
-			<div class="ml-0 xl:ml-auto dark-text text-xl">
+			<div class="ml-0 xl:ml-auto dark-text text-base 2xl:text-xl">
 			    Summer 2022
 			</div>
 		</div>
-		<ul class="dark-text text-xl">
+		<ul class="dark-text text-base 2xl:text-xl">
 		    <li>
 		        Led software overhaul project using C# and Microsoft SQL Server that provides users the ability to manage and configure Software in the Loop simulations of virtual embedded controllers
 		    </li>
@@ -69,15 +69,15 @@
 		    </li>
 		</ul>
 
-		<div class="flex flex-col xl:flex-row text-2xl pt-10 pb-6">
+		<div class="flex flex-col xl:flex-row text-lg 2xl:text-2xl pt-10 pb-4 2xl:pb-6">
 			<div>
 		    	Crown Battery Manufacturing, Engineering Intern
 			</div>
-			<div class="ml-0 xl:ml-auto dark-text text-xl">
+			<div class="ml-0 xl:ml-auto dark-text text-base 2xl:text-xl">
 			    Summer 2021
 			</div>
 		</div>
-		<ul class="dark-text text-xl">
+		<ul class="dark-text text-base 2xl:text-xl">
 		    <li>
 		        Led human-machine interface upgrade project generating lowered inventory costs and maintenance downtime
 		    </li>
@@ -87,14 +87,14 @@
 		</ul>
 	</div>
 
-	<div class="section-header text-4xl">
+	<div class="section-header text-xl 2xl:text-3xl">
 	    Skills
 	</div>
 	<div class="section-content">
-		<div class="text-2xl pb-5">
+		<div class="text-xl 2xl:text-2xl pb-3 2xl:pb-5">
 		    Languages
 		</div>
-		<div class="flex flex-col gap-5 dark-text text-xl">
+		<div class="flex flex-col gap-5 dark-text text-base 2xl:text-xl">
 		    <div>
 		        Professional Level - Java, JavaScript (React.js), Python, SQL, TypeScript
 		    </div>
@@ -102,10 +102,10 @@
 		        Proficient Level - C, Go, Svelte (SvelteKit)
 		    </div>
 		</div>
-		<div class="text-2xl pt-10 pb-5">
+		<div class="text-lg 2xl:text-2xl pt-10 pb-3 2xl:pb-5">
 		    Concepts
 		</div>
-		<div class="flex flex-col gap-5 dark-text text-xl">
+		<div class="flex flex-col gap-5 dark-text text-base 2xl:text-xl">
 		    <div>
 		        Professional Level - Relational Databases, NoSQL Databases, Version Control (Git), APIs (Spring Boot, Flask), Testing (Jest, JUnit, Selenium)
 		    </div>
@@ -116,19 +116,19 @@
 	</div>
 
 
-	<div class="section-header text-4xl">
+	<div class="section-header text-xl 2xl:text-3xl">
 	    Education
 	</div>
 	<div class="section-content">
-		<div class="block xl:flex text-2xl pb-1">
-			<div class="text-2xl pb-3">
+		<div class="block xl:flex text-lg 2xl:text-2xl pb-1">
+			<div class="text-base 2xl:text-xl pb-3">
 			    The Ohio State University
 			</div>
-			<div class="xl:ml-auto dark-text text-xl">
+			<div class="xl:ml-auto dark-text text-base 2xl:text-xl">
 			    2020 - 2023
 			</div>
 		</div>
-		<div class="dark-text text-xl">
+		<div class="dark-text text-base 2xl:text-xl">
 		    <div>
 		        Bachelor of Computer Science & Engineering
 		    </div>
@@ -136,11 +136,11 @@
 	</div>
 
 
-	<div class="section-header text-4xl">
+	<div class="section-header text-xl 2xl:text-3xl">
 	    Leadership Opportunities
 	</div>
 	<div class="section-content leadership-content">
-		<ul class="dark-text text-xl">
+		<ul class="dark-text text-base 2xl:text-xl">
 		    <li>
 		        JPMorgan Chase & Co. - Software Engineer Program Mentor (2024 - Present)
 		    </li>
@@ -158,7 +158,7 @@
 </div>
 
 <style type="text/css">
-	@media (min-width: 1500px) {
+	@media (min-width: 2000px) {
         .px-20vh {
             padding: 0 20vh;
         }
@@ -169,7 +169,7 @@
     }
 
     .section-header {
-        padding: 6rem 0 0;
+        padding: 5rem 0 0;
         font-weight: bold;
     }
 
@@ -190,10 +190,18 @@
         }
     }
 
+    .leadership-content {
+    	padding: 2.5rem 3rem 0;
+    }
 
-	@media (max-width: 1500px) {
+
+	@media (max-width: 1536px) {
         .section-content {
-	    	padding: 2.5rem 1rem 0;
+	    	padding: 2rem 1.5rem 0;
+	    }
+
+	    .leadership-content {
+	    	padding: 2rem 1.5rem 0;
 	    }
 
 	    ul {
@@ -203,9 +211,5 @@
 
     .section-content li {
         padding: 8px;
-    }
-
-    .leadership-content {
-    	padding: 2.5rem 1.5rem 0;
     }
 </style>

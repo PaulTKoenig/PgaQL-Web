@@ -14,15 +14,16 @@
 <div class="px-10vh">
     <div class="xl:flex items-center">
         <div>
-            <div class="text-4xl font-bold pb-4">
+            <div class="text-2xl 2xl:text-4xl font-bold pb-4 inline-block">
                 Hi, I'm Paul
+                <div class="h-1 my-1 bg-teal"></div>
             </div>
             <div class="flex flex-col gap-6 dark-text">
-                <div class="text-xl font-bold">
+                <div class="text-base 2xl:text-lg font-bold">
                     I'm a curious and driven software engineer with experience in full-stack development, data science, and systems engineering. I began coding in 2019 after a one-off programming elective in C# that sparked my interest, ultimately leading me to major in Computer Science at The Ohio State University.
                 </div>
 
-                <div class="text-xl font-bold">
+                <div class="text-base 2xl:text-lg font-bold">
                     I love music and spending time outdoors, enjoying activities like golf, snowboarding, and fishing in my free time. I created this page to share more about my development journey and life experiences.
                 </div>
             </div>
@@ -31,10 +32,11 @@
     </div>
 
     <div class="projects-section-header">
-        <div class="text-3xl font-bold">
+        <div class="text-xl 2xl:text-3xl font-bold inline-block">
             My Favorite Projects
+            <div class="h-0.5 my-1 bg-copper"></div>
         </div>
-        <button class="more-projects-btn xl:ml-auto text-lg font-bold" on:click={() => navigate("/projects")}>
+        <button class="more-projects-btn xl:ml-auto text-base 2xl:text-lg font-bold" on:click={() => navigate("/projects")}>
             <strong>All Projects</strong>
         </button>
     </div>
@@ -43,33 +45,39 @@
         <Carousel />
     </div>
 
-    <div class="section-header text-3xl font-bold">
-        What I'm Doing Now<span class="text-base">&nbsp;&nbsp;(outside of work)</span>
+    <div class="section-header text-xl 2xl:text-3xl font-bold inline-block">
+        What I'm Doing Now
+        <div class="h-0.5 my-1 bg-copper"></div>
     </div>
     <div class="section-description">
-        <div class="text-lg dark-text">
+        <div class="text-base 2xl:text-xl pb-1">
+            (outside of work)
+        </div>
+    </div>
+    <div class="section-description">
+        <div class="text-base 2xl:text-xl dark-text">
             Last updated 5/15/2025
         </div>
     </div>
 
-    <div class="section-container text-xl dark-text">
+    <div class="section-container text-base 2xl:text-xl dark-text">
         <ul>
             <li class="py-1">Developing my latest project, <a href="/nbaql/build-a-query">NbaQL</a>, a custom query language for exploring NBA data</li>
-            <li class="py-1">Organizing past personal projects by refining repositories and writing concise articles to showcase their purpose, achievements, and what I learned</li>
-            <li class="py-1">Hoping my golf game gets better without practicing</li>
+            <li class="py-1">Organizing past personal projects by refining repositories and writing articles to showcase their achievements and what I learned</li>
         </ul>
     </div>
 
     <div class="section-header">
-        <div class="text-3xl font-bold">
+        <div class="text-xl 2xl:text-3xl font-bold inline-block">
             Articles
+            <div class="h-0.75 my-1 bg-copper"></div>
         </div>
         <!-- <a class="more-articles-btn ml-auto text-lg font-bold" href="/articles">
             All Articles
         </a> -->
     </div>
 
-    <div class="articles-section-container text-xl dark-text">
+    <div class="articles-section-container text-base 2xl:text-xl dark-text">
         Coming Soon...
         <!-- <ul>
             {#each articles as article}
@@ -85,7 +93,7 @@
 
 <style type="text/css">
 
-    @media (min-width: 1500px) {
+    @media (min-width: 1536px) {
         .px-10vh {
             padding: 0 10vh;
         }
@@ -117,25 +125,20 @@
         min-height: 50vh;
     }
 
-    .section-header, .projects-section-header {
-        display: flex;
-        align-items: center;
-    }
-
     .section-header {
-        padding: 6rem 10% .5rem;
+        padding: 6rem 0 .5rem;
     }
 
     .section-description {
-        padding: 0 10%;
+/*        padding: 0;*/
     }
 
     .projects-section-header {
-        padding: 6rem 10% 2rem;
+        padding: 6rem 0 2rem;
     }
 
     .section-container, .articles-section-container {
-        padding: 1rem 12% 0;
+        padding: 1rem 1rem 0;
     }
 
     .section-container ul {
@@ -153,6 +156,7 @@
         align-items: center;
         justify-content: center;
         gap: 40px;
+
         div {
             border: 1px solid white;
         }
@@ -166,6 +170,14 @@
     .section-container li a {
         text-decoration: underline;
         color: #627fc4;
+    }
+
+    .bg-teal {
+        background-color: #018786;
+    }
+
+    .bg-copper {
+        background-color: #d48e3d;
     }
 
     @media (max-width: 1280px) {

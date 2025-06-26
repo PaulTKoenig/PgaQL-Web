@@ -36,16 +36,45 @@
 	<div class="embla">
 	<div class="embla__container">
 	  <div class="embla__slide">
-	    <div class="carousel-item">
-        <div class="p-10 flex flex-col">
+
+
+      <div class="small-carousel-item">
+        <img src={nbaqlSnapshot} alt="NbaQL Interpreter" class="p-3 rounded-2xl block w-13/24" />
+        <div class="flex flex-col gap-4 overflow-hidden mt-auto pb-4">
           <div>
-    	      <p class="text-xl font-bold">
+            <p class="text-base 2xl:text-xl font-bold">
               NbaQL Interpreter & UI
             </p>
-            <p class="text-lg pt-3 hidden lg:block">
+            <p class="text-sm 2xl:text-lg block lg:hidden">
+              Interpreter for the developed language 'NbaQL'
+            </p>
+            <div class="small-project-tags-container">
+              <div class="project-tag bg-teal">C</div>
+              <div class="project-tag bg-teal">Svelte</div>
+              <div class="project-tag bg-teal">Docker</div>
+              <div class="project-tag bg-copper dark-text">Full Stack</div>
+            </div>
+          </div>
+          <div class="carousel-action-btns-container">
+            <a class="carousel-action-btn text-xs" href="/nbaql/build-a-query">
+              Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+
+	    <div class="carousel-item">
+        <div class="p-5 xl:p-10 flex flex-col gap-12">
+          <div>
+    	      <p class="text-lg 2xl:text-xl font-bold">
+              NbaQL Interpreter & UI
+            </p>
+            <p class="text-base pt-3 hidden lg:block">
               Interpreter for the developed language 'NbaQL' that allows users to easily find trends in their favorite athletes and teams
             </p>
-            <p class="text-lg pt-3 block lg:hidden">
+            <p class="text-base pt-2 block lg:hidden">
               Interpreter for the developed language 'NbaQL'
             </p>
             <div class="project-tags-container">
@@ -64,20 +93,43 @@
             </a>
           </div>
         </div>
-        <img src={nbaqlSnapshot} alt="NbaQL Interpreter" class="p-3 rounded-2xl ml-auto hidden xl:block" />
+        <img src={nbaqlSnapshot} alt="NbaQL Interpreter" class="p-3 rounded-2xl block ml-auto w-7/12 lg:w-1/2 2xl:w-auto h-3/4 sm:h-full" />
 	    </div>
+
+
 	  </div>
     <div class="embla__slide">
-      <div class="carousel-item">
-        <div class="p-10 flex flex-col">
+
+
+      <div class="small-carousel-item">
+        <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl block w-2/3" />
+        <div class="px-10 flex flex-col gap-4 overflow-hidden mt-auto pb-4">
           <div>
-            <p class="text-xl font-bold">
+            <p class="text-base 2xl:text-xl font-bold">
               Statistical Approach to Predicting NCAAB Outcomes
             </p>
-            <p class="text-lg pt-3 hidden 2x:block">
+            <p class="text-sm 2xl:text-lg block lg:hidden">
+              Predictive model for future basketball matchups with a 73% accuracy
+            </p>
+            <div class="small-project-tags-container">
+              <div class="project-tag bg-teal">Python</div>
+              <div class="project-tag bg-copper">Data Science</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="hidden xl:carousel-item">
+        <div class="p-10 flex flex-col">
+          <div>
+            <p class="text-lg 2xl:text-xl font-bold">
+              Statistical Approach to Predicting NCAAB Outcomes
+            </p>
+            <p class="text-base 2xl:text-lg pt-3 hidden 2x:block">
               Predictive model for future NCAA basketball matchups with a 73% accuracy rate, based on analysis of 2,129 games during the 2022-23 season. Outperformed when compared to similar models across the same game range (such as TeamRanking.com - 71.2%)
             </p>
-            <p class="text-lg pt-3 block 2x:hidden">
+            <p class="text-base 2xl:text-lg pt-3 block 2x:hidden">
               Predictive model for future basketball matchups with a 73% accuracy
             </p>
             <div class="project-tags-container">
@@ -92,20 +144,46 @@
             </a>
           </div>
         </div>
-        <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl ml-auto hidden xl:block" />
+        <div class="flex items-center h-full">
+          <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl ml-auto hidden xl:block" />
+        </div>
       </div>
+
+
     </div>
     <div class="embla__slide">
+
+
+      <div class="small-carousel-item">
+        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl block w-11/12" />
+        <div class="px-10 flex flex-col gap-4 overflow-hidden mt-auto pb-4">
+          <div>
+            <p class="text-base 2xl:text-xl font-bold">
+              MLExpress
+            </p>
+            <p class="text-sm 2xl:text-lg block lg:hidden">
+              No code solution to machine learning model development
+            </p>
+            <div class="small-project-tags-container">
+              <div class="project-tag bg-teal">React</div>
+              <div class="project-tag bg-copper">Frontend</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
       <div class="carousel-item">
         <div class="p-10 flex flex-col">
           <div>
-            <p class="text-xl font-bold">
+            <p class="text-lg 2xl:text-xl font-bold">
               MLExpress
             </p>
-            <p class="text-lg pt-3 hidden lg:block">
+            <p class="text-base 2xl:text-lg pt-3 hidden lg:block">
               Web application enabling users to interact with datasets and experiment building and fine-tuning ML models without coding
             </p>
-            <p class="text-lg pt-3 block lg:hidden">
+            <p class="text-base 2xl:text-lg pt-3 block lg:hidden">
               No code solution to machine learning model development
             </p>
             <div class="project-tags-container">
@@ -122,8 +200,10 @@
             </a>
           </div>
         </div>
-        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden 2x:block" />
+        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden 3x:block" />
         <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden xl:block 2x:hidden w-1/2" />
+
+
       </div>
     </div>
     <!-- <div class="embla__slide">
@@ -196,9 +276,23 @@
   }
 
   .carousel-item {
-    width: 80%;
-    height: 310px;
+    width: 90%;
+    height: 100%;
+    max-height: 350px;
+    display: none;
+    justify-content: left;
+    text-align: left;
+    border-radius: 10px;
+    background-color: lightgrey;
+  }
+
+  .small-carousel-item {
+    width: 95%;
+    height: 100%;
+    max-height: 350px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: left;
     text-align: left;
     border-radius: 10px;
@@ -208,7 +302,7 @@
   .slides-nav-container {
     display: flex;
     align-items: center;
-    margin: 1rem 10% 0;
+    margin: 1rem 3% 0;
   }
 
   .slides-nav-btn-container {
@@ -260,6 +354,7 @@
   }
 
   .coming-soon-btn {
+    display: none;
     cursor: initial;
     background: repeating-linear-gradient(
       45deg,
@@ -279,15 +374,18 @@
 
   .project-tags-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
     align-items: center;
   }
 
-  @media (max-width: 768px) {
-      .project-tags-container {
-          display: none;
-      }
+  .small-project-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    align-items: center;
   }
 
   .project-tag {
@@ -304,5 +402,25 @@
 
   .bg-teal {
     background-color: #018786;
+  }
+
+  @media (min-width: 800px) {
+    .carousel-item {
+/*      display: flex;*/
+      max-height: 450px;
+      display: flex;
+    }
+
+    .small-carousel-item {
+      display: none;
+    }
+
+    .slides-nav-container {
+      margin: 1rem 5% 0;
+    }
+
+    .coming-soon-btn {
+      display: flex;
+    }
   }
 </style>
