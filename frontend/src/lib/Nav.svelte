@@ -29,6 +29,14 @@
                 <div class="nav-dropdown">
                     <a
                         class="nav-btn nav-dropdown-item"
+                        href="/"
+                        class:active={page.url.pathname === '/'}
+                        onclick={closeNav}
+                    >
+                        Home
+                    </a>
+                    <a
+                        class="nav-btn nav-dropdown-item"
                         href="/projects"
                         class:active={page.url.pathname === '/projects'}
                         onclick={closeNav}
@@ -63,6 +71,13 @@
             {/if}
         </div>
         <div class="default-nav-buttons">
+            <a
+                class="nav-btn"
+                href="/"
+                class:active={page.url.pathname === '/'}
+            >
+                Home
+            </a>
             <a
                 class="nav-btn"
                 href="/projects"
