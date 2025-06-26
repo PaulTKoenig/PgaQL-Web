@@ -36,9 +36,11 @@
             My Favorite Projects
             <div class="h-0.5 my-1 bg-copper"></div>
         </div>
-        <button class="more-projects-btn xl:ml-auto text-base 2xl:text-lg font-bold" on:click={() => navigate("/projects")}>
-            <strong>All Projects</strong>
-        </button>
+        <div class="xl:pt-4">
+            <button class="more-projects-btn text-base 2xl:text-lg font-bold" on:click={() => navigate("/projects")}>
+                <strong>All Projects</strong>
+            </button>
+        </div>
     </div>
 
     <div class="projects-carousel">
@@ -198,6 +200,5 @@
         .articles-section-container ul {
             padding: 0 20px;
         }
-
     }
 </style>

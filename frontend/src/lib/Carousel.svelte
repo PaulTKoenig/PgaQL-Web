@@ -39,7 +39,7 @@
 
 
       <div class="small-carousel-item">
-        <img src={nbaqlSnapshot} alt="NbaQL Interpreter" class="p-3 rounded-2xl block w-13/24" />
+        <img src={nbaqlSnapshot} alt="NbaQL Interpreter" class="p-3 rounded-2xl block w-auto max-h-7/12" />
         <div class="flex flex-col gap-4 overflow-hidden mt-auto pb-4">
           <div>
             <p class="text-base 2xl:text-xl font-bold">
@@ -102,7 +102,7 @@
 
 
       <div class="small-carousel-item">
-        <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl block w-2/3" />
+        <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl block w-auto max-h-9/12" />
         <div class="px-10 flex flex-col gap-4 overflow-hidden mt-auto pb-4">
           <div>
             <p class="text-base 2xl:text-xl font-bold">
@@ -155,7 +155,7 @@
 
 
       <div class="small-carousel-item">
-        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl block w-11/12" />
+        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl block w-auto max-h-9/12" />
         <div class="px-10 flex flex-col gap-4 overflow-hidden mt-auto pb-4">
           <div>
             <p class="text-base 2xl:text-xl font-bold">
@@ -302,7 +302,7 @@
   .slides-nav-container {
     display: flex;
     align-items: center;
-    margin: 1rem 3% 0;
+    margin: 2.5rem 3% 0;
   }
 
   .slides-nav-btn-container {
@@ -312,7 +312,7 @@
       padding: .33rem .66rem;
       border: none;
       cursor: pointer;
-      margin-top: 20px;
+/*      margin-top: 20px;*/
     }
   }
 
@@ -404,7 +404,7 @@
     background-color: #018786;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 669px) {
     .carousel-item {
 /*      display: flex;*/
       max-height: 450px;
