@@ -102,7 +102,7 @@
 
 
       <div class="small-carousel-item">
-        <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl block w-auto max-h-9/12" />
+        <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl block w-auto max-h-7/12" />
         <div class="px-10 flex flex-col gap-4 overflow-hidden mt-auto pb-4">
           <div>
             <p class="text-base 2xl:text-xl font-bold">
