@@ -120,7 +120,7 @@
       </div>
 
 
-      <div class="hidden xl:carousel-item">
+      <div class="carousel-item">
         <div class="p-10 flex flex-col">
           <div>
             <p class="text-lg 2xl:text-xl font-bold">
@@ -144,9 +144,7 @@
             </a>
           </div>
         </div>
-        <div class="flex items-center h-full">
-          <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl ml-auto hidden xl:block" />
-        </div>
+          <img src={bball_chart} alt="Basketball Data Chart" class="p-3 rounded-2xl ml-auto w-1/2 2xl:w-auto block" />
       </div>
 
 
@@ -200,8 +198,7 @@
             </a>
           </div>
         </div>
-        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden 3x:block" />
-        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto hidden xl:block 2x:hidden w-1/2" />
+        <img src={mlexpress} alt="MLExpress" class="p-3 rounded-2xl ml-auto block w-1/2 lg:w-2/3 xl:w-auto" />
 
 
       </div>
