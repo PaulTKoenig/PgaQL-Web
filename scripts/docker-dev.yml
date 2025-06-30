@@ -4,33 +4,37 @@ services:
   backend:
     build:
       context: ../backend
-      dockerfile: Dockerfile.dev  # or Dockerfile.prod
+      dockerfile: Dockerfile.dev
     container_name: backend
     ports:
       - "5001:5001"
     volumes:
-      - ../backend:/app  # Mounts the backend code to the container
+      - ../backend:/app
     environment:
-      - FLASK_ENV=development  # Example for Flask, enable development mode for auto-reload
+      - FLASK_ENV=development  
+    restart: unless-stopped
 
   frontend:
     build:
       context: ../frontend
-      dockerfile: Dockerfile.dev  # or Dockerfile.prod
+      dockerfile: Dockerfile.dev
     container_name: frontend
     ports:
       - "5173:5173"
     volumes:
-      - ../frontend:/app  # Mounts the frontend code to the container
+      - ../frontend:/app 
       - /app/node_modules
     environment:
-      - NODE_ENV=development  # Example for Svelte, enable development mode for hot reload
+      - NODE_ENV=development
+    restart: unless-stopped
 
   nginx:
     build: ../nginx
     container_name: nginx
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - backend
       - frontend
+    restart: unless-stopped

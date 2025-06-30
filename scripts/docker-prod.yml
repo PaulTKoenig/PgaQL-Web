@@ -11,20 +11,15 @@ services:
     volumes:
       - ../backend:/app
     environment:
-      - FLASK_ENV=development 
+      - FLASK_ENV=production 
+    restart: unless-stopped
 
   frontend:
     build:
       context: ../frontend
       dockerfile: Dockerfile.prod
     container_name: frontend
-    ports:
-      - "5173:5173"
-    volumes:
-      - ../frontend:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
+    restart: unless-stopped
 
   nginx:
     build: ../nginx
@@ -34,3 +29,4 @@ services:
     depends_on:
       - backend
       - frontend
+    restart: unless-stopped
