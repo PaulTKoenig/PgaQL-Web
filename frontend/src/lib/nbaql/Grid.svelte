@@ -15,7 +15,7 @@
 	export let data = {};
 	export let playerData = new Map();
     let columnDefs: Array<any> = [
-        { headerName: 'Player name', field: 'player', flex: 1, minWidth: 100 },
+        { headerName: 'Player', field: 'player', flex: 1, minWidth: 100 },
         { headerName: data.x_column_name, field: 'stat1', minWidth: 50 },
         { headerName: data.y_column_name, field: 'stat2', minWidth: 50 }
     ];
@@ -52,9 +52,9 @@
         };
 
         if (gridDiv) {
-            const gridApi = createGrid(gridDiv, gridOptions);
+            const { api, columnApi } = createGrid(gridDiv, gridOptions);
             const columnsToAutosize = ['stat1', 'stat2'];
-            gridApi.columnApi.autoSizeColumns(columnsToAutosize);
+            columnApi.autoSizeColumns(columnsToAutosize);
         }
     });
 </script>
