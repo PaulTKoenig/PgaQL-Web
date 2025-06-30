@@ -62,7 +62,7 @@
                     <a
                         class="nav-btn nav-dropdown-item"
                         href="/nbaql/build-a-query"
-                        class:active={page.url.pathname === '/nbaql/build-a-query'}
+                        class:active={page.url.pathname.includes('/nbaql')}
                         onclick={closeNav}
                     >
                         NbaQL
@@ -102,7 +102,7 @@
             <a
                 class="nav-btn"
                 href="/nbaql/build-a-query"
-                class:active={page.url.pathname === '/nbaql/build-a-query'}
+                class:active={page.url.pathname.includes('/nbaql')}
             >
                 NbaQL
             </a>
