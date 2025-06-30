@@ -52,7 +52,9 @@
         };
 
         if (gridDiv) {
-            createGrid(gridDiv, gridOptions);
+            const gridApi = createGrid(gridDiv, gridOptions);
+            const columnsToAutosize = ['stat1', 'stat2'];
+            gridApi.columnApi.autoSizeColumns(columnsToAutosize);
         }
     });
 </script>
