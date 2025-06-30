@@ -48,16 +48,16 @@
                 sortable: true,
                 filter: true,
                 resizable: true
-            },
-            onGridReady: (params) => {
-                const columnsToAutosize = ['stat1', 'stat2'];
-                params.api.autoSizeColumns(columnsToAutosize);
             }
         };
     
         if (gridDiv) {
-            createGrid(gridDiv, gridOptions);
-        }
+    const { api, columnApi } = createGrid(gridDiv, gridOptions);
+    setTimeout(() => {
+        const columnsToAutosize = ['stat1', 'stat2'];
+        columnApi.autoSizeColumns(columnsToAutosize);
+    }, 100);
+}
     });
 </script>
 
