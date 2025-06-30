@@ -15,10 +15,10 @@
 	export let data = {};
 	export let playerData = new Map();
     let columnDefs: Array<any> = [
-        { headerName: 'Player', field: 'player', flex: 1, minWidth: 100 },
-        { headerName: data.x_column_name, field: 'stat1', minWidth: 50 },
-        { headerName: data.y_column_name, field: 'stat2', minWidth: 50 }
-    ];
+    { headerName: 'Player', field: 'player', flex: 1, minWidth: 100 },
+    { headerName: data.x_column_name, field: 'stat1', minWidth: 50, autoSize: true },
+    { headerName: data.y_column_name, field: 'stat2', minWidth: 50, autoSize: true }
+];
     let rowData: Array<any> = [];
 
     const darkTheme = themeQuartz.withPart(colorSchemeDarkBlue).withParams({
