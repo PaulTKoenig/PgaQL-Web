@@ -34,13 +34,21 @@
         }
     }
 
-    let iframeEl: HTMLIFrameElement;
+    let resumePreviewElem: HTMLElement;
 
     function handleClickOutside(event: MouseEvent) {
-        if (iframeEl && !iframeEl.contains(event.target as Node) && event.target.id !== "resume-preview-btn") {
+        if (resumePreviewElem && !resumePreviewElem.contains(event.target as Node) && event.target.id !== "resume-preview-btn") {
             togglePreview();
             updateBlur();
         }
+    }
+
+    function downloadResume() {
+        const link = document.createElement('a');
+        link.href = resumePdf;
+        link.download = 'Paul_Koenig_Resume.pdf';
+        link.click();
+        document.body.removeChild(link);
     }
 
     onMount(() => {
@@ -178,11 +186,30 @@
     </div>
 </div>
 {#if showPreview}
-    <iframe
-        src={resumePdf}
+    <div
         class="resume-preview"
-        bind:this={iframeEl}
-    ></iframe>
+        bind:this={resumePreviewElem}
+    >
+        <div class="resume-preview-header">
+            <button 
+                class="nav-btn"
+                onclick={downloadResume}
+            >
+                <img src={downloadIcon} alt="Download Icon" />
+            </button>
+            <button 
+                class="nav-btn resume-preview-close"
+                onclick={togglePreview}
+            >
+                ✕
+            </button>
+        </div>
+        <iframe
+            src={resumePdf}
+            height="100%"
+            width="100%"
+        ></iframe>
+    </div>
 {/if}
 
 <style>
@@ -256,6 +283,7 @@
         padding: .5rem .75rem;
         border-radius: 6px;
         display: flex;
+        align-items: center;
         gap: 6px;
     }
 
@@ -352,13 +380,32 @@
 
     .resume-preview {
         position: fixed;
-        top: 60px;
+        top: 50px;
         height: calc(100% - 120px);
         width: 90%;
         left: 5%;
         border: none;
         margin-top: 1rem;
         z-index: 3;
+    }
+
+    .resume-preview-header {
+        padding: 8px;
+        height: 44px;
+        background-color: #555555;
+        display: flex;
+        justify-content: right;
+        gap: 12px;
+
+        button {
+            padding: 4px 6px;
+        }
+    }
+
+    .resume-preview-close {
+        color: black;
+        font-weight: 0;
+        margin-right: 6px;
     }
 
     :global(.blurred) {
