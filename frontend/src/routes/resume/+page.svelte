@@ -19,7 +19,7 @@
 		        Reduced post-release defects by spearheading an initiative to improve functional test coverage using Selenium and Cucumber, resulting in more reliable releases and improved team confidence in code quality.
 		    </li>
 		    <li>
-		    	Contributed to the full lifecycle of a new application for Non-Disclosure Agreement (NDA) processing — covering submission, review, escalation, and completion — over a 7-month development timeline, automating many of the team's current manual workflows and implenting features that were not possible in the previous sharepoint solution
+		    	Contributed to the full lifecycle of a new application for Non-Disclosure Agreement (NDA) processing — covering submission, review, escalation, and completion — over a 7-month development timeline, automating many of the team's current manual workflows and implementing features that were not possible in the previous sharepoint solution
 		    </li>
 		    <li>
 		        Played a key role in implementing a revamped workflow process for the submission, review, and completion of a document, including leading the migration of legacy processes into a modern codebase and transitioning data storage from Oracle to MongoDB, resulting in enhanced scalability and reduced maintenance overhead.

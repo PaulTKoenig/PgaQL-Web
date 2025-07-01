@@ -7,7 +7,7 @@
 <main>
   <Nav />
 
-  <div class="pt-nav px-10vh z-0">
+  <div class="page-body pt-nav px-10vh z-0">
     {@render children()}
   </div>
 </main>
@@ -29,4 +29,9 @@
       padding-right: 3vh;
     }
   }
+
+  /*main {
+    font-family: "Open Sans";
+  }*/
+  
 </style>
