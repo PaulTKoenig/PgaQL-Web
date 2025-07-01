@@ -15,12 +15,12 @@
 
     let showNav = false;
     const toggleNav = () => {
-        updateBlur();
         showNav = !showNav;
+        updateBlur();
     }
     const closeNav = () => {
-        updateBlur();
         showNav = false;
+        updateBlur();
     }
 
     function updateBlur() {
