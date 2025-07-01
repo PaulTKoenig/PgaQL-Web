@@ -5,7 +5,7 @@
     let linkedinLogo = '/icons8-linkedin.svg';
     let downloadIcon = '/download-icon.svg';
     let whiteDownloadIcon = '/white-download-icon.svg';
-    let resumePdf = '/Resume-Paul-Koenig.pdf';
+    let resumePdf = '/Resume-Paul-Koenig-25.pdf';
 
     let showPreview = false;
     const togglePreview = () => {
