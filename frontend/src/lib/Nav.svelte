@@ -392,7 +392,7 @@
     .resume-preview-header {
         padding: 8px;
         height: 44px;
-        background-color: #555555;
+        background-color: #999999;
         display: flex;
         justify-content: right;
         gap: 12px;
