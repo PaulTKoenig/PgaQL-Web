@@ -58,7 +58,7 @@
     </div>
     <div class="section-description">
         <div class="text-base 2xl:text-xl dark-text">
-            Last updated 5/15/2025
+            Last updated 7/1/2025
         </div>
     </div>
 
