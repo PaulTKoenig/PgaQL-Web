@@ -43,6 +43,16 @@
         }
     }
 
+    function handleResizeBlur() {
+        if (showNav) {
+            const currentWidth = window.innerWidth;
+
+            if (currentWidth > 799) {
+                closeNav();
+            }
+        }
+    }
+
     function downloadResume() {
         const link = document.createElement('a');
         link.href = resumePdf;
@@ -52,13 +62,14 @@
     }
 
     onMount(() => {
-        console.log(document.title);
         document.addEventListener('click', handleClickOutside);
+        window.addEventListener('resize', handleResizeBlur);
     });
 
     onDestroy(() => {
         if (typeof document !== 'undefined') {
             document.removeEventListener('click', handleClickOutside);
+            window.removeEventListener('resize', handleResizeBlur);
         }
     });
 </script>
@@ -221,6 +232,20 @@
 
         .social-media-nav-logo:first-of-type {
             margin-left: 1.25rem;
+        }
+
+        .nav-dropdown {
+            display: none !important;
+        }
+
+        :global(.pdf-blurred) {
+            filter: blur(3px) !important;
+            -webkit-filter: blur(3px) !important;
+        }
+
+        :global(.nav-blurred) {
+            filter: blur(3px) !important;
+            -webkit-filter: blur(3px) !important;
         }
     }
 
