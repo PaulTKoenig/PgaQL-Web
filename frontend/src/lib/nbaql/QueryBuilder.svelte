@@ -40,12 +40,17 @@
     }
 
 	function handleRestart() {
-		inputArray=[];
 		queryBuilderStep=0;
         selectedOptionForStep="";
         xAxisSelectedOption="";
         yAxisSelectedOption="";
         statFieldAggregateType="";
+        whereStepSelectedOptions = [
+  		{
+  			whereFieldSelectedOption: "",
+  			whereValueSelectedOption: ""
+  		}];
+		inputArray=[];
 	}
 
 	function handleRevert() {
