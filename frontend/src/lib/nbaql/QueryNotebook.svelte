@@ -10,11 +10,16 @@
 	}
 
 	function handleKeyDown(event) {
-	    if (event.key === 'Enter' && !event.shiftKey) {
-	      event.preventDefault();
-	      handleSubmit();
-	    }
-	  }
+		if (event.key === 'Enter' && !event.shiftKey) {
+		  event.preventDefault();
+		  handleSubmit();
+		}
+	}
+
+	function handleTryExample() {
+		input = 'CHART player_stats IN scatter_plot FOR mins VS pts WHERE gameType = \'Playoffs\' AND seriesGameNumber = \'7.0\'';
+		handleSubmit();
+	}
 </script>
 
 <div class="flex flex-col text-center items-center justify-center gap-5">
@@ -26,6 +31,7 @@
 	>
 	</textarea>
 	<button class="query-submit-btn" onclick={handleSubmit} disabled={input.trim() === ""}>Search</button>
+	<button class="query-try-example-btn" onclick={handleTryExample}>Try Example</button>
 </div>
 
 <style type="text/css">
@@ -41,10 +47,15 @@
 	    min-height: 200px;
 	}
 
-	.query-submit-btn {
+	.query-submit-btn, .query-try-example-btn {
 		width: 25%;
 		min-width: 100px;
 		margin-top: 1rem;
 		border: 1px solid #F0F0F0;
+    }
+
+    .query-try-example-btn {
+    	margin-top: 0;
+		min-width: 150px;
     }
 </style>

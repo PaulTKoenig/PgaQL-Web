@@ -25,12 +25,19 @@
 <style type="text/css">
     .nbaql-nav-pill-container {
     	margin: 0 1rem 2rem;
+    	font-size: 16px;
 
     	.nbaql-nav-btn {
 	    	background-color: #333333;
 	    	border-radius: 16px;
 	    	padding: 0.5rem 0.75rem;
     	}
+    }
+
+    @media (max-width: 640px) {
+        .nbaql-nav-pill-container {
+    		font-size: 12px;
+        }
     }
 
     .nbaql-nav-pill-active {

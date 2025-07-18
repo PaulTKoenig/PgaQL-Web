@@ -55,7 +55,7 @@
               text: data.x_column_name,
               color: '#999999',
               font: {
-                size: isMobile ? 10 : 16,
+                size: isMobile ? 12 : 16,
                 weight: 'bold'
               },
               padding: {
@@ -65,7 +65,7 @@
             },
             ticks: {
               font: {
-                size: isMobile ? 8 : 14
+                size: isMobile ? 10 : 14
               }
             }
           },
@@ -77,7 +77,7 @@
               text: data.y_column_name,
               color: '#999999',
               font: {
-                size: isMobile ? 10 : 16,
+                size: isMobile ? 12 : 16,
                 weight: 'bold'
               },
               padding: {
@@ -89,7 +89,7 @@
             },
             ticks: {
               font: {
-                size: isMobile ? 8 : 14
+                size: isMobile ? 10 : 14
               }
             }
           },
@@ -120,17 +120,12 @@
                 return `${data.x_column_name}: ${x}, ${data.y_column_name}: ${y}`;
               }
             },
-            titleFont: {
-              size: isMobile ? 10 : 16
-            },
             bodyFont: {
-              size: isMobile ? 8 : 14
+              size: isMobile ? 10 : 14
+            },
+            footerFont: {
+              size: isMobile ? 10 : 14
             }
-          }
-        },
-        elements: {
-          point: {
-            radius: isMobile ? 1 : 5
           }
         }
       }

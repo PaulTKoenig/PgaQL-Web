@@ -18,8 +18,8 @@
 
     let columnDefs: Array<any> = [
     { headerName: 'Player', field: 'player', minWidth: 150 },
-    { headerName: data.x_column_name, field: 'stat1', minWidth: 50, flex: 1 },
-    { headerName: data.y_column_name, field: 'stat2', minWidth: 50, flex: 1 }
+    { headerName: data.x_column_name, field: 'stat1', minWidth: 75, flex: 1 },
+    { headerName: data.y_column_name, field: 'stat2', minWidth: 75, flex: 1 }
 ];
     let rowData: Array<any> = [];
 

@@ -142,14 +142,14 @@
 </script>
 
 <div class="flex flex-col">
-	<p class="font-bold pb-3 text-xl">
+	<p class="font-bold pb-3 sm:text-xl text-sm">
 		Build a query by selecting what you would like to chart
 	</p>
-	<p class="text-xl">
+	<p class="sm:text-xl text-sm">
 		<span class="font-bold">Step {queryBuilderSteps[queryBuilderStep].step}:</span> 
 		&nbsp;{queryBuilderSteps[queryBuilderStep].title}
 	</p> 
-	<div class="pt-16 pb-20 px-8 text-lg">
+	<div class="sm:pt-16 pt-10 sm:pb-20 pb-14 px-8 sm:text-lg text-sm">
 		{#if queryBuilderSteps[queryBuilderStep].stepType === "STAT_FIELD_STEP" && inputArray.includes("CHART season_box_score")}
 			<p>Aggregate Types (Optional)</p>
 	        <div class="flex gap-5 pb-12">
@@ -161,15 +161,17 @@
 		{#if queryBuilderSteps[queryBuilderStep].stepType === "WHERE_STEP"}
 
 			{#each whereStepSelectedOptions as _, idx}
-				<div class="flex justify-center pb-8">
-					{idx !== 0 ? "AND" : ""}
-				</div>
+				{#if idx !== 0 }
+					<div class="flex justify-center pb-8">
+						And
+					</div>
+				{/if}
 				<WhereClauseDropdowns statFieldOptions={queryBuilderSteps[queryBuilderStep].options} handleSelectedOptionForStep={handleSelectedOptionForStep} whereStepSelectedOptions={whereStepSelectedOptions} whereClauseIdx={idx} />
 			{/each}
 
 			<div class="flex justify-center gap-5">
-				<button class="text-2xl query-feature-btn" onclick={addNewWhereClause}>+</button>
-				<button class="text-2xl query-feature-btn" onclick={removeLastWhereClause} disabled={whereStepSelectedOptions.length === 1}>-</button>
+				<button class="sm:text-2xl query-feature-btn" onclick={addNewWhereClause}>+</button>
+				<button class="sm:text-2xl query-feature-btn" onclick={removeLastWhereClause} disabled={whereStepSelectedOptions.length === 1}>-</button>
 			</div>
 		{:else if queryBuilderSteps[queryBuilderStep].stepType === "STAT_FIELD_STEP"}
 			<div class="flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-10">
@@ -203,7 +205,7 @@
 			</div>
 		{/if}
 	</div>
-	<div class="w-full text-xl">
+	<div class="w-full sm:text-xl text-sm">
 		Input:&nbsp;
 		<span class="font-bold">	
     		{concatQuery()}
@@ -234,12 +236,14 @@
 	    font-family: inherit;
 	    transition: border-color 0.25s;
 	    width: 100%;
-	  }
+  	}
 
 	.query-clear-btn, .query-submit-btn, .query-revert-btn, .query-skip-btn, .query-feature-btn, .query-next-btn {
 		width: 200px;
 		margin-top: 0.5rem;
 		border: 1px solid #F0F0F0;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
     }
 
     .query-feature-btn {

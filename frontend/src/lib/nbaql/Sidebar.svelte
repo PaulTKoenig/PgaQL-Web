@@ -22,7 +22,7 @@
 		<p class="font-bold">
 		NbaQL UI is an interactive platform to build queries with the query language 'NbaQL' allowing users to easily search and chart trends for their favorite athletes and teams
 		</p>
-		<p class="pt-10">
+		<p class="nbaql-menu-sidebar-example">
 		Example: CHART player_stats IN scatter_plot FOR mins VS pts WHERE gameType = 'Playoffs' AND seriesGameNumber = '7.0'
 		</p>
 	</div>
@@ -31,7 +31,7 @@
 		<p class="font-bold">
 		NbaQL UI is an interactive platform to build queries with the query language 'NbaQL' allowing users to easily search and chart trends for their favorite athletes and teams
 		</p>
-		<p class="pt-10">
+		<p class="nbaql-menu-sidebar-example">
 		Example: CHART player_stats IN scatter_plot FOR mins VS pts WHERE gameType = 'Playoffs' AND seriesGameNumber = '7.0'
 		</p>
 	</div>
@@ -57,5 +57,30 @@
 
     .nbaql-menu-expanded-content {
     	margin-top: 24px;
+    }
+
+
+    .nbaql-menu-sidebar-example {
+    	padding-top: 40px;
+    }
+
+
+
+    @media (max-width: 600px) {
+    	.nbaql-menu-title  {
+    		font-size: 14px;
+    	}
+
+        .nbaql-menu-container, .nbaql-menu-sidebar {
+    		font-size: 12px;
+        }
+
+        .nbaql-menu-expanded-content {
+	    	margin-top: 16px;
+	    }
+
+	    .nbaql-menu-sidebar-example {
+	    	pading-top: 16px;
+	    }
     }
 </style>
