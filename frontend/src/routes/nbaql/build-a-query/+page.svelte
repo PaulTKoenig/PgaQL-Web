@@ -191,7 +191,7 @@
         .nbaql-query-tab {
           font-size: 0.875rem;
           line-height: 1.25rem;
-          padding: 0.5rem;
+          padding: 0.75rem 0.5rem;
         }
     }
 </style>
