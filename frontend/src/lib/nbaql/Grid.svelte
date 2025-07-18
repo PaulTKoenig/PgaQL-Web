@@ -9,15 +9,17 @@
         colorSchemeDarkBlue
     } from 'ag-grid-community';
 
-    // Register AG Grid Modules
     ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 	export let data = {};
 	export let playerData = new Map();
+
+    const isMobile = window.innerWidth < 600;
+
     let columnDefs: Array<any> = [
-    { headerName: 'Player', field: 'player', flex: 1, minWidth: 100 },
-    { headerName: data.x_column_name, field: 'stat1', minWidth: 50, autoSize: true },
-    { headerName: data.y_column_name, field: 'stat2', minWidth: 50, autoSize: true }
+    { headerName: 'Player', field: 'player', minWidth: 150 },
+    { headerName: data.x_column_name, field: 'stat1', minWidth: 50, flex: 1 },
+    { headerName: data.y_column_name, field: 'stat2', minWidth: 50, flex: 1 }
 ];
     let rowData: Array<any> = [];
 
@@ -26,7 +28,8 @@
         foregroundColor: '#ffffff',
         headerBackgroundColor: '#37474f',
         headerTextColor: '#cfd8dc',
-        oddRowBackgroundColor: '#263238'
+        oddRowBackgroundColor: '#263238',
+        fontSize: isMobile ? 10 : 14
     });
 
     let gridDiv: HTMLDivElement;
@@ -48,10 +51,6 @@
                 sortable: true,
                 filter: true,
                 resizable: true
-            },
-            onGridReady: (params) => {
-                const columnsToAutosize = ['stat1', 'stat2'];
-                params.api.autoSizeColumns(columnsToAutosize);
             }
         };
     

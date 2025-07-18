@@ -8,11 +8,23 @@
 	function handleSubmit() {
 		dispatch('submit', { input });
 	}
+
+	function handleKeyDown(event) {
+	    if (event.key === 'Enter' && !event.shiftKey) {
+	      event.preventDefault();
+	      handleSubmit();
+	    }
+	  }
 </script>
 
 <div class="flex flex-col text-center items-center justify-center gap-5">
 	<p class="font-bold">Write a query you would like to chart</p>
-	<textarea bind:value={input} placeholder="Enter your query"></textarea>
+	<textarea 
+	bind:value={input} 
+	placeholder="Enter your query"
+	onkeydown={handleKeyDown}
+	>
+	</textarea>
 	<button class="query-submit-btn" onclick={handleSubmit} disabled={input.trim() === ""}>Search</button>
 </div>
 

@@ -147,7 +147,8 @@
 	</p>
 	<p class="text-xl">
 		<span class="font-bold">Step {queryBuilderSteps[queryBuilderStep].step}:</span> 
-		&nbsp;{queryBuilderSteps[queryBuilderStep].title}</p> 
+		&nbsp;{queryBuilderSteps[queryBuilderStep].title}
+	</p> 
 	<div class="pt-16 pb-20 px-8 text-lg">
 		{#if queryBuilderSteps[queryBuilderStep].stepType === "STAT_FIELD_STEP" && inputArray.includes("CHART season_box_score")}
 			<p>Aggregate Types (Optional)</p>

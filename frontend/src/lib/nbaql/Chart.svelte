@@ -7,6 +7,8 @@
   export let data = {};
   export let playerData = new Map();
 
+  const isMobile = window.innerWidth < 600;
+
   let chartContainer;
   let chartInstance;
 
@@ -42,21 +44,28 @@
       type: 'scatter',
       data: chartData,
       options: {
+        responsive: true,
         scales: {
           x: {
             type: 'linear',
+            maintainAspectRatio: false,
             position: 'bottom',
             title: {
               display: true,
               text: data.x_column_name,
               color: '#999999',
               font: {
-                size: 16,
+                size: isMobile ? 10 : 16,
                 weight: 'bold'
               },
               padding: {
                 top: 10,
                 bottom: 0
+              }
+            },
+            ticks: {
+              font: {
+                size: isMobile ? 8 : 14
               }
             }
           },
@@ -68,7 +77,7 @@
               text: data.y_column_name,
               color: '#999999',
               font: {
-                size: 16,
+                size: isMobile ? 10 : 16,
                 weight: 'bold'
               },
               padding: {
@@ -76,6 +85,11 @@
                 bottom: 0,
                 left: 0,
                 right: 10
+              }
+            },
+            ticks: {
+              font: {
+                size: isMobile ? 8 : 14
               }
             }
           },
@@ -105,7 +119,18 @@
                 const y = first.raw.y;
                 return `${data.x_column_name}: ${x}, ${data.y_column_name}: ${y}`;
               }
+            },
+            titleFont: {
+              size: isMobile ? 10 : 16
+            },
+            bodyFont: {
+              size: isMobile ? 8 : 14
             }
+          }
+        },
+        elements: {
+          point: {
+            radius: isMobile ? 1 : 5
           }
         }
       }
