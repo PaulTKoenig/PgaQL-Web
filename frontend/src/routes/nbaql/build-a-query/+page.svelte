@@ -148,12 +148,6 @@
       }
     }
 
-    @media (max-width: 640px) {
-        .nbaql-chart-container {
-          padding: 1rem 1.5rem 1rem 0.5rem;
-        }
-    }
-
     .pt-nav {
         padding-top: max(3.5rem, 10vh);
     }
@@ -186,5 +180,18 @@
     }
     .nbaql-query-tab-active:hover {
       border: initial;
+    }
+
+
+    @media (max-width: 640px) {
+        .nbaql-chart-container {
+          padding: 1rem 1.5rem 1rem 0.5rem;
+        }
+
+        .nbaql-query-tab {
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          padding: 0.5rem;
+        }
     }
 </style>
