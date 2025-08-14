@@ -180,17 +180,18 @@
     .polka-dots {
         position: absolute;
         border-radius: 30%;
+        top: 15vh;
 
-        width: 60vh;
-        height: 60vh;
+        width: 50vh;
+        height: 70vh;
 
         background-image:
-            radial-gradient(circle, #444444 8%, transparent 9%),
+            radial-gradient(circle, #555555 8%, transparent 9%),
             radial-gradient(circle, #444444 8%, transparent 9%);
 
-        background-size: 25px 25px;
+        background-size: 20px 20px;
 
-        background-position: 0 0, 12px 12px;
+        background-position: 0 0, 10px 10px;
 
         background-color: transparent;
 
