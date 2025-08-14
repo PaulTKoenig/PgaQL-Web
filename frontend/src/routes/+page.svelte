@@ -332,14 +332,14 @@
         }
 
         .polka-dots {
-            width: 50vh;
+            width: 55vh;
             height: 70vh;
         }
     }
 
     @media (max-width: 500px) {
         .polka-dots {
-            width: 40vh;
+            width: 42vh;
         }
     }
 </style>
