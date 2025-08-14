@@ -339,7 +339,7 @@
 
     @media (max-width: 500px) {
         .polka-dots {
-            width: 35vh;
+            width: 40vh;
         }
     }
 </style>
