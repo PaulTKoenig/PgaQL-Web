@@ -12,7 +12,76 @@
 </script>
 
 <div class="px-10vh">
-    <div class="xl:flex items-center">
+    <div class="flex flex-col h-screen-wo-header items-center justify-center">
+    <div class="polka-dots"></div>
+        <div class="text-5xl 2xl:text-6xl font-bold pb-4 inline-block z-10">
+            Paul Koenig
+        </div>
+        <div class="text-md 2xl:text-xl font-bold text-center w-2/3 2xl:w-1/2 z-10">
+            23-year-old full stack developer based in Columbus, Ohio.
+        </div>
+        <button class="contact-me-btn text-base 2xl:text-lg z-10">
+            <a href="mailto:paul.koenig.002@gmail.com">
+                <strong>Contact Me</strong>
+            </a>
+        </button>
+    </div>
+
+    <div class="section-header first-section-header">
+        <div class="text-xl 2xl:text-3xl font-bold inline-block">
+            My Experience
+            <div class="h-0.75 my-1 bg-teal"></div>
+        </div>
+    </div>
+
+    <div class="articles-section-container text-sm 2xl:text-lg flex flex-col gap-8">
+        <div class="experience-container">
+            <div>
+                JPMorgan Chase
+            </div>
+            <div class="experience-details">
+                <div>
+                    2023 - Current
+                </div>
+                <div class="text-xs 2xl:text-base dark-text pb-2">
+                    I currently work here as a full stack software engineer developing various legal applications including and legal form lifecycle management. Using React.js, Java, Spring, MongoDB, Oracle Database
+                </div>
+                <div class="text-xs 2xl:text-base dark-text">
+                    I also interned here building a web tool to automated tech risk report generation and introduced persistent user annotations. Used React.js, Python, Flask, and PostgreSQL.
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-container">
+            <div>
+                John Deere
+            </div>
+            <div class="experience-details">
+                <div>
+                    2022
+                </div>
+                <div class="text-xs 2xl:text-base dark-text">
+                    Internship where I built a vehicle simulation management tool, enabling 10 vehicle teams to efficiently test embedded controllers. Used C#, .NET, and Microsoft SQL Server.
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-container">
+            <div>
+                Crown Battery Manufacturing
+            </div>
+            <div class="experience-details">
+                <div>
+                    2021
+                </div>
+                <div class="text-xs 2xl:text-base dark-text">
+                    Internship where I lead a human-machine interface upgrade project and assisting in electrical maintenance tasks.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="xl:flex items-center">
         <div>
             <div class="text-2xl 2xl:text-4xl font-bold pb-4 inline-block">
                 Hi, I'm Paul
@@ -29,12 +98,12 @@
             </div>
         </div>
         <img src={profilePicture} alt="Profile Picture" class="hidden xl:block ml-24 h-72 rounded-lg" />
-    </div>
+    </div> -->
 
     <div class="projects-section-header">
         <div class="text-xl 2xl:text-3xl font-bold inline-block">
             My Favorite Projects
-            <div class="h-0.5 my-1 bg-copper"></div>
+            <div class="h-0.5 my-1 bg-teal"></div>
         </div>
         <div class="xl:pt-4">
             <button class="more-projects-btn text-base 2xl:text-lg font-bold" on:click={() => navigate("/projects")}>
@@ -48,14 +117,14 @@
     </div>
 
     <div class="section-header text-xl 2xl:text-3xl font-bold inline-block">
-        What I'm Doing Now
-        <div class="h-0.5 my-1 bg-copper"></div>
+        What I'm Working On Now
+        <div class="h-0.5 my-1 bg-teal"></div>
     </div>
-    <div class="section-description">
+    <!-- <div class="section-description">
         <div class="text-base 2xl:text-xl pb-1">
             (outside of work)
         </div>
-    </div>
+    </div> -->
     <div class="section-description">
         <div class="text-base 2xl:text-xl dark-text">
             Last updated 7/1/2025
@@ -69,31 +138,82 @@
         </ul>
     </div>
 
-    <div class="section-header">
+    <!-- <div class="section-header">
         <div class="text-xl 2xl:text-3xl font-bold inline-block">
             Articles
-            <div class="h-0.75 my-1 bg-copper"></div>
+            <div class="h-0.75 my-1 bg-teal"></div>
         </div>
-        <!-- <a class="more-articles-btn ml-auto text-lg font-bold" href="/articles">
+        <a class="more-articles-btn ml-auto text-lg font-bold" href="/articles">
             All Articles
-        </a> -->
-    </div>
+        </a>
+    </div> -->
 
-    <div class="articles-section-container text-base 2xl:text-xl dark-text">
+    <!-- <div class="articles-section-container text-base 2xl:text-xl dark-text">
         Coming Soon...
-        <!-- <ul>
+        <ul>
             {#each articles as article}
                 <li class="flex py-1">
                     <a href={"articles/"+article.id}>{article.title}</a>
                     <div class="ml-auto hidden lg:block">{article.date}</div>
                 </li>
             {/each}
-        </ul> -->
-    </div>
+        </ul>
+    </div> -->
 
 </div>
 
 <style type="text/css">
+
+    .experience-details {
+        border-left: 2px solid #555555;
+        padding: 0.25rem 0 0.25rem 0.75rem;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .h-screen-wo-header {
+        height: calc(100vh - max(3.5rem, 12vh));
+    }
+
+    .polka-dots {
+        position: absolute;
+        border-radius: 30%;
+
+        width: 60vh;
+        height: 60vh;
+
+        background-image:
+            radial-gradient(circle, #444444 8%, transparent 9%),
+            radial-gradient(circle, #444444 8%, transparent 9%);
+
+        background-size: 25px 25px;
+
+        background-position: 0 0, 12px 12px;
+
+        background-color: transparent;
+
+        -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 90%);
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: cover;
+
+        mask-image: radial-gradient(circle, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 90%);
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: cover;
+    }
+
+    .background-div {
+        width: 66vh;
+        height: 50vh;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        border-radius: 15%;
+      }
 
     @media (min-width: 1536px) {
         .px-10vh {
@@ -101,11 +221,16 @@
         }
     }
 
-    .more-projects-btn {
+    .more-projects-btn, .contact-me-btn {
         border: 1px solid lightgrey;
 		border-radius: 8px;
         padding: .3em .6em;
 		cursor: pointer;
+    }
+
+    .contact-me-btn {
+        margin-top: 1rem;
+        padding: .45em .9em;
     }
 
     .more-articles-btn {
@@ -115,7 +240,7 @@
         cursor: pointer;
     }
 
-    .more-projects-btn:hover {
+    .more-projects-btn:hover, .contact-me-btn:hover {
       text-decoration: underline;
     }
 
@@ -128,7 +253,11 @@
     }
 
     .section-header {
-        padding: 6rem 0 .5rem;
+        padding: 4rem 0 .5rem;
+    }
+
+    .first-section-header {
+        padding-top: 0;
     }
 
     .section-description {
@@ -136,7 +265,7 @@
     }
 
     .projects-section-header {
-        padding: 6rem 0 2rem;
+        padding: 4rem 0 2rem;
     }
 
     .section-container, .articles-section-container {

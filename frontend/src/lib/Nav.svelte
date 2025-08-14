@@ -285,7 +285,7 @@
         font-size: x-large;
         padding: 0.15rem 0.65rem 0.25rem;
         text-align: center;
-        z-index: 2;
+        z-index: 12;
         border: none;
     }
 
@@ -301,6 +301,7 @@
     .nav-bar {
         background-color: rgba(32,33,36,.5);
         backdrop-filter: blur(10px);
+        z-index: 11;
     }
 
     .nav-btn {
@@ -355,7 +356,7 @@
         background-color: #333333;
         top: 0;
         right: 0;
-        z-index: 1;
+        z-index: 11;
         padding-top: 50px;
         height: 100vh;
         width: 40vw;
@@ -411,7 +412,7 @@
         left: 5%;
         border: none;
         margin-top: 1rem;
-        z-index: 3;
+        z-index: 13;
     }
 
     .resume-preview-header {
