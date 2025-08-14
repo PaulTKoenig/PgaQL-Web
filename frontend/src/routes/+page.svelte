@@ -182,7 +182,7 @@
         border-radius: 30%;
         top: 15vh;
 
-        width: 50vh;
+        width: 70vh;
         height: 70vh;
 
         background-image:
@@ -329,6 +329,17 @@
 
         .articles-section-container ul {
             padding: 0 20px;
+        }
+
+        .polka-dots {
+            width: 50vh;
+            height: 70vh;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .polka-dots {
+            width: 35vh;
         }
     }
 </style>
