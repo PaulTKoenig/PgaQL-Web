@@ -1,14 +1,43 @@
-<script>    import { goto } from '$app/navigation';
+<script lang="ts">    
+    import { goto } from '$app/navigation';
+    import { onMount, onDestroy } from 'svelte';
 
     import { ProjectCard } from '$lib';
     import emblaCarouselSvelte from 'embla-carousel-svelte';
     import { Carousel } from '$lib';
     import { articles } from '../lib/articles.ts';
-    let profilePicture = '../profile_picture2.jpg';
+    let downloadIcon = '/download-icon.svg';
+    let resumePdf = '/Resume-Paul-Koenig-25.pdf';
+    let pythonLogo = '/languages/python-logo.svg';
 
     const navigate = (url) => {
         goto(url);
     }
+
+    let showPreview = false;
+    const togglePreview = () => {
+        console.log("toggle");
+        showPreview = !showPreview;
+    }
+
+    function downloadResume() {
+        const link = document.createElement('a');
+        link.href = resumePdf;
+        link.download = 'Paul_Koenig_Resume.pdf';
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    let resumePreviewElem: HTMLElement;
+
+    function capitalizeFirstLetter(str) {
+      if (typeof str !== 'string' || str.length === 0) {
+        return str;
+      }
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    const languageLogos = ['python', 'java', 'c', 'go', 'react', 'ts', 'svelte', 'sql', 'aws']
 </script>
 
 <div class="px-10vh">
@@ -20,11 +49,20 @@
         <div class="text-md 2xl:text-xl font-bold text-center w-2/3 2xl:w-1/2 z-10">
             23-year-old full stack developer based in Columbus, Ohio.
         </div>
-        <button class="contact-me-btn text-base 2xl:text-lg z-10">
-            <a href="mailto:paul.koenig.002@gmail.com">
-                <strong>Contact Me</strong>
-            </a>
-        </button>
+        <div class="flex gap-3">
+            <button class="contact-me-btn z-10">
+                <a href="mailto:paul.koenig.002@gmail.com">
+                    <strong class="text-sm 2xl:text-lg">Contact Me</strong>
+                </a>
+            </button>
+            <button class="contact-me-btn z-10">
+                <div
+                    on:click={togglePreview}
+                >
+                    <strong class="text-sm 2xl:text-lg">Resume</strong>
+                </div>
+            </button>
+        </div>
     </div>
 
     <div class="section-header first-section-header">
@@ -81,6 +119,31 @@
         </div>
     </div>
 
+
+    <div class="section-header">
+        <div class="text-lg 2xl:text-2xl font-bold inline-block">
+            Familiar Technologies
+            <div class="h-0.75 my-1 bg-copper"></div>
+        </div>
+    </div>
+    <div class="section-description">
+        <div class="text-xs 2xl:text-lg dark-text">
+            Tap on an icon to view its name.
+        </div>
+    </div>
+
+    <div class="technologies-section-container text-sm 2xl:text-lg flex flex-wrap justify-center gap-6 px-8 pt-6 pb-3">
+
+        {#each languageLogos as logo}
+            <div class="language-logo-container tooltip">
+                <img src={`/languages/${logo}-logo.svg`} alt={logo+" logo"} class="language-logo h-14 w-14 rounded-lg p-1" />
+                <span class="tooltip-text">{capitalizeFirstLetter(logo)}</span>
+            </div>
+        {/each}
+    </div>
+
+
+
     <!-- <div class="xl:flex items-center">
         <div>
             <div class="text-2xl 2xl:text-4xl font-bold pb-4 inline-block">
@@ -118,7 +181,7 @@
 
     <div class="section-header text-lg 2xl:text-2xl font-bold inline-block">
         What I'm Working On Now
-        <div class="h-0.5 my-1 bg-teal"></div>
+        <div class="h-0.5 my-1 bg-copper"></div>
     </div>
     <!-- <div class="section-description">
         <div class="text-base 2xl:text-xl pb-1">
@@ -161,6 +224,34 @@
     </div> -->
 
 </div>
+
+{#if showPreview}
+    HEYEYEYYE
+    <div
+        class="resume-preview"
+        bind:this={resumePreviewElem}
+    >
+        <div class="resume-preview-header">
+            <button 
+                class="nav-btn"
+                on:click={downloadResume}
+            >
+                <img src={downloadIcon} alt="Download Icon" />
+            </button>
+            <button 
+                class="nav-btn resume-preview-close"
+                on:click={togglePreview}
+            >
+                ✕
+            </button>
+        </div>
+        <iframe
+            src={resumePdf}
+            height="100%"
+            width="100%"
+        ></iframe>
+    </div>
+{/if}
 
 <style type="text/css">
 
@@ -341,5 +432,74 @@
         .polka-dots {
             width: 42vh;
         }
+    }
+
+    .resume-preview {
+        position: fixed;
+        top: 50px;
+        height: calc(100% - 120px);
+        width: 90%;
+        left: 5%;
+        border: none;
+        margin-top: 1rem;
+        z-index: 13;
+    }
+
+    .resume-preview-header {
+        padding: 8px;
+        height: 44px;
+        background-color: #999999;
+        display: flex;
+        justify-content: right;
+        gap: 12px;
+
+        button {
+            padding: 4px 6px;
+        }
+    }
+
+    .resume-preview-close {
+        color: black;
+        font-weight: 0;
+        margin-right: 6px;
+    }
+
+    .language-logo-container {
+        padding: 0.2rem;
+        border: 1px solid #555555;
+        border-radius: 0.75rem;
+    }
+
+    .language-logo {
+        background-color: lightgrey;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .tooltip-text {
+      visibility: hidden;
+      background-color: #999999;
+      color: #222222;
+      text-align: center;
+      padding: 2px 4px;
+      border: 1px solid #555555;
+      border-radius: 4px;
+      position: absolute;
+      z-index: 1;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+
+      opacity: 0;
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
     }
 </style>

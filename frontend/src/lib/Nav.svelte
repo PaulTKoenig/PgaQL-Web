@@ -4,7 +4,6 @@
     let githubLogo = '/github-svg.svg';
     let linkedinLogo = '/icons8-linkedin.svg';
     let downloadIcon = '/download-icon.svg';
-    let whiteDownloadIcon = '/white-download-icon.svg';
     let resumePdf = '/Resume-Paul-Koenig-25.pdf';
 
     let showPreview = false;
@@ -390,18 +389,6 @@
         border: 1px solid #222222;
         left: 0;
         width: 100%;
-    }
-
-    .nav-btn-download-resume {
-        margin: 1rem 0 1.5rem;
-        border: 2px solid #222222;
-        border-radius: 8px;
-        padding: .5rem .75rem;
-        cursor: pointer;
-        color: black;
-        background-color: white;
-        display: flex;
-        gap: 4px;
     }
 
     .resume-preview {
