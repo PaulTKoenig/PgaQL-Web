@@ -28,8 +28,8 @@
     </div>
 
     <div class="section-header first-section-header">
-        <div class="text-xl 2xl:text-3xl font-bold inline-block">
-            My Experience
+        <div class="text-lg 2xl:text-2xl font-bold inline-block">
+            Experience
             <div class="h-0.75 my-1 bg-teal"></div>
         </div>
     </div>
@@ -101,13 +101,13 @@
     </div> -->
 
     <div class="projects-section-header">
-        <div class="text-xl 2xl:text-3xl font-bold inline-block">
-            My Favorite Projects
+        <div class="text-lg 2xl:text-2xl font-bold inline-block">
+            Favorite Projects
             <div class="h-0.5 my-1 bg-teal"></div>
         </div>
         <div class="xl:pt-4">
-            <button class="more-projects-btn text-base 2xl:text-lg font-bold" on:click={() => navigate("/projects")}>
-                <strong>All Projects</strong>
+            <button class="more-projects-btn" on:click={() => navigate("/projects")}>
+                <strong class="text-sm 2xl: text-lg">All Projects</strong>
             </button>
         </div>
     </div>
@@ -116,7 +116,7 @@
         <Carousel />
     </div>
 
-    <div class="section-header text-xl 2xl:text-3xl font-bold inline-block">
+    <div class="section-header text-lg 2xl:text-2xl font-bold inline-block">
         What I'm Working On Now
         <div class="h-0.5 my-1 bg-teal"></div>
     </div>
@@ -126,12 +126,12 @@
         </div>
     </div> -->
     <div class="section-description">
-        <div class="text-base 2xl:text-xl dark-text">
+        <div class="text-sm 2xl:text-lg dark-text">
             Last updated 7/1/2025
         </div>
     </div>
 
-    <div class="section-container text-base 2xl:text-xl dark-text">
+    <div class="section-container text-sm 2xl:text-lg dark-text">
         <ul>
             <li class="py-1">Developing my latest project, <a href="/nbaql/build-a-query">NbaQL</a>, a custom query language for exploring NBA data</li>
             <li class="py-1">Organizing past personal projects by refining repositories and writing articles to showcase their achievements and what I learned</li>

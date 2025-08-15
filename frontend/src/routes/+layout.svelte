@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Nav } from '$lib';
+  import { Nav, Footer } from '$lib';
   import '../app.css';
   let { children } = $props();
 </script>
@@ -9,13 +9,15 @@
 
   <div class="page-body pt-nav px-10vh z-0">
     {@render children()}
+
+    <Footer />
   </div>
 </main>
 
 <style type="text/css">
   .pt-nav {
       padding-top: max(3.5rem, 12vh);
-      padding-bottom: 5rem;
+      padding-bottom: 2rem;
   }
 
   .px-10vh {
