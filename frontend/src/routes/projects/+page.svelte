@@ -89,7 +89,7 @@
 <div class="text-xl 2xl:text-3xl font-bold">
     Projects
 </div>
-<div class="text-base 2xl:text-xl py-5 dark-text">
+<div class="text-sm 2xl:text-lg py-5 dark-text">
     Personal projects, hackathons, and other collaborative efforts I have worked on
 </div>
 <label class="pb-5">
@@ -98,27 +98,18 @@
 </label>
 <div class="projects-container">
     {#each sortedProjects as project}
+    <div>
         <div class="project-container">
             <div class="flex flex-col h-full">
                 <div class="flex pb-4">
-                    <div class="flex items-center text-base 2xl:text-xl font-bold max-w-3/4">
+                    <div class="flex items-center text-sm 2xl:text-lg font-bold max-w-3/4">
                         {project.name}
                     </div>
                     <div class="ml-auto dark-text">{project.year}</div>
                 </div>
-                <div class="flex flex-wrap gap-y-2 gap-x-1">
-                    {#if project.favorite}  <span class="ml-2 bg-yellow-500 text-white text-sm px-2.5 py-1 rounded-full">⭐ Favorite</span>
-                    {/if}
-                    {#if project.medal}  <span class="ml-2 bg-gray-400 text-white text-sm px-2.5 py-1 rounded-full">🏅 2nd Place Hackathon</span>
-                    {/if}
-                    {#if project.active}  <span class="ml-2 bg-green-600 text-white text-sm px-2.5 py-1 rounded-full">In Progress</span>
-                    {/if}
 
-                    {#each project.technologies as tech}  <span class="ml-2 bg-teal text-white text-sm px-2.5 py-1 rounded-full">{tech}</span>
-                    {/each}
-                </div>
-                <div class="p-3 dark-text">{project.description}</div>
-                <div class="carousel-action-btns-container">
+                <div class="p-3 dark-text text-sm">{project.description}</div>
+                <div class="carousel-action-btns-container text-sm">
                     {#if project.demo_link}
                         <a class="carousel-action-btn coming-soon-btn" href={project.demo_link}>
                           Demo
@@ -137,6 +128,19 @@
                 </div>
             </div>
         </div>
+
+        <div class="flex flex-wrap gap-y-2 gap-x-1 pl-4 pt-2">
+                    {#if project.favorite}  <span class="ml-2 bg-yellow-500 text-white text-xs px-2.5 py-1 rounded-full">⭐ Favorite</span>
+                    {/if}
+                    {#if project.medal}  <span class="ml-2 bg-gray-400 text-white text-xs px-2.5 py-1 rounded-full">🏅 2nd Place Hackathon</span>
+                    {/if}
+                    {#if project.active}  <span class="ml-2 bg-green-600 text-white text-xs px-2.5 py-1 rounded-full">In Progress</span>
+                    {/if}
+
+                    {#each project.technologies as tech}  <span class="ml-2 bg-teal text-white text-xs px-2.5 py-1 rounded-full">{tech}</span>
+                    {/each}
+                </div>
+            </div>
     {/each}
 </div>
 
@@ -196,7 +200,7 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        font-size: 1rem;
+        font-size: 0.8rem;
         font-weight: 500;
         cursor: pointer;
         user-select: none;
