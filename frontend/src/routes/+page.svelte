@@ -122,7 +122,7 @@
 
     <div class="section-header">
         <div class="text-lg 2xl:text-2xl font-bold inline-block">
-            Familiar Technologies
+            Technologies I Have Worked With
             <div class="h-0.75 my-1 bg-copper"></div>
         </div>
     </div>
