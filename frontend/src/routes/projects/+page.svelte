@@ -129,7 +129,7 @@
             </div>
         </div>
 
-        <div class="flex flex-wrap gap-y-2 gap-x-1 pl-4 pt-2">
+        <div class="flex flex-wrap gap-y-2 gap-x-1 px-4 pt-2">
                     {#if project.favorite}  <span class="ml-2 bg-yellow-500 text-white text-xs px-2.5 py-1 rounded-full">⭐ Favorite</span>
                     {/if}
                     {#if project.medal}  <span class="ml-2 bg-gray-400 text-white text-xs px-2.5 py-1 rounded-full">🏅 2nd Place Hackathon</span>
