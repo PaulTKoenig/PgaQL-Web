@@ -149,7 +149,7 @@
         </div>
     </div>
 
-    <div class="technologies-section-container text-sm 2xl:text-lg flex flex-wrap justify-center gap-6 pt-6 pb-3">
+    <div class="text-sm 2xl:text-lg flex flex-wrap justify-center gap-6 pt-6 pb-3 lg:w-2/3 sm:w-5/6 mx-auto">
 
         {#each Object.entries(languageLogos) as [fileName, description]}
             <div class="language-logo-container tooltip">
