@@ -37,7 +37,23 @@
       return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-    const languageLogos = ['python', 'java', 'c', 'go', 'react', 'ts', 'svelte', 'sql', 'aws']
+    const languageLogos = {
+        'python': 'Python',
+        'java': 'Java', 
+        'c': 'C', 
+        'go': 'Golang', 
+        'react': 'React.js', 
+        'ts': 'TypeScript', 
+        'svelte': 'Svelte', 
+        'sql': 'SQL', 
+        'aws': 'Amazon Web Services',
+        'selenium': 'Selenium',
+        'mongodb': 'MongoDB',
+        'kafka': 'Kafka',
+        'linux': 'Linux',
+        'docker': 'Docker',
+        'nginx': 'Nginx'
+    };
 </script>
 
 <div class="px-10vh">
@@ -134,10 +150,10 @@
 
     <div class="technologies-section-container text-sm 2xl:text-lg flex flex-wrap justify-center gap-6 px-8 pt-6 pb-3">
 
-        {#each languageLogos as logo}
+        {#each Object.entries(languageLogos) as [fileName, description]}
             <div class="language-logo-container tooltip">
-                <img src={`/languages/${logo}-logo.svg`} alt={logo+" logo"} class="language-logo h-14 w-14 rounded-lg p-1" />
-                <span class="tooltip-text">{capitalizeFirstLetter(logo)}</span>
+                <img src={`/languages/${fileName}.svg`} alt={description+" logo"} class="language-logo h-14 w-14 rounded-lg p-1" />
+                <span class="tooltip-text">{description}</span>
             </div>
         {/each}
     </div>
